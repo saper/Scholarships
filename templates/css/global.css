@@ -1,0 +1,139 @@
+/**
+ * global.css
+ */
+
+body {
+	font-family: Tahoma, sans-serif;
+	font-size: 14px;
+	color: #444444;
+	text-decoration: bold;
+	background-color: #FFFFFF;	
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+input, select, textarea {
+	background-color: white;
+	color: black;
+	border: 1px solid #cccccc;
+}
+
+input[type="submit"], input[type="reset"] {
+	background-color: #f0f0f9;
+	border: 1px solid #333333;
+	-moz-border-radius: 5px;
+}
+
+/* textarea, input[type="checkbox"], input[type="radio"] {
+	margin-left: 1em;
+} */
+
+a:visited {
+	background-color: transparent;
+	color: purple;
+	text-decoration: underline;
+}
+
+a:link {
+	background-color: transparent;
+	color: blue;
+	text-decoration: underline;
+}
+
+a:hover {
+	background-color: #ffff00;
+	color: black;
+}
+
+a#banner {
+	background-color: transparent;
+	text-decoration: none;
+}
+
+a#banner img {
+	border: none;
+}
+
+/* .description {
+	font-size: smaller;
+} */
+
+/* draft, sample */
+div#draft {
+	color: #AA0000;
+	border: solid 1px #AA0000;
+	padding: 1em;
+}
+
+/* WTF, Rails */
+p.fieldWithErrors {
+        color: #AA0000;
+        font-weight: bold;
+}
+
+p.fieldWithErrors input, p.fieldWithErrors select, p.fieldWithErrors textarea {
+	border: 1px solid red;
+}
+
+div.errorExplanation {
+	border: 1px solid red;
+}
+
+ul.hnav {
+	text-align: center;
+}
+
+ul.hnav:before, ul.hnav:after {
+  content: "—";
+}
+
+ul.hnav li {
+  display: inline;
+}
+
+ul.hnav li:before {
+  content: "· ";
+}
+
+ul.hnav li:first-child:before {
+  content: "";
+}
+
+#dump {
+	display: none;
+}tr.oddrow {
+     background-color: #f3f3f3;
+}
+tr.evenrow {
+     background-color: #eef8ee;
+}
+
+
+.notice 
+{
+	border-style:solid;
+	border-color: black;
+	background-color: #ff6666;
+	width: 95%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: .2em;
+	text-align: center;
+	font-size: 150%;
+	margin: auto;
+	line-height: 1.5em;
+}
+
+table#scholresults thead tr td{
+border: 1px solid darkblue;
+background-color: lightyellow;
+}
+
+table#scholresults tbody tr td{
+border: 1px solid darkblue;
+}
+
