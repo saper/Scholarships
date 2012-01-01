@@ -105,7 +105,8 @@ ul.hnav li:first-child:before {
 
 #dump {
 	display: none;
-}tr.oddrow {
+}
+tr.oddrow {
      background-color: #f3f3f3;
 }
 tr.evenrow {
@@ -137,3 +138,14 @@ table#scholresults tbody tr td{
 border: 1px solid darkblue;
 }
 
+.required {
+	font-weight: bold;
+	color: #000;
+}
+.required:after {
+	content: ' *';
+}
+
+#appresponse {
+  margin-bottom: 6em;
+}

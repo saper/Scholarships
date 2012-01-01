@@ -344,7 +344,7 @@ $howmany = (int)($_GET['howmany'] ? $_GET['howmany'] : 1);
 //$dal = new DataAccessLayer();
 //$schols = $dal->GetPhase1EarlyRejects($start, $howmany);
 
-include "$BASEDIR/includes/header.php";
+include "$BASEDIR/templates/header.php";
 
 $text = file('wmf_partial_accept.txt') or die ("ERROR: Unable to read file");
 $cnt = 0;
@@ -368,4 +368,4 @@ foreach($text as $line):
 	$cnt++;
 endforeach; 
 ?>
-<?php include "$BASEDIR/includes/footer.php" ?>
+<?php include "$BASEDIR/templates/footer.php" ?>

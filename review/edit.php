@@ -61,7 +61,7 @@ require_once('init.php');
 	$COUNTRY_NAMES = array("Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belgium","Belize","Belorus","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burma","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Central African Republic","Chad","Chile","China","Colombia","Comoros","Costa Rica","Côte d'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","Democratic Republic of the Congo","Denmark","Djibouti","Dominica","Dominican Republic","East Timor","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Federated States of Micronesia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Republic of Congo","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","São Tomé and Príncipe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Thailand","Tajikistan","Tanzania","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe","Taiwan (Republic of China)","Hong Kong","Macao");
 
 ?>
-<?php include "$BASEDIR/includes/header.php" ?>
+<?php include "$BASEDIR/templates/header.php" ?>
 	<script type="text/javascript">
 		function toggleDump() {
 			var dump = document.getElementById('dump');
@@ -89,7 +89,7 @@ require_once('init.php');
 
 	<form method="post" action="edit.php">
 	<h1>View application</h1>
-<?php include "$BASEDIR/includes/admin_nav.php" ?>
+<?php include "$BASEDIR/templates/admin_nav.php" ?>
 	<div style="position: fixed; top: 20%; left: 3%">
 	<p><input type="submit" id="up" name="up" value="+" style="color: green; font-size: 300%; width: 50px; height: 50px" /><br/>
 	<input type="submit" id="skip" name="skip" value="Skip" style="width: 50px; height: 50px" /><br/>
@@ -230,4 +230,4 @@ require_once('init.php');
 	<input type="hidden" id="id" name="id" value="<?= $id ?>"/>
 	<input type="hidden" id="last_id" name="last_id" value="<?= $schol['id'] ?>"/>
 	</form>
-<?php include "$BASEDIR/includes/footer.php" ?>
+<?php include "$BASEDIR/templates/footer.php" ?>

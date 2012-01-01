@@ -46,11 +46,11 @@ require_once('init.php');
 	}
 
 ?>
-<?php include "$BASEDIR/includes/header.php" ?>
+<?php include "$BASEDIR/templates/header.php" ?>
 
 	<form method="post" action="user_pwreset.php">
 	<h1>View User Info</h1>
-<?php include "$BASEDIR/includes/admin_nav.php" ?>
+<?php include "$BASEDIR/templates/admin_nav.php" ?>
 	
 	<fieldset>
 	<input type="hidden" name="id" id="id" value="<?= $user['id'] ?>" />
@@ -72,4 +72,4 @@ require_once('init.php');
 	<input type="submit" id="save" name="save" value="Save" style="width: 10em" />
 
 	</form>
-<?php include "$BASEDIR/includes/footer.php" ?>
+<?php include "$BASEDIR/templates/footer.php" ?>

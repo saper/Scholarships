@@ -26,11 +26,11 @@ if (isset($_POST['save'])) {
 $country = $dal->GetCountryInfo($id);
 
 ?>
-<?php include "$BASEDIR/includes/header.php" ?>
+<?php include "$BASEDIR/templates/header.php" ?>
 
 <form method="post" action="edit_country.php">
 <h1>Edit Country Info</h1>
-<?php include "$BASEDIR/includes/admin_nav.php" ?>
+<?php include "$BASEDIR/templates/admin_nav.php" ?>
 <div style="align: center; font-size: 0.84em;"><a
 	href="country_grid.php">Return to country grid</a></div>
 <fieldset><input type="hidden" name="id" id="id"
@@ -42,4 +42,4 @@ $country = $dal->GetCountryInfo($id);
 </fieldset>
 <input type="submit" id="save" name="save" value="Save"
 	style="width: 10em" /></form>
-<?php include "$BASEDIR/includes/footer.php" ?>
+<?php include "$BASEDIR/templates/footer.php" ?>

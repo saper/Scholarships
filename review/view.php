@@ -103,7 +103,7 @@ $schol = $dal->GetScholarship($id);
 
 $scorings = $dal->GetPhase2Rankings($schol['id']);
 ?>
-<?php include "$BASEDIR/includes/header.php" ?>
+<?php include "$BASEDIR/templates/header.php" ?>
 <script type="text/javascript">
 		function toggleDump() {
 			var dump = document.getElementById('dump');
@@ -130,7 +130,7 @@ $scorings = $dal->GetPhase2Rankings($schol['id']);
 
 <form method="post" action="view.php">
 <h1>View application</h1>
-<?php include "$BASEDIR/includes/admin_nav.php" ?>
+<?php include "$BASEDIR/templates/admin_nav.php" ?>
 <div style="position: fixed; top: 20%; right: 3%; font-size: 150%">
 <table
 	style="text-align: right; background-color: #ccc; border: solid 1px #333">
@@ -269,4 +269,4 @@ for <?= $r['criterion'] ?></p>
 <input type="hidden" id="id" name="id" value="<?= $id ?>" /> <input
 	type="hidden" id="last_id" name="last_id" value="<?= $schol['id'] ?>" />
 </form>
-<?php include "$BASEDIR/includes/footer.php" ?>
+<?php include "$BASEDIR/templates/footer.php" ?>

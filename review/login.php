@@ -16,7 +16,7 @@ require_once('init.php');
 		}
 	}
 ?>
-<?php include "$BASEDIR/includes/header.php" ?>
+<?php include "$BASEDIR/templates/header.php" ?>
 	<form method="post" action="login.php">
 	<h1>Log in</h1>
 	<?php if (isset($error)) print "<p>" . $error . "</p>\n"; ?>
@@ -26,4 +26,4 @@ require_once('init.php');
 	<p><input type="submit" value="Log in" />
 	</fieldset>
 	</form>
-<?php include "$BASEDIR/includes/footer.php" ?>
+<?php include "$BASEDIR/templates/footer.php" ?>

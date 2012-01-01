@@ -4,8 +4,8 @@ $messages['en'] = array(
 		'HEADER_TITLE' => "Wikimania 2012 - Scholarship application",
 		'TEXT_PAGE_HEADER' => "Application for Scholarship to attend Wikimania 2012",
 		'TEXT_INTRO' => "
-<p>This is the application for sponsorship to attend <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, Wikimedia's international conference. Awardees will receive a scholarship to pay for registration, hotel, and roundtrip travel to Wikimania in Washington, DC, July 12-15, 2012. This is <strong>not</strong> a scholarship for university study.  
-Applications not obviously related to the conference will be discarded.</p>
+<p>This is the application for sponsorship to attend <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, Wikimedia's international conference. Awardees will receive a scholarship to pay for registration, hotel, and roundtrip travel to Wikimania in Washington, DC, July 12-15, 2012.</p>
+<p>This is <strong>not</strong> a scholarship for university study. Applications not obviously related to the conference will be discarded.</p>
 <p>Applicants: please carefully consider your financial need, that there are limited funds available for sponsorship to attend Wikimania, and that many applicants do not have the financial means to attend Wikimania without this opportunity. Thank you.</p>",
 		'TEXT_FORM_ERRORS' => '<p class="fieldWithErrors">Your form has errors.  Please correct the errors and submit the form again.</p>',
 		'TEXT_CONTACT_LEGEND' => "Contact information",
@@ -76,9 +76,9 @@ Please reply to wikimania-scholarships@wikimedia.org if you have any questions.
 Regards,
 
 The Wikimania scholarship team",
-		'TEXT_APPLICATION_RESPONSE' =>
-"<h1>Thanks!</h1>
-<div><p>Thank you for submitting your scholarship application for Wikimania 2012. Please contact <a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a> with any questions.</p></div>",
+                'TEXT_THANKS' => "Thanks!",
+                'TEXT_APPLICATION_RESPONSE' =>
+"Thank you for submitting your scholarship application for Wikimania 2012. Please contact <a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a> with any questions.",
 		'TEXT_FAQ' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>Frequently asked questions</a>",
 		'TEXT_PROGRAM_INTRO' => "<p>This is the application for sponsorship to attend <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, Wikimedia's international conference.  Awardees will receive a &ldquo;Scholarship&rdquo; to pay for registration, hotel, and roundtrip travel to Wikimania in Washington, DC, July 12-15, 2012.  This is <strong>not</strong> a scholarship for university study.  Applications not obviously related to the conference will be discarded.</p>
 <p>Applicants: please carefully consider your financial need, that there are limited funds available for sponsorship to attend Wikimania, and that many applicants do not have the financial means to attend Wikimania without this opportunity. Thank you.</p>",
