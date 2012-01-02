@@ -8,6 +8,9 @@ require_once( "$INCLUDEDIR/variables.php" );
 require_once( "$INCLUDEDIR/Lang.php" );
 require_once( "$INCLUDEDIR/Application.php" );
 
+// PEAR DB
+require_once( 'DB.php' );
+
 $wgLang = new Lang();
 
 ?>

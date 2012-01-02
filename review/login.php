@@ -3,8 +3,8 @@ require_once('init.php');
 
 	if (isset($_POST['username']) && isset($_POST['password']))
 	{
-		$dal = new DataAccessLayer();
-		$res = $dal->GetUser($_POST['username']);
+		$user = new DataAccessLayer();
+		$res = $user->GetUser($_POST['username']);
 		if (md5($_POST['password']) == $res['password']) {
 			session_start();
 			$_SESSION['user_id'] = $res['id'];
