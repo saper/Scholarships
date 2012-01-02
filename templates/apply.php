@@ -27,7 +27,14 @@ if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
 
 ?>
 
-<?php include( 'header.php' ); ?>
+<?php include( 'header.php' ); 
+
+if (time() < $open_time) {
+	echo "<div>Scholarship applications are not open yet.</div>";
+} else if (time() > $close_time) {
+	echo "<div>Scholarship application deadline has passed.</div>";
+} else {
+?>
 
 <h2><?php echo $wgLang->message('TEXT_PAGE_HEADER'); ?></h2>
 
@@ -240,6 +247,8 @@ if ($submitted != TRUE) {
 </form>
 <?php 
 } 
+
+}
 ?>
 </body>
 </html>
