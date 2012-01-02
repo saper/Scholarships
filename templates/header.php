@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8"/>
 	<title><?php echo $wgLang->message('HEADER_TITLE');?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/global.css"/>
-	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>templates/css/attendee.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/attendee.css"/>
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 </head>
 <body>

@@ -100,7 +100,7 @@ $values = array_merge( $defaults, $_POST );
 if ($submitted != TRUE) { 
 ?>
 <?php echo $wgLang->message('TEXT_INTRO'); ?>
-<form action="/?page=apply" method="post">
+<form action="/index.php" method="post">
 <label class="required">Required field</label><br/><br/>
 <input type="hidden" name="lang" id="lang" value="<?php echo $lang; ?>" />
 <fieldset>
