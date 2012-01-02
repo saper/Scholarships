@@ -197,6 +197,7 @@ years old)</p>
 		<th>2008</th>
 		<th>2009</th>
 		<th>2010</th>
+		<th>2011</th>		
 	</tr>
 	<tr>
 		<td><?= $schol['wm05'] == 1 ? 'X' : '&nbsp;' ?></td>
@@ -205,6 +206,7 @@ years old)</p>
 		<td><?= $schol['wm08'] == 1 ? 'X' : '&nbsp;' ?></td>
 		<td><?= $schol['wm09'] == 1 ? 'X' : '&nbsp;' ?></td>
 		<td><?= $schol['wm10'] == 1 ? 'X' : '&nbsp;' ?></td>
+		<td><?= $schol['wm11'] == 1 ? 'X' : '&nbsp;' ?></td>
 	</tr>
 </table>
 
