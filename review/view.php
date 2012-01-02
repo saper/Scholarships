@@ -177,8 +177,15 @@ Citizenship: <?= $schol['nationality'] ?> - <?= $schol['country_name'] ?></p>
 Email: <a href="mailto:<?= $schol['email'] ?>"><?= $schol['email'] ?></a>&emsp;Phone:
 <?= $schol['telephone'] ?>
 </p>
-<p>Date of birth: <?= $schol['dob'] ?> (~<?= YearsOld($schol['dob']) ?>
-years old)</p>
+<p>Date of birth: 
+<?php
+if ( ( strtotime( $schol['dob'] ) > strtotime( '1875-01-01' ) ) &&
+  ( strtotime( $schols['dob'] ) < time() ) ) {
+	echo $schol['dob'] . YearsOld($schol['dob']) . 'years old';
+} else {
+	echo 'Not specified';
+} ?>
+</p>
 <p>Sex: <?= Sex($schol['sex']) ?></p>
 <p>Speaks <?= $schol['languages'] ?></p>
 
