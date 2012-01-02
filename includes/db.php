@@ -10,13 +10,13 @@
 			$dsn = $db_driver . '://' . $db_user . ':' . $db_pass . '@'
 				. $db_host . '/' . $db_name;
 			$this->db = &DB::Connect($dsn);
-			if (PEAR::isError($db)) 
-    			die($db->getMessage());
+			if (PEAR::isError($this->db)) 
+    			die($this->db->getMessage());
 			$this->db->setFetchMode(DB_FETCHMODE_ASSOC);
 		}
 
 		function __destruct() {
-			if (DB::isError($db))
+			if (DB::isError($this->db))
 				die('Could not connect to database!');
 			$this->db->disconnect();
 		}

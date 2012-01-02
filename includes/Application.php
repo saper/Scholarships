@@ -62,10 +62,14 @@ class Application {
 			}
 
 			foreach ($FIELDS as $i) {
+				print $i . ' - ' . $data[$i] . '<br/>';
 				$answers[$i] = mysql_real_escape_string($data[$i]);
+				print $i . ' - ' . $answers[$i] . '<br/>';
 
-				$answers['dob'] = sprintf("19%s-%s-%s", $data['yy'], $_POST['mm'], $_POST['dd']);
-				$rank = 1;
+				if ( $answers['dob'] ) {
+					$answers['dob'] = sprintf("19%s-%s-%s", $data['yy'], $_POST['mm'], $_POST['dd']);
+					$rank = 1;
+				}
 				if ($answers['fname'] == '' && $answers['lname'] == '') {
 					$rank--;
 				}
@@ -74,9 +78,10 @@ class Application {
 				}
 				if (!preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/',$answers['email'])) {
 					$rank--;
-					$answers['rank'] = $rank;  
 				}
 			}
+
+			$answers['rank'] = $rank;
 
 			$query = sprintf("insert into scholarships (%s) values ('%s')",
 			  join($FIELDS, ', '), join($answers, "', '"));

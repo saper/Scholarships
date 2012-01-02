@@ -9,11 +9,11 @@ if (!isset($_SESSION['user_id']))
 	exit();
 }
 
-$min = $_GET['min'] ? $_GET['min'] : -2;
-$max = $_GET['max'] ? $_GET['max'] : 999;
+$min = isset( $_GET['min'] ) ? $_GET['min'] : -2;
+$max = isset( $_GET['max'] ) ? $_GET['max'] : 999;
 
 $dal = new DataAccessLayer();
-$schols = $dal->GetPhase2GridData($min, $max);
+$schols = $dal->GetPhase1GridData($min, $max);
 $rowstyleeven = 0;
 ?>
 <?php include "$BASEDIR/templates/header.php" ?>
