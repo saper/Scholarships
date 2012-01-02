@@ -250,5 +250,4 @@ if ($submitted != TRUE) {
 
 }
 ?>
-</body>
-</html>
+<?php include( 'footer.php' ); ?>
