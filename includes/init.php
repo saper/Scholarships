@@ -11,9 +11,6 @@ require_once( "$INCLUDEDIR/variables.php" );
 require_once( "$INCLUDEDIR/Lang.php" );
 require_once( "$INCLUDEDIR/Application.php" );
 
-$TEMPLATEDIR = $BASEDIR . '/templates/';
-$TEMPLATEBASE = '/templates/';
-
 $wgLang = new Lang();
 
 ?>
