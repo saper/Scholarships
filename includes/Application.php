@@ -45,7 +45,7 @@ class Application {
 	}
 
 	function submit($data) {
-                global $db_user, $db_pass, $db_host, $db_name, $FIELDS;
+                global $db_user, $db_pass, $db_host, $db_name, $FIELDS, $columns;
 
 		$db = "mysql://$db_user:$db_pass@$db_host/$db_name";
 
@@ -61,52 +61,70 @@ class Application {
 				die('Could not select DB: ' . mysql_error());
 			}
 
-			foreach ($FIELDS as $i) {
-				print $i . ' - ' . $data[$i] . '<br/>';
-				$answers[$i] = mysql_real_escape_string($data[$i]);
-				print $i . ' - ' . $answers[$i] . '<br/>';
+                       $colnames = array("fname", "lname", "email", "telephone", "address", "residence", "nationality", "haspassport", "airport", "languages", "sex", "occupation", "areaofstudy", "wm05", "wm06", "wm07", "wm08", "wm09", "wm10", "wm11", "presentation", "howheard", "why", "username", "project", "projectlangs", "involvement", "contribution", "sincere", "willgetvisa", "willpayincidentals", "agreestotravelconditions", "dob", "rank");
 
-				if ( $answers['dob'] ) {
-					$answers['dob'] = sprintf("19%s-%s-%s", $data['yy'], $_POST['mm'], $_POST['dd']);
-					$rank = 1;
-				}
-				if ($answers['fname'] == '' && $answers['lname'] == '') {
-					$rank--;
-				}
-				if ($answers['why'] == '') {
-					$rank--;
-				}
-				if (!preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/',$answers['email'])) {
-					$rank--;
+			foreach ($colnames as $i) {
+				if ( ( isset( $data[$i] ) ) or ( $i == 'dob' ) ) {
+					if ( ( $i == 'dob' ) && ( isset( $data['yy'] ) ) && ( isset( $data['mm'] ) ) && ( isset( $data['dd'] ) ) ) {
+						$answers['dob'] = sprintf("19%d-%d-%d", $data['yy'], $data['mm'], $data['dd']);
+					} elseif ( strlen($data[$i]) > 0 ) {
+						$answers[$i] = mysql_real_escape_string($data[$i]);
+					} elseif ( is_int( $data[$i] ) ) {
+						$answers[$i] = $data[$i];
+					} else {
+						$answers[$i] = NULL;
+					}
 				}
 			}
 
-			$answers['rank'] = $rank;
+			$answers['rank'] = 1;
 
-			$query = sprintf("insert into scholarships (%s) values ('%s')",
-			  join($FIELDS, ', '), join($answers, "', '"));
+			$fields = array();
+			$subst = '';
+			$values = array();
+			foreach ( $colnames as $c ) {
+				if ( isset( $answers[$c] ) ) {
+					if ( ( $columns[$c]['type'] == 'varchar' ) or ( $columns[$c]['type'] == 'text' )  or ( $columns[$c]['type'] == 'date' ) ) {
+						array_push( $fields, $c );
+						$subst .= "'%s', ";
+						array_push( $values, $answers[$c] );
+					} elseif ( ( $columns[$c]['type'] == 'tinyint' ) or ( $columns[$c]['type'] == 'int' ) ) {
+						array_push( $fields, $c );
+						$subst .= "%d, ";
+						array_push( $values, $answers[$c] );
+					} elseif ( ( $columns[$c]['type'] == 'enum' ) and ( in_array( trim($answers[$c]), $columns[$c]['options'] ) ) ) {
+						array_push( $fields, $c );
+						$subst .= "'%s', ";
+						array_push( $values, $answers[$c] );
+					}
+				}
+			}
+			$fieldnames = join($fields, ", ");
+
+			$subst = rtrim($subst, ', ');
+			$prepare = "insert into scholarships (%s) values($subst)";
+
+			$query = vsprintf($prepare,
+			  array_merge(array($fieldnames), $values));
 
 			if (!mysql_query($query)) die('Could not perform query: ' . mysql_error());
 			mysql_close($db);
 
-//			self::emailResponse($answers);
+			$this->emailResponse($answers);
 
 			$this->success = TRUE;
 		}
 	}
 
 	function emailResponse($answers) {
-        	$message = <<<EOT
-                 $TEXT_EMAIL_RESPONSE
-EOT;
+		global $wgLang;
 
+
+        	$message = $wgLang->message('TEXT_EMAIL_RESPONSE');
                 $message = preg_replace('/\$1/',$answers['fname'] . ' ' . $answers['lname'], $message);
-                $message = preg_replace('/\$2/',$answers['fname'], $message);
-                $message = preg_replace('/\$3/',$answers['lname'], $message);
-                $message = preg_replace('/\$4/',$answers['email'], $message);
         
                 mail($answers['email'],
-                 $TEXT_EMAIL_SUBJECT,
+                 $wgLang->message('TEXT_EMAIL_SUBJECT'),
                  wordwrap($message, 72),
                  "From: Wikimania Scholarships <wikimania-scholarships@wikimedia.org>\r\n" .
                  "MIME-Version: 1.0\r\n" . "X-Mailer: Wikimania registration system\r\n" .

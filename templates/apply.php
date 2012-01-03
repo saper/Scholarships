@@ -190,7 +190,7 @@ if ($submitted != TRUE) {
 <input type="checkbox" id="wm08" name="wm08" value="1" <?= ($values['wm08']==1)?'checked = "checked" ':''; ?> style="margin-left: 1em"/> 2008<br />
 <input type="checkbox" id="wm09" name="wm09" value="1" <?= ($values['wm09']==1)?'checked = "checked" ':''; ?> style="margin-left: 1em"/> 2009<br />
 <input type="checkbox" id="wm10" name="wm10" value="1" <?= ($values['wm10']==1)?'checked = "checked" ':''; ?> style="margin-left: 1em"/> 2010<br />
-<input type="checkbox" id="wm10" name="wm10" value="1" <?= ($values['wm11']==1)?'checked = "checked" ':''; ?> style="margin-left: 1em"/> 2011</p>
+<input type="checkbox" id="wm11" name="wm11" value="1" <?= ($values['wm11']==1)?'checked = "checked" ':''; ?> style="margin-left: 1em"/> 2011</p>
 
 <p><input type="checkbox" id="presentation" name="presentation" value="1" <?= ($values['presentation']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('TEXT_SUBMITTED_PRESENTATION'); ?></p>
 

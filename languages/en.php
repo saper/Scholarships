@@ -64,12 +64,8 @@ $messages['en'] = array(
 "Dear $1,
 
 This is a confirmation of your application for a scholarship to travel to Wikimania 2012. 
-We will let you know the decision on your scholarship after we finish reviewing and scoring all applications.
 
-Details of the application:
-* First name: $2
-* Last name: $3
-* E-mail: $4
+We will let you know the decision on your scholarship after we finish reviewing and scoring all applications.
 
 Please reply to wikimania-scholarships@wikimedia.org if you have any questions.
 
@@ -92,6 +88,8 @@ Please contact ######################## for additional questions.
 Regards,
 
 The Wikimania scholarship team",
+		'email-from' => "Wikimania 2012 Scholarships",
+		'scholarship-decision' => "Wikimania 2012 Scholarship Decision"
 );
 
 ?>

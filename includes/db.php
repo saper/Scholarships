@@ -21,7 +21,7 @@ class DataAccessLayer {
 
 
 	function GetPhase1GridData($min, $max) {
-		return $this->db->getAll("select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, 2011-year(s.dob) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score from scholarships s 
+		return $this->db->getAll("select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, 2012-year(s.dob) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score from scholarships s 
 			left outer join (select *, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
 			left outer join countries c on s.residence = c.id      
 			group by s.id, s.fname, s.lname, s.email, s.residence 
@@ -29,7 +29,7 @@ class DataAccessLayer {
         }
 
 	function GetPhase2GridData($min, $max) {
-		$res = $this->db->getAll("select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, 2011-year(s.dob) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, coalesce(p2score,0) as p2score, coalesce(nscorers,0) as nscorers from scholarships s 
+		$res = $this->db->getAll("select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, 2012-year(s.dob) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, coalesce(p2score,0) as p2score, coalesce(nscorers,0) as nscorers from scholarships s 
 			left outer join (select scholarship_id, sum(rank) as p2score from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r on s.id = r.scholarship_id
 			left outer join (select scholarship_id, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
 			left outer join (select scholarship_id, count(distinct user_id) as nscorers from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r3 on s.id = r3.scholarship_id			

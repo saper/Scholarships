@@ -3,7 +3,7 @@ require_once('init.php');
 
 function YearsOld($date) {
 	$born = preg_replace('/^([^-]*).*$/', '\1', $date);
-	return 2010 - $born;
+	return 2012 - $born;
 }
 
 function Sex($sex) {
@@ -86,6 +86,9 @@ $dal = new DataAccessLayer();
 $username = $dal->GetUsername($_SESSION['user_id']);
 
 if (isset($_POST['rank'])) {
+	print 'last id ' . $_POST['last_id'] . '<br/>';
+	print 'c ' . $_POST[$c] . '<br/>';
+	print $c;
 	$CRITERIA = array('onwiki', 'offwiki', 'future'); //, 'special');
 	foreach ($CRITERIA as $c)
 	if (isset($_POST[$c]))
@@ -97,11 +100,11 @@ if (isset($_POST['rank'])) {
 if (isset($_POST['save']))
 $schol = $dal->GetScholarship($_POST['last_id']);
 else if ($id == 'unranked')
-$schol = $dal->GetNextPhase2($user_id);
+$schol = $dal->GetNextPhase1($user_id);
 else
 $schol = $dal->GetScholarship($id);
 
-$scorings = $dal->GetPhase2Rankings($schol['id']);
+$scorings = $dal->GetPhase1Rankings($schol['id']);
 ?>
 <?php include "$BASEDIR/templates/header.php" ?>
 <script type="text/javascript">

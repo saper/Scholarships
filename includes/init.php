@@ -5,6 +5,7 @@ $INCLUDEDIR = $BASEDIR . '/includes/';
 require_once( "$INCLUDEDIR/config.php" );
 require_once( "$INCLUDEDIR/db.php" );
 require_once( "$INCLUDEDIR/variables.php" );
+require_once( "$INCLUDEDIR/schema.php" );
 require_once( "$INCLUDEDIR/Lang.php" );
 require_once( "$INCLUDEDIR/Application.php" );
 

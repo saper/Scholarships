@@ -4,13 +4,13 @@ require_once('init.php');
 function mail_msg($to, $subject, $body)
 {
 	require_once "Mail.php";
-	$from = "Wikimania 2011 Scholarships <wikimania-scholarships@wikimedia.org>";
+	$from = $wgLang->message('email-from') . "<$email_from>";
 	$headers = array ('From' => $from,
 	  	'To' => $to,
 		'Subject' => $subject,
 		'MIME-Version' => '1.0',
 		'Content-type' => 'text/html; charset=utf-8',
-		'Reply-To' => 'wikimania-scholarships@wikimedia.org',
+		'Reply-To' => $email_from,
 		'X-Mailer' => 'PHP/' . phpversion()
 	);
 	$smtp = Mail::factory('mail');
@@ -28,11 +28,9 @@ $early_reject_mail_template = <<<EOM
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <body>
 
-<p><img src="http://upload.wikimedia.org/wikipedia/commons/0/0c/Haifa_wikimania_3.png" width=600 /></p>
+<h2>%s</h2>
 
-<h2>Wikimania 2011 Scholarship Decision</h2>
-
-<p>Dear $1,</p>
+<p>Dear %s,</p>
 
 <p>The Wikimania 2011 Scholarships Review Committee has carefully reviewed your application. With regret, we cannot sponsor your travel to attend Wikimania 2011 in Haifa, Israel.</p>
 
