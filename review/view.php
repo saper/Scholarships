@@ -175,8 +175,8 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 	target="_blank" style="color: #000088;"><?= $schol['username'] ?></a></span>
 (Click to view cross-wiki contributions)</p>
 <p>Country<br />
-Residence: <?= $schol['residence'] ?> - <?= $schol['residence_name'] ?><br />
-Citizenship: <?= $schol['nationality'] ?> - <?= $schol['country_name'] ?></p>
+Residence: <?= $schol['residence_name'] ?><br />
+Citizenship: <?= $schol['country_name'] ?></p>
 Email: <a href="mailto:<?= $schol['email'] ?>"><?= $schol['email'] ?></a>&emsp;Phone:
 <?= $schol['telephone'] ?>
 </p>
@@ -184,7 +184,7 @@ Email: <a href="mailto:<?= $schol['email'] ?>"><?= $schol['email'] ?></a>&emsp;P
 <?php
 if ( ( strtotime( $schol['dob'] ) > strtotime( '1875-01-01' ) ) &&
   ( strtotime( $schols['dob'] ) < time() ) ) {
-	echo $schol['dob'] . YearsOld($schol['dob']) . 'years old';
+	echo $schol['dob'] . ' - ' . YearsOld($schol['dob']) . ' years old';
 } else {
 	echo 'Not specified';
 } ?>
