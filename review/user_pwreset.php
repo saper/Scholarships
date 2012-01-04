@@ -54,7 +54,7 @@ require_once('init.php');
 	
 	<fieldset>
 	<input type="hidden" name="id" id="id" value="<?= $user['id'] ?>" />
-	<p><span style="font-size:150%">ID: <strong><?= $user['id'] ?></strong></span></p>
+	<p><span style="font-size:150%">Username: <strong><?= $user['username'] ?></strong></span></p>
 	<?php if ($reset != 1) { 
 		  if ($forceset != 1) { ?>
 	<p>Old Password: <input type="password" name="oldpw" id="oldpw" value="" /></p>

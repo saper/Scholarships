@@ -36,7 +36,7 @@ if (time() < $open_time) {
 } else {
 ?>
 
-<h2><?php echo $wgLang->message('TEXT_PAGE_HEADER'); ?></h2>
+<h2><?php echo $wgLang->message('page-header'); ?></h2>
 
 <?php if ($mock) {?>
 <p class="notice">
@@ -45,9 +45,9 @@ if (time() < $open_time) {
 <?php }?>
 <?php 
 if ($app->success) {?>
-<h1><?php echo $wgLang->message('TEXT_THANKS'); ?></h1>
+<h1><?php echo $wgLang->message('confirm-thanks'); ?></h1>
 <div id="appresponse">
-<?php  echo $wgLang->message('TEXT_APPLICATION_RESPONSE'); ?>
+<?php  echo $wgLang->message('confirm-text'); ?>
 </div>
 <?
 }
@@ -55,7 +55,7 @@ if ($app->success) {?>
 <?php 
 if ($app->haserrors) {
   echo '<div class="errors">';
-  echo $wgLang->message('TEXT_FORM_ERRORS');
+  echo $wgLang->message('form-errors');
   echo '</div>';
 }
 ?>
@@ -105,20 +105,20 @@ $values = array_merge( $defaults, $_POST );
 <?php 
 if ($submitted != TRUE) { 
 ?>
-<?php echo $wgLang->message('TEXT_INTRO'); ?>
-<form action="/index.php" method="post">
+<?php echo $wgLang->message('text-intro'); ?>
+<form action="<?php echo $BASEURL ?>index.php" method="post">
 <label class="required">Required field</label><br/><br/>
 <input type="hidden" name="lang" id="lang" value="<?php echo $lang; ?>" />
 <fieldset>
-<legend><?php echo $wgLang->message('TEXT_CONTACT_LEGEND'); ?></legend>
-<p <?php echo haserror('fname', $app); ?>><label class='required'><?php echo $wgLang->message('TEXT_FIRST'); ?></label> <input type="text" id="fname" name="fname" <?= isset($values['fname'])?'value="' . $values['fname'] . '"':''; ?> /></p>
-<p <?php echo haserror('lname', $app); ?>><label class='required'><?php echo $wgLang->message('TEXT_LAST'); ?></label> <input type="text" id="lname" name="lname" <?= isset($values['lname'])?'value="' . $values['lname'] . '"':''; ?> /></span></p>
-<p <?php echo haserror('email', $app); ?>><label class='required'><?php echo $wgLang->message('TEXT_EMAIL'); ?></label> <input type="text" id="email" name="email" <?= isset($values['email'])?'value="' . $values['email'] . '"':''; ?> /></span></p>
-<p><?php echo $wgLang->message('TEXT_TELEPHONE'); ?> <input type="text" id="telephone" name="telephone"  <?= isset($values['telephone'])?'value="' . $values['telephone'] . '"':''; ?> /></p>
-<p><?php echo $wgLang->message('TEXT_MAILING'); ?><br/><textarea id="address" name="address" cols="40" rows="3" ><?= isset($values['address'])? $values['address']:''; ?></textarea></p> 
-<p><?php echo $wgLang->message('TEXT_COUNTRY'); ?>
+<legend><?php echo $wgLang->message('contact-info'); ?></legend>
+<p <?php echo haserror('fname', $app); ?>><label class='required'><?php echo $wgLang->message('name-first'); ?></label> <input type="text" id="fname" name="fname" <?= isset($values['fname'])?'value="' . $values['fname'] . '"':''; ?> /></p>
+<p <?php echo haserror('lname', $app); ?>><label class='required'><?php echo $wgLang->message('name-last'); ?></label> <input type="text" id="lname" name="lname" <?= isset($values['lname'])?'value="' . $values['lname'] . '"':''; ?> /></span></p>
+<p <?php echo haserror('email', $app); ?>><label class='required'><?php echo $wgLang->message('form-email'); ?></label> <input type="text" id="email" name="email" <?= isset($values['email'])?'value="' . $values['email'] . '"':''; ?> /></span></p>
+<p><?php echo $wgLang->message('form-telephone'); ?> <input type="text" id="telephone" name="telephone"  <?= isset($values['telephone'])?'value="' . $values['telephone'] . '"':''; ?> /></p>
+<p><?php echo $wgLang->message('form-mailing-address'); ?><br/><textarea id="address" name="address" cols="40" rows="3" ><?= isset($values['address'])? $values['address']:''; ?></textarea></p> 
+<p><?php echo $wgLang->message('form-country-residence'); ?>
 <select id="residence" name="residence">
-    <option><?= $wgLang->message('TEXT_SELECT'); ?></option>
+    <option><?= $wgLang->message('form-select'); ?></option>
     <?php foreach (range(0, count($COUNTRY_NAMES)-1) as $i)
     if ($values['residence']==$i+1) {
         printf('<option value="%d" selected="selected">%s</option>\r\n', $i+1, $COUNTRY_NAMES[$i]);
@@ -132,12 +132,12 @@ if ($submitted != TRUE) {
 </fieldset>
 
 <fieldset>
-<legend><?php echo $wgLang->message('TEXT_LEGEND_PERSONAL_INFO'); ?></legend>
+<legend><?php echo $wgLang->message('form-personalinfo'); ?></legend>
 
-<p><?php echo $wgLang->message('TEXT_HASPASSPORT'); ?> <input type="radio" id="haspassport" name="haspassport" value="1" <?= ($values['haspassport']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('TEXT_YES'); ?> <input type="radio" id="haspassport" name="haspassport" value="0" <?= ($values['haspassport']==0)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('TEXT_NO'); ?></p> 
-<p><?php echo $wgLang->message('TEXT_NATIONALITY'); ?>
+<p><?php echo $wgLang->message('form-haspassport'); ?> <input type="radio" id="haspassport" name="haspassport" value="1" <?= ($values['haspassport']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-yes'); ?> <input type="radio" id="haspassport" name="haspassport" value="0" <?= ($values['haspassport']==0)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-no'); ?></p> 
+<p><?php echo $wgLang->message('form-nationality'); ?>
 <select id="nationality" name="nationality">
-    <option><?= $wgLang->message('TEXT_SELECT'); ?></option>
+    <option><?= $wgLang->message('form-select'); ?></option>
     <?php foreach (range(0, count($COUNTRY_NAMES)-1) as $i)
     if ($values['nationality']==$i+1) {
         printf('<option value="%d" selected="selected">%s</option>\r\n', $i+1, $COUNTRY_NAMES[$i]);
@@ -147,10 +147,10 @@ if ($submitted != TRUE) {
 ?></select>
 </p>  
 
-<p><?php echo $wgLang->message('TEXT_AIRPORT'); ?> <input type="text" id="airport" name="airport" <?= isset($values['airport'])?'value="' .$values['airport'] . '"':''; ?> /></p>
-<p><?php echo $wgLang->message('TEXT_LANGUAGE'); ?> <input type="text" id="languages" name="languages" <?= isset($values['languages'])?'value="' .$values['languages'] . '"':''; ?> /></p>
+<p><?php echo $wgLang->message('form-airport'); ?> <input type="text" id="airport" name="airport" <?= isset($values['airport'])?'value="' .$values['airport'] . '"':''; ?> /></p>
+<p><?php echo $wgLang->message('form-language'); ?> <input type="text" id="languages" name="languages" <?= isset($values['languages'])?'value="' .$values['languages'] . '"':''; ?> /></p>
 
-<p><?php echo $wgLang->message('TEXT_DOB'); ?>
+<p><?php echo $wgLang->message('form-dateofbirth'); ?>
 <select id="dd" name="dd">
     <?php foreach (range(1, 31) as $i)
     if ($values['dd']==$i) {
@@ -169,20 +169,20 @@ if ($submitted != TRUE) {
 ?>
 </select> 19<input type="text" id="yy" name="yy" size="1" <?= isset($values['yy'])?'value="' .$values['yy'] . '"':''; ?> /></p>
 
-<p><?php echo $wgLang->message('TEXT_GENDER'); ?>
+<p><?php echo $wgLang->message('form-gender'); ?>
 	<select id="sex" name="sex">
-		<option value="m" <?= ($values['sex']=='m')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('TEXT_GENDER_MALE'); ?></option>
-		<option value="f" <?= ($values['sex']=='f')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('TEXT_GENDER_FEMALE'); ?></option>
-		<option value="d" <?= ($values['sex']=='d')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('TEXT_GENDER_UNSPECIFIED'); ?></option>
+		<option value="m" <?= ($values['sex']=='m')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-gender-male'); ?></option>
+		<option value="f" <?= ($values['sex']=='f')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-gender-female'); ?></option>
+		<option value="d" <?= ($values['sex']=='d')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-gender-unspecified'); ?></option>
 	</select>
 </p>
-<p><?php echo $wgLang->message('TEXT_OCCUPATION'); ?> <input type="text" id="occupation" name="occupation" <?= isset($values['occupation'])?'value="' .$values['occupation'] . '"':''; ?> /></p>
-<p><?php echo $wgLang->message('TEXT_STUDY_AREA'); ?> <input type="text" id="areaofstudy" name="areaofstudy" <?= isset($values['areaofstudy'])?'value="' .$values['areaofstudy'] . '"':''; ?> /></p>
+<p><?php echo $wgLang->message('form-occupation'); ?> <input type="text" id="occupation" name="occupation" <?= isset($values['occupation'])?'value="' .$values['occupation'] . '"':''; ?> /></p>
+<p><?php echo $wgLang->message('form-study'); ?> <input type="text" id="areaofstudy" name="areaofstudy" <?= isset($values['areaofstudy'])?'value="' .$values['areaofstudy'] . '"':''; ?> /></p>
 </fieldset>
 
 <fieldset>
-<legend><?php echo $wgLang->message('TEXT_LEGEND_INTEREST'); ?></legend>
-<p><?php echo $wgLang->message('TEXT_ATTENDED_BEFORE'); ?><br/>
+<legend><?php echo $wgLang->message('form-interest'); ?></legend>
+<p><?php echo $wgLang->message('form-attended'); ?><br/>
 <input type="checkbox" id="wm05" name="wm05" value="1" <?= ($values['wm05']==1)?'checked = "checked" ':''; ?> style="margin-left: 1em"/> 2005<br />
 <input type="checkbox" id="wm06" name="wm06" value="1" <?= ($values['wm06']==1)?'checked = "checked" ':''; ?> style="margin-left: 1em"/> 2006<br />
 <input type="checkbox" id="wm07" name="wm07" value="1" <?= ($values['wm07']==1)?'checked = "checked" ':''; ?> style="margin-left: 1em"/> 2007<br />
@@ -191,57 +191,57 @@ if ($submitted != TRUE) {
 <input type="checkbox" id="wm10" name="wm10" value="1" <?= ($values['wm10']==1)?'checked = "checked" ':''; ?> style="margin-left: 1em"/> 2010<br />
 <input type="checkbox" id="wm11" name="wm11" value="1" <?= ($values['wm11']==1)?'checked = "checked" ':''; ?> style="margin-left: 1em"/> 2011</p>
 
-<p><input type="checkbox" id="presentation" name="presentation" value="1" <?= ($values['presentation']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('TEXT_SUBMITTED_PRESENTATION'); ?></p>
+<p><input type="checkbox" id="presentation" name="presentation" value="1" <?= ($values['presentation']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-presenter'); ?></p>
 
-<p><?php echo $wgLang->message('TEXT_HOW_HEARD'); ?><br/>
+<p><?php echo $wgLang->message('form-howheard'); ?><br/>
 <select id="howheard" name="howheard">
-<option value="email" <?= ($values['howheard']=='email')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('TEXT_HOW_HEARD_1'); ?></option>
-<option value="project"" <?= ($values['howheard']=='project')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('TEXT_HOW_HEARD_2'); ?>
+<option value="email" <?= ($values['howheard']=='email')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-howheard1'); ?></option>
+<option value="project"" <?= ($values['howheard']=='project')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-howheard2'); ?>
 </option>
-<option value="vp"" <?= ($values['howheard']=='vp')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('TEXT_HOW_HEARD_3'); ?>
+<option value="vp"" <?= ($values['howheard']=='vp')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-howheard3'); ?>
 </option>
-<option value="wom"" <?= ($values['howheard']=='wom')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('TEXT_HOW_HEARD_4'); ?>
+<option value="wom"" <?= ($values['howheard']=='wom')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-howheard4'); ?>
 </option>
-<option value="other"" <?= ($values['howheard']=='other')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('TEXT_HOW_HEARD_5'); ?>
+<option value="other"" <?= ($values['howheard']=='other')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-howheard5'); ?>
 </option>
 </select></p>
 
 <p <?php echo haserror('why', $app); ?>><label class='required'>
-<?php echo $wgLang->message('TEXT_ENRICHMENT'); ?></label><br/>
+<?php echo $wgLang->message('form-enrichment'); ?></label><br/>
 <textarea id="why" name="why" cols="80" rows="3"><?= isset($values['why'])?$values['why']:''; ?></textarea></p>
 <p <?php echo haserror('future', $app); ?>><label class='required'>
-<?php echo $wgLang->message('TEXT_FUTURE_EXPLANATION'); ?></label><br />
+<?php echo $wgLang->message('form-future-explain'); ?></label><br />
 <textarea id="future" name="future" cols="80" rows="3"><?= isset($values['future'])?$values['future']:''; ?></textarea></span></p>
 </fieldset>
 
 <fieldset>
-<legend><?php echo $wgLang->message('TEXT_LEGEND_PARTICIPATION'); ?></legend>
-<p><?php echo $wgLang->message('TEXT_USERNAME'); ?> <input type="text" id="username" name="username" <?= isset($values['username'])?'value="' .$values['username'] . '"':''; ?> /></p>
-<p><?php echo $wgLang->message('TEXT_PRIMARY_PROJECT'); ?> <input type="text" id="project" name="project" <?= isset($values['project'])?'value="' .$values['project'] . '"':''; ?> /></p>
-<p><?php echo $wgLang->message('TEXT_LANGUAGE_VERSION'); ?> <input type="text" id="projectlangs" name="projectlangs" <?= isset($values['projectlangs'])?'value="' .$values['projectlangs'] . '"':''; ?> /></p>
-<p><?php echo $wgLang->message('TEXT_EXTENT_EXPLANATION'); ?><br />
+<legend><?php echo $wgLang->message('form-participation'); ?></legend>
+<p><?php echo $wgLang->message('form-username'); ?> <input type="text" id="username" name="username" <?= isset($values['username'])?'value="' .$values['username'] . '"':''; ?> /></p>
+<p><?php echo $wgLang->message('form-primary-project'); ?> <input type="text" id="project" name="project" <?= isset($values['project'])?'value="' .$values['project'] . '"':''; ?> /></p>
+<p><?php echo $wgLang->message('form-lang-version'); ?> <input type="text" id="projectlangs" name="projectlangs" <?= isset($values['projectlangs'])?'value="' .$values['projectlangs'] . '"':''; ?> /></p>
+<p><?php echo $wgLang->message('form-extent-explain'); ?><br />
 <textarea id="involvement" name="involvement" cols="80" rows="3"><?= isset($values['involvement'])?$values['involvement']:''; ?></textarea></p>
-<p><?php echo $wgLang->message('TEXT_CONTRIBUTION_EXPLANATION'); ?><br />
+<p><?php echo $wgLang->message('form-contrib-explain'); ?><br />
 <textarea id="contribution" name="contribution" cols="80" rows="3"><?= isset($values['contribution'])?$values['contribution']:''; ?></textarea></p>
 </fieldset>
 
 <fieldset>
-<legend><?php echo $wgLang->message('TEXT_LEGEND_PARTIAL');?></legend>
-<?php echo $wgLang->message('TEXT_PARTIAL_EXPLANATION');?><br />
-<p><?php echo $wgLang->message('TEXT_WANTS_PARTIAL'); ?> <input type="radio" id="wantspartial" name="wantspartial" value="1" <?= ($values['wantspartial']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('TEXT_YES'); ?> <input type="radio" id="wantspartial" name="wantspartial" value="0" <?= ($values['wantspartial']==0)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('TEXT_NO'); ?></p>
-<p><input type="checkbox" id="canpaydiff" name="canpaydiff" value="1" <?= ($values['canpaydiff']==1)?'checked = "checked" ':''; ?> /> <?php echo $wgLang->message('TEXT_CAN_PAY_DIFFERENCE'); ?></p>
+<legend><?php echo $wgLang->message('form-partial');?></legend>
+<?php echo $wgLang->message('form-partial-explain');?><br />
+<p><?php echo $wgLang->message('form-wantspartial'); ?> <input type="radio" id="wantspartial" name="wantspartial" value="1" <?= ($values['wantspartial']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-yes'); ?> <input type="radio" id="wantspartial" name="wantspartial" value="0" <?= ($values['wantspartial']==0)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-no'); ?></p>
+<p><input type="checkbox" id="canpaydiff" name="canpaydiff" value="1" <?= ($values['canpaydiff']==1)?'checked = "checked" ':''; ?> /> <?php echo $wgLang->message('form-canpaydiff'); ?></p>
 </fieldset>
 
 <fieldset>
-<legend><?php echo $wgLang->message('TEXT_LEGEND_AGREEMENT'); ?></legend>
-<p><input type="checkbox" id="sincere" name="sincere" value="1" <?= ($values['sincere']==1)?'checked = "checked" ':''; ?> /> <?php echo $wgLang->message('TEXT_SINCERE'); ?></p>
-<p><input type="checkbox" id="willgetvisa" name="willgetvisa" value="1" <?= ($values['willgetvisa']==1)?'checked = "checked" ':''; ?> /> <?php echo $wgLang->message('TEXT_WILL_GET_VISA'); ?></p>
-<p><input type="checkbox" id="willpayincidentals" name="willpayincidentals" value="1" <?= ($values['willpayincidentals']==1)?'checked = "checked" ':''; ?> /> <?php echo $wgLang->message('TEXT_WILL_PAY_INCIDENTALS'); ?></p>
-<p><input type="checkbox" id="agreestotravelconditions" name="agreestotravelconditions" value="1" <?= ($values['agreestotravelconditions']==1)?'checked = "checked" ':''; ?> /> <?php echo $wgLang->message('TEXT_TRAVEL_CONDITIONS'); ?></p>
-<p><?php echo $wgLang->message('TEXT_REVIEW'); ?></p>
+<legend><?php echo $wgLang->message('form-agree'); ?></legend>
+<p><input type="checkbox" id="sincere" name="sincere" value="1" <?= ($values['sincere']==1)?'checked = "checked" ':''; ?> /> <?php echo $wgLang->message('form-sincere'); ?></p>
+<p><input type="checkbox" id="willgetvisa" name="willgetvisa" value="1" <?= ($values['willgetvisa']==1)?'checked = "checked" ':''; ?> /> <?php echo $wgLang->message('form-visa'); ?></p>
+<p><input type="checkbox" id="willpayincidentals" name="willpayincidentals" value="1" <?= ($values['willpayincidentals']==1)?'checked = "checked" ':''; ?> /> <?php echo $wgLang->message('form-incidentals'); ?></p>
+<p><input type="checkbox" id="agreestotravelconditions" name="agreestotravelconditions" value="1" <?= ($values['agreestotravelconditions']==1)?'checked = "checked" ':''; ?> /> <?php echo $wgLang->message('form-travel-conditions'); ?></p>
+<p><?php echo $wgLang->message('form-review'); ?></p>
 
-<div align="center"><p><?php echo $wgLang->message('TEXT_FAQ'); ?></p></div>
-<p><input type="submit" id="submit" name="submit" value="<?php echo $wgLang->message('TEXT_SUBMIT'); ?>" /></p>
+<div align="center"><p><?php echo $wgLang->message('confirm-faq'); ?></p></div>
+<p><input type="submit" id="submit" name="submit" value="<?php echo $wgLang->message('form-submit-app'); ?>" /></p>
 </fieldset>
 </form>
 <?php 

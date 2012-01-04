@@ -125,11 +125,11 @@ class Application {
 		global $wgLang;
 
 
-        	$message = $wgLang->message('TEXT_EMAIL_RESPONSE');
+        	$message = $wgLang->message('form-email-response');
                 $message = preg_replace('/\$1/',$answers['fname'] . ' ' . $answers['lname'], $message);
         
                 mail($answers['email'],
-                 $wgLang->message('TEXT_EMAIL_SUBJECT'),
+                 $wgLang->message('form-email-subject'),
                  wordwrap($message, 72),
                  "From: Wikimania Scholarships <wikimania-scholarships@wikimedia.org>\r\n" .
                  "MIME-Version: 1.0\r\n" . "X-Mailer: Wikimania registration system\r\n" .

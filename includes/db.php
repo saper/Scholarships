@@ -200,12 +200,11 @@ class DataAccessLayer {
 
 	function NewUserCreate($answers) {
 		$res = $this->db->query("select `username` from `users` where `username` = ?", array($answers['username']));
-		if( $res->numRows() == 0 )  {
+		if( $res->numRows() < 1 )  {
 			$fieldnames = array("username","password","email","reviewer","isvalid","isadmin");
 			$this->db->query(
 				sprintf("insert into users (%s) values ('%s')", join($fieldnames, ', '), join($answers, "', '")));
-			$res2 = $this->db->insert_id;
-			return $res2;
+			return true;
 		} else {
 			return false;
 		}
@@ -229,8 +228,8 @@ class DataAccessLayer {
 			return 1;
 		} else {
 			$userdata = $this->db->query('select password from users where id = ?', array($id))->fetchRow();
-			if ($userdata['password'] == sha1($oldpw)) {
-				$this->db->query("update users set password = ? where id = ?", array(sha1($newpw),$id));
+			if ($userdata['password'] == md5($oldpw)) {
+				$this->db->query("update users set password = ? where id = ?", array(md5($newpw),$id));
 				return 1;
 			} else {
 				return 0;
