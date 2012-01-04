@@ -10,7 +10,7 @@ require_once('init.php');
 	}
 	
 	$dal = new DataAccessLayer();
-	$schols = $dal->GetFinalScoring();
+	$schols = $dal->GetFinalScoring(0);
 
 	foreach ($schols as $row) {
 		print implode("\t", $row) . "\n";

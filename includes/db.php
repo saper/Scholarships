@@ -199,11 +199,16 @@ class DataAccessLayer {
 	}
 
 	function NewUserCreate($answers) {
-		$fieldnames = array("username","password","email","reviewer","isvalid","isadmin");
-		$this->db->query(
-			sprintf("insert into users (%s) values ('%s')", join($fieldnames, ', '), join($answers, "', '")));
-		$res = $this->db->insert_id;
-		return $res;
+		$res = $this->db->query("select `username` from `users` where `username` = ?", array($answers['username']));
+		if( $res->numRows() == 0 )  {
+			$fieldnames = array("username","password","email","reviewer","isvalid","isadmin");
+			$this->db->query(
+				sprintf("insert into users (%s) values ('%s')", join($fieldnames, ', '), join($answers, "', '")));
+			$res2 = $this->db->insert_id;
+			return $res2;
+		} else {
+			return false;
+		}
 	}
 
 	function UpdateUserInfo($answers, $id) {
