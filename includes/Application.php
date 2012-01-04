@@ -66,7 +66,13 @@ class Application {
 			foreach ($colnames as $i) {
 				if ( ( isset( $data[$i] ) ) or ( $i == 'dob' ) ) {
 					if ( ( $i == 'dob' ) && ( isset( $data['yy'] ) ) && ( isset( $data['mm'] ) ) && ( isset( $data['dd'] ) ) ) {
-						$answers['dob'] = sprintf("19%d-%d-%d", $data['yy'], $data['mm'], $data['dd']);
+						$date = sprintf("19%d-%d-%d", $data['yy'], $data['mm'], $data['dd']);
+						$time = strtotime($date);
+						if ( ( $time < time() ) && ( $time > strtotime( '1875-01-01' ) ) ) {
+							$answers['dob'] = $date;
+						} else {
+							$answers['dob'] = NULL;
+						}
 					} elseif ( strlen($data[$i]) > 0 ) {
 						$answers[$i] = mysql_real_escape_string($data[$i]);
 					} elseif ( is_int( $data[$i] ) ) {
@@ -100,7 +106,6 @@ class Application {
 				}
 			}
 			$fieldnames = join($fields, ", ");
-
 			$subst = rtrim($subst, ', ');
 			$prepare = "insert into scholarships (%s) values($subst)";
 

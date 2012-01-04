@@ -10,5 +10,4 @@
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 </head>
 <body>
-<div id="draft">This is a sample application for testing purposes.</div>
 <h1><a id="banner" href="http://wikimania2012.wikimedia.org/" title="Wikimania 2012"><img src="<?php echo $TEMPLATEBASE;?>images/wm2012banner.png" alt="Wikimania 2012"/></a></h1>

@@ -40,9 +40,8 @@ if (time() < $open_time) {
 
 <?php if ($mock) {?>
 <p class="notice">
-This is a mock scholarship application site only, use it just for testing.<br/>
-Please <a href="mailto:wikimania-scholarships@wikimedia.org">e-mail us</a>
-about any problems you encounter with it.</p>
+<?php echo $wgLang->message('mock'); ?>
+</p>
 <?php }?>
 <?php 
 if ($app->success) {?>

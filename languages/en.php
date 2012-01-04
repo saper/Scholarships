@@ -88,6 +88,7 @@ Please contact ######################## for additional questions.
 Regards,
 
 The Wikimania scholarship team",
+		'mock' => "This is a mock scholarship application site only, use it just for testing.",
 		'email-from' => "Wikimania 2012 Scholarships",
 		'scholarship-decision' => "Wikimania 2012 Scholarship Decision"
 );
