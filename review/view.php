@@ -158,8 +158,8 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 
 <fieldset>
 <h4 align="left">Cross-project activity</h4>
-<iframe src="http://toolserver.org/~vvv/sulutil.php?user=<?= $schol['username'] ?>" width="100%"
-	height="200px"></iframe>
+<!--<iframe src="http://toolserver.org/~vvv/sulutil.php?user=<?= $schol['username'] ?>" width="100%"
+	height="200px"></iframe> //-->
 <div style="float: right; text-align: right; margin-right: 1em"><input
 	type="button" id="stamp" name="stamp" value="Insert stamp"
 	onclick="insertStamp();" style="width: 10em" /><br />
@@ -174,7 +174,6 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 	href="http://toolserver.org/~vvv/sulutil.php?user=<?= $schol['username'] ?>"
 	target="_blank" style="color: #000088;"><?= $schol['username'] ?></a></span>
 (Click to view cross-wiki contributions)</p>
-<p>Country<br />
 Residence: <?= $schol['residence_name'] ?><br />
 Citizenship: <?= $schol['country_name'] ?></p>
 Email: <a href="mailto:<?= $schol['email'] ?>"><?= $schol['email'] ?></a>&emsp;Phone:
