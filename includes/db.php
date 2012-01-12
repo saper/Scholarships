@@ -224,7 +224,7 @@ class DataAccessLayer {
 	
 	function UpdatePassword($oldpw, $newpw, $id, $force = NULL) {
 		if ($force==1) {
-			$this->db->query("update users set password = ? where id = ?", array(sha1($newpw),$id));
+			$this->db->query("update users set password = ? where id = ?", array(md5($newpw),$id));
 			return 1;
 		} else {
 			$userdata = $this->db->query('select password from users where id = ?', array($id))->fetchRow();

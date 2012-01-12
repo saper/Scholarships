@@ -86,9 +86,6 @@ $dal = new DataAccessLayer();
 $username = $dal->GetUsername($_SESSION['user_id']);
 
 if (isset($_POST['rank'])) {
-	print 'last id ' . $_POST['last_id'] . '<br/>';
-	print 'c ' . $_POST[$c] . '<br/>';
-	print $c;
 	$CRITERIA = array('onwiki', 'offwiki', 'future'); //, 'special');
 	foreach ($CRITERIA as $c)
 	if (isset($_POST[$c]))
@@ -157,9 +154,6 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 </div>
 
 <fieldset>
-<h4 align="left">Cross-project activity</h4>
-<!--<iframe src="http://toolserver.org/~vvv/sulutil.php?user=<?= $schol['username'] ?>" width="100%"
-	height="200px"></iframe> //-->
 <div style="float: right; text-align: right; margin-right: 1em"><input
 	type="button" id="stamp" name="stamp" value="Insert stamp"
 	onclick="insertStamp();" style="width: 10em" /><br />
@@ -169,11 +163,15 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 <br style="clear: left" />
 </div>
 
-<p><span style="font-size: 200%"><?= $schol['fname'] . ' ' . $schol['lname'] ?></span><br />
-<span style="font-size: 125%;">User:<a
+<p><span style="font-size: 200%"><?= $schol['fname'] . ' ' . $schol['lname'] ?></span><br /><br/>
+<?php if ( isset( $schol['username'] ) ): ?>
+User: <?= $schol['username'] ?> (<a
 	href="http://toolserver.org/~vvv/sulutil.php?user=<?= $schol['username'] ?>"
-	target="_blank" style="color: #000088;"><?= $schol['username'] ?></a></span>
-(Click to view cross-wiki contributions)</p>
+	target="_blank" style="color: #000088;">cross-wiki contribs</a></span>)
+<?php else: ?>
+User: no username
+<?php endif; ?>
+<br/><br/>
 Residence: <?= $schol['residence_name'] ?><br />
 Citizenship: <?= $schol['country_name'] ?></p>
 Email: <a href="mailto:<?= $schol['email'] ?>"><?= $schol['email'] ?></a>&emsp;Phone:

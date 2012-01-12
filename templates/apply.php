@@ -68,7 +68,7 @@ $defaults = array(
         'address' => '',
         'residence' => 1,
 	'haspassport'=> 0,
-	'nationality' => 1,
+	'nationality' => 0,
 	'airport' => '',
 	'language' => '',
 	'yy' => '',
@@ -120,10 +120,10 @@ if ($submitted != TRUE) {
 <select id="residence" name="residence">
     <option><?= $wgLang->message('form-select'); ?></option>
     <?php foreach (range(0, count($COUNTRY_NAMES)-1) as $i)
-    if ($values['residence']==$i+1) {
-        printf('<option value="%d" selected="selected">%s</option>\r\n', $i+1, $COUNTRY_NAMES[$i]);
+    if ($values['residence']==$i) {
+        printf('<option value="%d" selected="selected">%s</option>\r\n', $i, $COUNTRY_NAMES[$i]);
     } else {
-        printf('<option value="%d">%s</option>\r\n', $i+1, $COUNTRY_NAMES[$i]);
+        printf('<option value="%d">%s</option>\r\n', $i, $COUNTRY_NAMES[$i]);
     }
 ?>
 </select>
@@ -139,10 +139,10 @@ if ($submitted != TRUE) {
 <select id="nationality" name="nationality">
     <option><?= $wgLang->message('form-select'); ?></option>
     <?php foreach (range(0, count($COUNTRY_NAMES)-1) as $i)
-    if ($values['nationality']==$i+1) {
-        printf('<option value="%d" selected="selected">%s</option>\r\n', $i+1, $COUNTRY_NAMES[$i]);
+    if ($values['nationality']==$i) {
+        printf('<option value="%d" selected="selected">%s</option>\r\n', $i, $COUNTRY_NAMES[$i]);
     } else {
-        printf('<option value="%d">%s</option>\r\n', $i+1, $COUNTRY_NAMES[$i]);
+        printf('<option value="%d">%s</option>\r\n', $i, $COUNTRY_NAMES[$i]);
     }
 ?></select>
 </p>  
