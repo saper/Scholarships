@@ -4,9 +4,9 @@ $messages['pl'] = array(
 		'header-title' => "Wikimania 2012 - Wniosek o stypendium",
 		'page-header' => "Wniosek o przyznanie stypendium na Wikimanię 2012",
 		'text-intro' => "
-<p>To jest wniosek o przyznanie stypendium do udziału w konferencji <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, międzynarodowej
-konferencji ruchu Wikimedia. Osoby, którym zostanie przyznane stypendium, będą miały pokryty koszt rejestracji, noclegu i kosztów podróży na konferencję, która odbyła się w tym roku 12-15 lipca w Waszyngtonie.</p>
-<p>To stypendium <strong>nie jest</strong> stypendium naukowym bądź na podjęcie studiów. Wnioski nie związane z udziałem w konferencji będą odrzucone.</p>
+<p>To jest wniosek o przyznanie stypendium na udział w konferencji <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, międzynarodowej
+konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, noclegu i kosztów podróży  na konferencję, która odbędzie się 12-15 lipca tego roku w Waszyngtonie.</p>
+<p>To stypendium <strong>nie jest</strong> stypendium naukowym bądź na podjęcie studiów. Wnioski nie związane z udziałem w konferencji zostaną odrzucone.</p>
 <p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji, jeśli nie otrzymają stypendium. Dziękujemy!</p>",
 		'form-errors' => '<p class="fieldWithErrors">Niektóre pola formularza nie zostały wypełnione właściwie. Prosimy poprawić informację w odpowiednich polach i spróbować wysłać formularz ponownie.</p>',
 		'contact-info' => "Dane kontaktowe",
@@ -31,28 +31,28 @@ konferencji ruchu Wikimedia. Osoby, którym zostanie przyznane stypendium, będ�
 		'form-gender-unspecified' => "nie chcę podawać",
 		'form-occupation' => "Zawód (jeśli pracujesz): ",
 		'form-study' => "Kierunek studiów (jeśli studiujesz): ",
-		'form-interest' => "Interest and involvement in Wikimania",
+		'form-interest' => "Twoje zaangażowanie w Wikimanię",
 		'form-attended' => "Czy w poprzednich latach brałeś lub brałaś udział w Wikimanii? Kiedy?",
 		'form-prior-recipient' => "Otrzymałem/otrzymałam poprzednio stypendium na wyjazd na Wikimanię",
-		'form-presenter' => "Zamierzam zgłosić (lub już zgłosiłam/zgłosiłem) propozycję wystąpienia na Wikimanii 2012 (<a href='http://wikimania2011.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Zaproszenie do uczestnictwa</a>)",
+		'form-presenter' => "Zamierzam zgłosić (lub już zgłosiłam/zgłosiłem) propozycję wystąpienia na Wikimanii 2012 (<a href='http://wikimania2011.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Zaproszenie do zgłaszania wystąpień</a>)",
 		'form-howheard' => "Skąd dowiedziałeś się lub dowiedziałaś się o możliwości starania się o stypendium?",
 		'form-howheard1' => "lista dyskusyjna / poczta elektroniczna",
 		'form-howheard2' => "strona jednego z projektów Wikimedia (na przykład strona Wikipedii)",
 		'form-howheard3' => "kawiarenka / bar / portal użytkowników jednego z projektów",
 		'form-howheard4' => "od znajomych",
 		'form-howheard5' => "w inny sposób",
-		'form-enrichment' => "Prosimy objaśnić, w jaki sposób Wikimania 2012 zyska na Twoim udziale",
+		'form-enrichment' => "W jaki sposób Wikimania 2012 zyska na Twoim udziale?",
 		'form-participation' => "Współpraca w ramach Wikimediów",
 		'form-username' => "Nazwa Twojego konta w projektach Wikimedia (lub na najważniejszym z nich): ",
-		'form-primary-project' => "Projektów, na którym najwięcej się udzielasz (Wikipedia, Wikimedia Commons, itp.): ",
+		'form-primary-project' => "Projekt, na którym najwięcej się udzielasz (Wikipedia, Wikimedia Commons, itp.): ",
 		'form-lang-version' => "Z której wersji językowej korzystasz najczęściej?",
-		'form-extent-explain' => "Opisz, w jaki sposób uczestniczysz w rozwoju projektów Wikimedia. Na przykład: należysz do stowarzyszenia wspierającego ruch Wikmediów, administratorem jednego z projektów, od dawna piszesz artykuły, tworzysz artykuły \"na medal\", często udostępniasz dobrej jakości zdjęcia lub grafiki, itp.",
-		'form-contrib-explain' => "Opisz, w jaki sposób uczestniczysz w innych niż Wikimedia projektach związanych z wolnym dostępem do wiedzy, wolnym oprogramowaniem czy też inicjatywach edukacyjnych.",
-		'form-future-explain' => "Opisz poniżej, w jaki sposób i dlaczego udział w konferencji Wikimania zmieni Twoje uczestnictwo w ruchu Wikimedia w przyszłości.",
+		'form-extent-explain' => "W jaki sposób uczestniczysz w rozwoju projektów Wikimedia? Na przykład: należę do stowarzyszenia wspierającego ruch Wikmediów, jestem administratorem jednego z projektów, od dawna piszę artykuły, tworzę artykuły \"na medal\", często udostępniam dobrej jakości zdjęcia lub grafiki, itp.",
+		'form-contrib-explain' => "W jaki sposób uczestniczysz w innych niż Wikimedia projektach związanych z wolnym dostępem do wiedzy, wolnym oprogramowaniem czy też w inicjatywach związanych z edukacją?",
+		'form-future-explain' => "W jaki sposób udział w konferencji Wikimania zmieni Twoje uczestnictwo w ruchu Wikimedia w przyszłości?",
 		'form-partial' => "Stypendium na pokrycie części kosztów",
 		'form-partial-explain' => "Oprócz pełnego pokrycia kosztów, mamy w tym roku możliwość udzielenia niewielkiej liczby <b>częściowych stypendiów</b>, które pozwalają na dofinansowanie kosztów dojazdu w wysokości do 300 dolarów amerykańskich.",
 		'form-wantspartial' => "Czy możemy brać Twoją kandydaturę pod uwagę przy udzielaniu częściowych stypendiów?",
-		'form-canpaydiff' => "Zobowiązuję się w przypadku otrzymania i przyjęcia stypendium na pokrycie części kosztów, że pokryję pozostałe koszty uczestnictwa w konferencji Wikimania 2012.",
+		'form-canpaydiff' => "Zobowiązuję się w przypadku otrzymania i przyjęcia częściowego stypendium, że pokryję pozostałe koszty uczestnictwa w konferencji Wikimania 2012.",
 		'form-agree' => "Zobowiązanie osoby starającej się o stypendium",
 		'form-sincere' => "Oświadczam, że rozumiem w jakim celu składam niniejszy wniosek i mam szczery zamiar uczestniczyć w Wikimanii 2012 w Waszyngtonie. Zobowiązuję się użyć otrzymane środki zgodnie z przeznaczeniem, jeśli otrzymam i przyjmę stypendium.",
 		'form-visa' => "Zobowiązuję się uzyskać właściwą wizę z odpowiednim wyprzedzeniem (prosimy sprawdzić <a href='http://wikimania2012.wikimedia.org/wiki/Visas' target='_blank'>wymagania wizowe w przypadku podróży do Stanów Zjednoczonych</a>).",
@@ -76,9 +76,9 @@ Z pozdrowieniami,
 
 Komisja stypendialna Wikimanii",
                 'confirm-thanks' => "Serdecznie dziękujemy!",
-                'confirm-text' => "Dziękujemy za przesłanie wniosku o pokrycie kosztów wyjazd na konferencję Wikimania 2012. W razie ewentualnych pytań prosimy o kontakt pod adresem  <a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a>.",
+                'confirm-text' => "Dziękujemy za przesłanie wniosku o pokrycie kosztów wyjazdu na konferencję Wikimania 2012. W razie ewentualnych pytań prosimy o kontakt pod adresem  <a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a>.",
 		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>Odpowiedzi na zadawane pytania (FAQ)</a>",
-		'text-program-intro' => "<p>To jest wniosek o przyznanie stypendium do udziału w konferencji <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, międzynarodowej
+		'text-program-intro' => "<p>To jest wniosek o przyznanie stypendium na udział w konferencji <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, międzynarodowej
 konferencji ruchu Wikimedia. Osoby, którym zostanie przyznane stypendium, będą miały pokryty koszt rejestracji, noclegu i kosztów podróży na konferencję, która odbyła się w tym roku 12-15 lipca w Waszyngtonie.</p>
 <p>To stypendium <strong>nie jest</strong> stypendium naukowym bądź na podjęcie studiów. Wnioski nie związane z udziałem w konferencji będą odrzucone.</p>
 <p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji, jeśli nie otrzymają stypendium. Dziękujemy!</p>",
