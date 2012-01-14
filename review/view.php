@@ -149,7 +149,7 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><input type="submit" id="rank" name="rank" value="Rank" s /></td>
+		<td><input type="submit" id="rank" name="rank" value="Rank"/></td>
 	</tr>
 </table>
 </div>

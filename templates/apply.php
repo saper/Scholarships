@@ -55,7 +55,7 @@ if ($app->success) {?>
 <?php 
 if ($app->haserrors) {
   echo '<div class="errors">';
-  echo $wgLang->message('form-errors');
+  echo $wgLang->formHasErrors();
   echo '</div>';
 }
 ?>
@@ -167,8 +167,16 @@ if ($submitted != TRUE) {
         printf('<option value="%02d">%s</option>', $i+1, $MONTH_NAMES[$i]);
     }
 ?>
-</select> 19<input type="text" id="yy" name="yy" size="1" <?= isset($values['yy'])?'value="' .$values['yy'] . '"':''; ?> /></p>
-
+</select>
+<select id="yy" name="yy">
+<?php 
+$now = intval(strftime( '%Y' ));
+$start = $now - 130;
+for ( $i = 2012; $i >= $start; $i-- ) {
+	print "<option value='$i'>$i</option>";
+}
+?>
+</select>
 <p><?php echo $wgLang->message('form-gender'); ?>
 	<select id="sex" name="sex">
 		<option value="m" <?= ($values['sex']=='m')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-gender-male'); ?></option>
