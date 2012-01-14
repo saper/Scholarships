@@ -30,9 +30,9 @@ if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
 <?php include( 'header.php' ); 
 
 if (time() < $open_time) {
-	echo "<div>Scholarship applications are not open yet.</div>";
+	echo $wgLang->message('not-open'); 
 } else if (time() > $close_time) {
-	echo "<div>Scholarship application deadline has passed.</div>";
+	echo $wgLang->mesage('deadline-passed');
 } else {
 ?>
 
@@ -106,8 +106,9 @@ $values = array_merge( $defaults, $_POST );
 if ($submitted != TRUE) { 
 ?>
 <?php echo $wgLang->message('text-intro'); ?>
+<p style="text-align: center;"><?php echo $wgLang->message('confirm-faq'); ?></p>
 <form action="<?php echo $BASEURL ?>index.php" method="post">
-<label class="required">Required field</label><br/><br/>
+<label class="required"><?php echo $wgLang->message('required-field');?></label><br/><br/>
 <input type="hidden" name="lang" id="lang" value="<?php echo $lang; ?>" />
 <fieldset>
 <legend><?php echo $wgLang->message('contact-info'); ?></legend>

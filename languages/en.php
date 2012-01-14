@@ -105,7 +105,10 @@ You may change your password at https://secure.wikidc.org/wm/schols/review/user_
 
 Sincerely, 
 Katie Filbert
-Wikimania 2012 Organizing Team"
+Wikimania 2012 Organizing Team",
+		'not-open' => "Scholarship applications are not open yet.",
+		'deadline-passed' => "<div>Scholarship application deadline has passed.</div>",
+		'required-field' => "Required field"
 );
 
 ?>
