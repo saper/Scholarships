@@ -16,7 +16,7 @@ require_once('init.php');
 		}
 	}
 ?>
-<?php include "$BASEDIR/templates/header.php" ?>
+<?php include "$BASEDIR/templates/header_review.php" ?>
 	<form method="post" action="login.php">
 	<h1>Log in</h1>
 	<?php if (isset($error)) print "<p>" . $error . "</p>\n"; ?>

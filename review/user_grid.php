@@ -16,7 +16,7 @@ require_once('init.php');
 	
         $rowstyleeven = 0;
 ?>
-<?php include "$BASEDIR/templates/header.php" ?>
+<?php include "$BASEDIR/templates/header_review.php" ?>
 	<form method="post" action="grid.php">
 	<h1>Applications</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>

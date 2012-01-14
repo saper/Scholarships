@@ -38,7 +38,7 @@ if ($id!="new")
 $user = $dal->GetUserInfo($id);
 
 ?>
-<?php include "$BASEDIR/templates/header.php" ?>
+<?php include "$BASEDIR/templates/header_review.php" ?>
 
 <form method="post" action="view_user.php">
 <h1>View User Info</h1>

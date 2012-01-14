@@ -2,18 +2,20 @@
 require_once('init.php');
 
 function YearsOld($date) {
-	$born = preg_replace('/^([^-]*).*$/', '\1', $date);
-	return 2012 - $born;
+	$start = new DateTime($date);
+	$diff = $start->diff( new DateTime( strftime( '%Y-%m-%d' ) ) );
+	return $diff->format('%Y');
 }
 
 function Sex($sex) {
+	global $wgLang;
 	switch ($sex) {
 		case 'm':
-			return 'male';
+			return $wgLang->message('form-gender-male');
 		case 'f':
-			return 'female';
+			return $wgLang->message('form-gender-female');
 		default:
-			return 'declined to state';
+			return $wgLang->message('form-gender-unspecified');
 	}
 }
 
@@ -103,7 +105,7 @@ $schol = $dal->GetScholarship($id);
 
 $scorings = $dal->GetPhase1Rankings($schol['id']);
 ?>
-<?php include "$BASEDIR/templates/header.php" ?>
+<?php include "$BASEDIR/templates/header_review.php" ?>
 <script type="text/javascript">
 		function toggleDump() {
 			var dump = document.getElementById('dump');
@@ -131,9 +133,8 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 <form method="post" action="view.php">
 <h1>View application</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
-<div style="position: fixed; top: 20%; right: 3%; font-size: 150%">
-<table
-	style="text-align: right; background-color: #ccc; border: solid 1px #333">
+<div id="application-view">
+<table id="rank-box">
 	<tr>
 		<td>Future promise:</td>
 		<td><?= RankDropdownList('future',$schol['id']) ?></td>
@@ -154,49 +155,63 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 </div>
 
 <fieldset>
-<div style="float: right; text-align: right; margin-right: 1em"><input
-	type="button" id="stamp" name="stamp" value="Insert stamp"
-	onclick="insertStamp();" style="width: 10em" /><br />
-<textarea id="notes" name="notes" style="width: 30em; height: 15ex"><?= $schol['notes'] ?></textarea><br />
-<input type="submit" id="save" name="save" value="Save"
-	style="width: 10em" /></div>
-<br style="clear: left" />
+<ul id="view-name" class="appview">
+<li><?= $schol['fname'] . ' ' . $schol['lname'] ?></li>
+</ul>
+<div id="notes-box">
+<ul>
+<li><input type="button" id="stamp" name="stamp" value="Insert stamp" onclick="insertStamp();" /></li>
+<li><textarea id="notes" name="notes"><?= $schol['notes'] ?></textarea></li>
+<li><input type="submit" id="save" name="save" value="Save" /></li>
+</ul>
 </div>
 
-<p><span style="font-size: 200%"><?= $schol['fname'] . ' ' . $schol['lname'] ?></span><br /><br/>
+<ul id="wikiuserinfo" class="appview">
 <?php if ( isset( $schol['username'] ) ): ?>
-User: <?= $schol['username'] ?> (<a
-	href="http://toolserver.org/~vvv/sulutil.php?user=<?= $schol['username'] ?>"
-	target="_blank" style="color: #000088;">cross-wiki contribs</a></span>)
+<li>User: <?= $schol['username'] ?> (<a href="http://toolserver.org/~vvv/sulutil.php?user=<?= $schol['username'] ?>" target="_blank">cross-wiki contribs</a></span>)</li>
 <?php else: ?>
-User: no username
+<li>User: no username</li>
 <?php endif; ?>
-<br/><br/>
-Residence: <?= $schol['residence_name'] ?><br />
-Citizenship: <?= $schol['country_name'] ?></p>
-Email: <a href="mailto:<?= $schol['email'] ?>"><?= $schol['email'] ?></a>&emsp;Phone:
-<?= $schol['telephone'] ?>
-</p>
-<p>Date of birth: 
+</ul>
+
+<ul id="countryinfo" class="appview">
+<li>Residence: <?= $schol['residence_name'] ?></li>
+<li>Citizenship: <?= $schol['country_name'] ?></li>
+</ul>
+
+<ul id="contactinfo" class="appview">
+<li>Email: <a href="mailto:<?= $schol['email'] ?>"><?= $schol['email'] ?></a></li>
+<li>Phone: <?= $schol['telephone'] ?></li>
+</ul>
+
+<ul id="ageinfo" class="appview">
+<li>Date of birth: 
 <?php
 if ( ( strtotime( $schol['dob'] ) > strtotime( '1875-01-01' ) ) &&
   ( strtotime( $schols['dob'] ) < time() ) ) {
-	echo $schol['dob'] . ' - ' . YearsOld($schol['dob']) . ' years old';
+	echo $schol['dob'] . ' (' . YearsOld($schol['dob']) . ' years old)';
 } else {
 	echo 'Not specified';
 } ?>
-</p>
-<p>Sex: <?= Sex($schol['sex']) ?></p>
-<p>Speaks <?= $schol['languages'] ?></p>
+</li>
+</ul>
 
+<ul id="genderinfo" class="appview">
+<li>Sex: <?= Sex($schol['sex']) ?></li>
+</ul>
+
+<ul id="lang-job-info" class="appview">
+<li>Speaks <?= $schol['languages'] ?></li>
 <?php if (strlen($schol['occupation']) > 0): ?>
-<p>Occupation: <?= $schol['occupation'] ?></p>
+<li>Occupation: <?= $schol['occupation'] ?></li>
 <?php endif; ?> <?php if (strlen($schol['areaofstudy']) > 0): ?>
-<p>Area of study: <?= $schol['areaofstudy'] ?></p>
+<li>Area of study: <?= $schol['areaofstudy'] ?></li>
 <?php endif; ?> <?php if (strlen($schol['occupation']) == 0 && strlen($schol['areaofstudy']) == 0): ?>
-<p>Did not give an occupation or area of study.</p>
+<li>Did not give an occupation or area of study.</li>
 <?php endif; ?>
-<table border="1">
+</ul>
+
+<table id="past-wikimania">
 	<tr>
 		<th>2005</th>
 		<th>2006</th>
@@ -218,17 +233,17 @@ if ( ( strtotime( $schol['dob'] ) > strtotime( '1875-01-01' ) ) &&
 </table>
 
 <?php if (($schol['sincere']==0)||($schol['agreestotravelconditions']==0)||($schol['willgetvisa']==0)||($schol['willpayincidentals']==0)) {  // non-editable Answerbox  ?>
-<div style="float: right; margin-right: 1em; border: 1px #33dd88 solid; width: 20em;"><?php if ($schol['sincere']==0) { ?>
-<p style="font-weight: bold;">Did not agree that they understood
-application.</p>
+<ul id="terms-agree">
+<?php if ($schol['sincere']==0) { ?>
+<li>Did not agree that they understood application.</li>
 <?php } ?> <?php if ($schol['agreestotravelconditions']==0) { ?>
-<p style="font-weight: bold;">Did not agree to travel conditions.</p>
+<li>Did not agree to travel conditions.</li>
 <?php } ?> <?php if ($schol['willgetvisa']==0) { ?>
-<p style="font-weight: bold;">Did not agree to get own visa.</p>
+<li>Did not agree to get own visa.</li>
 <?php } ?> <?php if ($schol['willpayincidentals']==0) { ?>
-<p style="font-weight: bold;">Did not agree to pay incidentals</p>
-<?php } ?></div>
-<div style="clear: left;">&nbsp;</div>
+<li>Did not agree to pay incidentals</li>
+<?php } ?>
+</ul>
 <?php } ?>
 
 <p>Partial scholarships: <br/>
@@ -267,13 +282,21 @@ application.</p>
 <?php endforeach; ?></div>
 </fieldset>
 
-<fieldset><legend>Scorings</legend> <?php if (count($scorings) > 0): foreach ($scorings as $r): ?>
-<p><?= $r['username'] ?> voted 
-<?= "" /*sprintf('%+d', $r['rank'])*/ ?> 
-for <?= $r['criterion'] ?></p>
+<fieldset><legend>Scorings</legend> 
+<?php 
+if (count($scorings) > 0) {
+  foreach ($scorings as $r) {
+    print $r['username'] . ' voted';
+    /*sprintf('%+d', $r['rank'])*/
+/*for <?= $r['criterion'] ?></p>
 <?php endforeach; else: ?>
 <p>This application has not been ranked.</p>
-<?php endif; ?></fieldset>
+<?php endif; ?>
+*/
+  }
+}
+?>
+</fieldset>
 
 <input type="hidden" id="id" name="id" value="<?= $id ?>" /> <input
 	type="hidden" id="last_id" name="last_id" value="<?= $schol['id'] ?>" />

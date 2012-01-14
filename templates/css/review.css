@@ -1,0 +1,73 @@
+div#application-view {
+  position: fixed; 
+  top: 20%; 
+  right: 3%; 
+  font-size: 150%;
+}
+
+table#rank-box {
+  text-align: right; 
+  background-color: #ccc; 
+  border: solid 1px #333;
+}
+
+div#right {
+  float: right;
+  width: 35%;
+}
+
+div#notes-box {
+  float: right; 
+  text-align: right; 
+  margin-right: 1em;
+}
+
+div#notes-box ul {
+  float: right;
+  list-style: none;
+}
+
+ul.appview {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+ul.appview li {
+  list-style-type: none;
+  vertical-align: top;
+}
+
+#view-name {
+  font-size: 200%;
+}
+
+table#past-wikimania,
+table#past-wikimania tr td,
+table#past-wikimania tr th {
+  border: solid 1px #000;
+}
+
+#notes-box ul li #save,
+#stamp {
+  width: 10em;
+}
+
+textarea#notes {
+  width: 30em; 
+  height: 15ex;
+}
+
+ul#terms-agree {
+  list-style: none;
+  float: right; 
+  margin-right: 1em; 
+  border: 1px #33dd88 solid; 
+  width: 20em;
+  padding: .5em;
+}
+
+ul#terms-agree li {
+  padding: .5em 0;
+  font-weight: bold;
+}

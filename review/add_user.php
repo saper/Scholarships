@@ -14,7 +14,7 @@ $user_id = $_SESSION['user_id'];
 $dal = new DataAccessLayer();
 $username = $dal->GetUsername($_SESSION['user_id']);
 
-include "$BASEDIR/templates/header.php";
+include "$BASEDIR/templates/header_review.php";
 include "$BASEDIR/templates/admin_nav.php";
 
 if (isset($_POST['save'])) {

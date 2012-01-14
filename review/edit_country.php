@@ -26,7 +26,7 @@ if (isset($_POST['save'])) {
 $country = $dal->GetCountryInfo($id);
 
 ?>
-<?php include "$BASEDIR/templates/header.php" ?>
+<?php include "$BASEDIR/templates/header_review.php" ?>
 
 <form method="post" action="edit_country.php">
 <h1>Edit Country Info</h1>

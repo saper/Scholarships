@@ -46,7 +46,7 @@ require_once('init.php');
 	}
 
 ?>
-<?php include "$BASEDIR/templates/header.php" ?>
+<?php include "$BASEDIR/templates/header_review.php" ?>
 
 	<form method="post" action="user_pwreset.php">
 	<h1>View User Info</h1>
