@@ -8,7 +8,7 @@ $messages['pl'] = array(
 konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, noclegu i kosztów podróży  na konferencję, która odbędzie się 12-15 lipca tego roku w Waszyngtonie.</p>
 <p>To stypendium <strong>nie jest</strong> stypendium naukowym bądź na podjęcie studiów. Wnioski nie związane z udziałem w konferencji zostaną odrzucone.</p>
 <p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji, jeśli nie otrzymają stypendium. Dziękujemy!</p>",
-		'form-errors' => '<p class="fieldWithErrors">Niektóre pola formularza nie zostały wypełnione właściwie. Prosimy poprawić informację w odpowiednich polach i spróbować wysłać formularz ponownie.</p>',
+		'form-error' => '<p class="fieldWithErrors">Niektóre pola formularza nie zostały wypełnione właściwie. Prosimy poprawić informację w odpowiednich polach i spróbować wysłać formularz ponownie.</p>',
 		'contact-info' => "Dane kontaktowe",
 		'name-first' => "Imię:",
 		'name-last' => "Nazwisko:",
