@@ -64,11 +64,10 @@ konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, 
 		'form-email-response' =>
 "Witaj $1,
 
-Niniejszym potwierdzamy otrzymanie Twojego wniosku o pokrycie kosztów wyjazdu na konferencję
-Wikimania 2012. 
+Niniejszym potwierdzamy otrzymanie Twojego wniosku o pokrycie
+kosztów wyjazdu na konferencję Wikimania 2012. 
 
-Po zakończeniu oceny wszystkich wniosków poinformujemy o decyzji i
-We will let you know the decision on your scholarship after we finish reviewing and scoring all applications.
+Po zakończeniu oceny wszystkich wniosków poinformujemy o naszej decyzji.
 
 Ewentualne pytania prosimy kierować na adres: wikimania-scholarships@wikimedia.org 
 
@@ -96,7 +95,7 @@ Z pozdrowieniami,
 Komisja stypendialna Wikimanii",
 		'mock' => "To jest strona do testów, składanie wnioski nie będą rozpatrywane.",
 		'email-from' => "Stypendia Wikimania 2012",
-		'scholarship-decision' => "Wikimania 2012 Scholarship Decision",
+		'scholarship-decision' => "Decyzja w sprawie przyznania stypendium - Wikimania 2012",
 		'new-account-subject' => "Nowe konto w programie stypendialnym Wikimania 2012",
 		'new-account-email' => "Utworzyliśmy dla Ciebie nowe konto w programie stypendialnym Wikimania 2012.
 
