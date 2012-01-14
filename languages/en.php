@@ -76,8 +76,6 @@ The Wikimania scholarship team",
                 'confirm-text' =>
 "Thank you for submitting your scholarship application for Wikimania 2012. Please contact <a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a> with any questions.",
 		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>Frequently asked questions</a>",
-		'text-program-intro' => "<p>This is the application for sponsorship to attend <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, Wikimedia's international conference.  Awardees will receive a &ldquo;Scholarship&rdquo; to pay for registration, hotel, and roundtrip travel to Wikimania in Washington, DC, July 12-15, 2012.  This is <strong>not</strong> a scholarship for university study.  Applications not obviously related to the conference will be discarded.</p>
-<p>Applicants: please carefully consider your financial need, that there are limited funds available for sponsorship to attend Wikimania, and that many applicants do not have the financial means to attend Wikimania without this opportunity. Thank you.</p>",
 		'text-have-submitted-presentation' => "I have submitted a presentation for Wikimania 2012 (<a href='http://wikimania2011.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Call for Participation</a>)",
 		'email-confirm-subject' => "Wikimania 2012 Scholarship applications",
 		'email-confirm-text' =>
