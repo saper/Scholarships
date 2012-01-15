@@ -55,7 +55,7 @@ if ($app->success) {?>
 <?php 
 if ($app->haserrors) {
   echo '<div class="errors">';
-  echo $wgLang->formHasErrors();
+  echo $wgLang->formHasErrors('form-error');
   echo '</div>';
 }
 ?>

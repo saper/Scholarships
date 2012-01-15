@@ -7,7 +7,7 @@ $messages['en'] = array(
 <p>This is the application for sponsorship to attend <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, Wikimedia's international conference. Awardees will receive a scholarship to pay for registration, hotel, and roundtrip travel to Wikimania in Washington, DC, July 12-15, 2012.</p>
 <p>This is <strong>not</strong> a scholarship for university study. Applications not obviously related to the conference will be discarded.</p>
 <p>Applicants: please carefully consider your financial need, that there are limited funds available for sponsorship to attend Wikimania, and that many applicants do not have the financial means to attend Wikimania without this opportunity. Thank you.</p>",
-		'form-errors' => 'Your form has errors.  Please correct the errors and submit the form again.',
+		'form-error' => 'Your form has errors.  Please correct the errors and submit the form again.',
 		'contact-info' => "Contact information",
 		'name-first' => "First (given) Name:",
 		'name-last' => "Last Name (surname):",
