@@ -7,7 +7,7 @@ class Lang {
 
 	function __construct() {
 		$this->loadMessages();
-		$this->lang = 'pl';
+		$this->lang = 'en';
 	}
 
 	function langDir() {
