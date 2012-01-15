@@ -54,7 +54,11 @@ class Lang {
 
 
 	public function message( $key ) {
-        	return $this->messages[$this->lang][$key];
+		if (isset( $this->messages[$this->lang][$key] ) ) {
+	        	return $this->messages[$this->lang][$key];
+		} else {
+			return $this->messages['en'][$key];
+		}
 	}
 
 	public function formHasErrors( $key ) {
