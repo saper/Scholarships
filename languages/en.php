@@ -34,7 +34,7 @@ $messages['en'] = array(
 		'form-attended' => "Have you attended Wikimania before?  If so, in what year or years?",
 		'form-prior-recipient' => "I am a prior recipient of a Wikimania travel grant / scholarship.",
 		'form-presenter' => "I have or will submit a presentation for Wikimania 2012 (<a href='http://wikimania2011.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Call for Participation</a>)",
-		'form-howheard' => "How did you hear about this oppurtunity?",
+		'form-howheard' => "How did you hear about this opportunity?",
 		'form-howheard1' => "Mailing list / e-mail",
 		'form-howheard2' => "Wikimedia project Web site (incl. Wikipedia)",
 		'form-howheard3' => "Village pump / Café / Community portal",
@@ -106,7 +106,9 @@ Katie Filbert
 Wikimania 2012 Organizing Team",
 		'not-open' => "Scholarship applications are not open yet.",
 		'deadline-passed' => "<div>Scholarship application deadline has passed.</div>",
-		'required-field' => "Required field"
+		'required-field' => "Required field",
+		'form-privacy' => "Privacy",
+		'form-chapteragree' => "I would like to be considered for a chapter scholarship, and understand the information in the application will be shared with my <a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>local chapter</a> (if applicable) for purposes of awarding scholarships."
 );
 
 ?>
