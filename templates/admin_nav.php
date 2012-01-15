@@ -1,14 +1,14 @@
 <ul class="hnav">
-	<li><a href="grid.php">Grid</a></li>
+	<li><a href="<?php echo $BASEURL; ?>review/grid">Grid</a></li>
 <!--	<li><a href="grid.php?min=2">2+</a></li>-->
-	<li><a href="view.php?id=unranked">Queue</a></li>
-	<li><a href="grid_score.php?partial=0">Final: Full</a></li>
-	<li><a href="grid_score.php?partial=1">Final: Partial</a></li>
+	<li><a href="<?php echo $BASEURL; ?>review/view?id=unranked">Queue</a></li>
+	<li><a href="<?php echo $BASEURL; ?>review/grid/score?partial=0">Final: Full</a></li>
+	<li><a href="<?php echo $BASEURL; ?>review/grid/score?partial=1">Final: Partial</a></li>
 	<?php
 	$isadmin = $dal->IsSysAdmin($_SESSION['user_id']);
 	if ($isadmin == 1) { ?>
-		<li><a href="user_grid.php">Users</a></li>
-		<li><a href="country_grid.php">Countries</a></li>
+		<li><a href="<?php echo $BASEURL; ?>user/list">Users</a></li>
+		<li><a href="<?php echo $BASEURL; ?>review/country/grid">Countries</a></li>
 	<? } ?>
 </ul>
 <hr />

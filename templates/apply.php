@@ -98,7 +98,8 @@ $defaults = array(
 	'willpayincidentals' => 0,
 	'agreestotravelconditions' => 0,
 	'mm' => 1,
-	'dd' => 1
+	'dd' => 1,
+	'chapteragree' => 0
 );
 $values = array_merge( $defaults, $_POST );
 ?>
@@ -265,8 +266,7 @@ for ( $i = 2012; $i >= $start; $i-- ) {
 </ul>
 </fieldset>
 
-<div class="faq"><?php echo $wgLang->message('confirm-faq'); ?></div>
-<p><input type="submit" id="submit" name="submit" value="<?php echo $wgLang->message('form-submit-app'); ?>" /></p>
+<input type="submit" id="submit" name="submit" value="<?php echo $wgLang->message('form-submit-app'); ?>" />
 </fieldset>
 </form>
 <?php 
@@ -274,4 +274,5 @@ for ( $i = 2012; $i >= $start; $i-- ) {
 
 }
 ?>
+<br clear="all" />
 <?php include( 'footer.php' ); ?>

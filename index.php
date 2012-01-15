@@ -6,6 +6,7 @@ $BASEDIR= dirname(__FILE__);
 
 require_once( "$BASEDIR/includes/init.php" );
 
-include $TEMPLATEDIR . 'apply.php';
-
+$path = $wgRouter->route();
+include $path;
+#include $BASEDIR . '/templates/apply.php';
 ?>

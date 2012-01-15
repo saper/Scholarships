@@ -204,6 +204,11 @@ $columns = array(
                 'null' => FALSE,
                 'default' => 0
         ),
+	'chapteragree' => array(
+		'type' => 'tinyint',
+		'null' => FALSE,
+		'default' => 0
+	),
 	'rank' => array(
 		'type' => 'int',
 		'length' => 11,
