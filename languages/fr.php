@@ -8,7 +8,7 @@ $messages['fr'] = array(
 Les récipiendaires se verront octroyer une bourse pour payer les frais d'inscription, l'hébergement et autres frais de transport pour Wikimania 2012 à Haïfa, Israël, du 4 au 7 août 2011. Ceci n'est en <strong>aucun cas</strong> une page pour obtenir une bourse d'étude pour l'université.  
 Toute demande n'étant pas directement en relation avec la conférence sera ignorée.</p>
 <p>Candidats: prière est faite d'estimer avec précision et retenue vos besoins fincanciers ; étant donné que les fonds disponibles sont limités et que de nombreux candidats sont dans la totale incapacité de participer à Wikimania sans cette opportunité. Merci.</p>",
-		'form-errors' => "<p class='fieldWithErrors'>Vôtre formulaire comporte des erreurs. Corrigez s'il vous plaît ces erreurs et soumettez le formulaire une nouvelle fois.</p>",
+		'form-error' => "<p class='fieldWithErrors'>Vôtre formulaire comporte des erreurs. Corrigez s'il vous plaît ces erreurs et soumettez le formulaire une nouvelle fois.</p>",
 		'contact-info' => "Informations sur le contact",
 		'name-first' => "Prénom :",
 		'name-last' => "Nom :",

@@ -307,6 +307,7 @@ CREATE TABLE IF NOT EXISTS `scholarships` (
   `wm08` tinyint(1) default NULL,
   `wm09` tinyint(1) default NULL,
   `wm10` tinyint(1) default NULL,
+  `wm11` tinyint(1) default NULL,
   `presentation` tinyint(1) default NULL,
   `howheard` text character set utf8,
   `why` text character set utf8,
