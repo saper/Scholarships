@@ -1,11 +1,9 @@
-div#application-view {
+div#rank-box {
   position: fixed; 
-  top: 20%; 
+  top: 25%; 
   right: 3%; 
   font-size: 150%;
-}
-
-table#rank-box {
+  padding: .6em;
   text-align: right; 
   background-color: #ccc; 
   border: solid 1px #333;

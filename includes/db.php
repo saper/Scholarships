@@ -107,7 +107,13 @@ class DataAccessLayer {
 	function GetPhase1Rankings($id) {
 		return $this->db->getAll('select r.scholarship_id, u.username, r.rank, r.criterion from rankings r inner join users u on r.user_id = u.id where r.criterion = "valid" and r.scholarship_id = ?', array($id));
 	}
-		
+	
+        function GetPhase1RankingOfUser($user_id, $scholarship_id, $criterion) {
+                $r = $this->db->query("select rank from rankings where user_id = ? and scholarship_id = ? and criterion = ?", array($user_id, $scholarship_id, $criterion));
+                $ret = $r->numRows() > 0 ? $r->fetchRow(DB_FETCHMODE_ORDERED) : array(0);
+                return $ret[0];
+        }
+	
 	function GetPhase2RankingOfUser($user_id, $scholarship_id, $criterion) {
 		$r = $this->db->query("select rank from rankings where user_id = ? and scholarship_id = ? and criterion = ?", array($user_id, $scholarship_id, $criterion));
 		$ret = $r->numRows() > 0 ? $r->fetchRow(DB_FETCHMODE_ORDERED) : array(0);
