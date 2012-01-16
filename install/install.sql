@@ -220,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `rankings` (
   `user_id` int(11) NOT NULL,
   `scholarship_id` int(11) NOT NULL,
   `rank` int(11) NOT NULL default '0',
-  `criterion` enum('valid','onwiki','offwiki','nationality','representation','special') default NULL,
+  `criterion` enum('valid','onwiki','offwiki','nationality','representation','special','future') default NULL,
   `entered_on` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
   KEY `scholarship_id` (`scholarship_id`),
