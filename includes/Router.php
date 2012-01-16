@@ -13,11 +13,12 @@ class Router {
 	public function route() {
 		global $defaultRoute, $routes, $BASEURL;
 		$parts = explode('?', $_SERVER['REQUEST_URI']);
-                $req = explode($BASEURL, $parts[0]);
+                $mainreq = explode($BASEURL, $parts[0]);
+		$req = explode('/', $mainreq[1]);
 
-		$page = isset($req[1]) ? $req[1] : null;
-		$action = isset($req[2]) ? $req[2] : null;
-		$action2 = isset($req[3]) ? $req[3] : null;
+		$page = isset($req[0]) ? $req[0] : null;
+		$action = isset($req[1]) ? $req[1] : null;
+		$action2 = isset($req[2]) ? $req[2] : null;
 
 		$path = '';		
 		if ( strlen( $page ) > 0 ) {
@@ -33,6 +34,8 @@ class Router {
 
 		if ( $this->isValid( $path ) ) {
 			return $routes[$path];
+		} elseif ( $page == 'review' ) {
+			return $routes['user/login'];
 		} else {
 			return $defaultRoute;
 		}
