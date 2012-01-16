@@ -4,7 +4,7 @@ $messages['de'] = array(
 		'header-title' => "Wikimania 2012 - Stipendien",
 		'page-header' => "Bewerbung für ein Stipendium zur Teilnahme an Wikimania 2012",
 		'text-intro' => "
-<p>Dies ist die Bewerbung für finanzielle Unterstützung um an der <a href='http://wikimania2012.wikimedia.org'>Wikimania 2011</a>, der internationalen Wikimedia Konferenz, teilnehmen zu können. Die Stipendiaten erhalten ein Stipendium für die Registrierungsgebühren, Übernachtung sowie Hin- und Rückreise zur Wikimania in Haifa, Israel, am 4. bis 7. August 2011. Dies ist <strong>kein</strong> Stipendium für ein Hochschulstudium. Bewerbungen die offensichtlich nicht im Zusammenhang mit der Konferenz stehen werden verworfen.</p>
+<p>Dies ist die Bewerbung für finanzielle Unterstützung um an der <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, der internationalen Wikimedia Konferenz, teilnehmen zu können. Die Stipendiaten erhalten ein Stipendium für die Registrierungsgebühren, Übernachtung sowie Hin- und Rückreise zur Wikimania in Haifa, Israel, am 4. bis 7. August 2011. Dies ist <strong>kein</strong> Stipendium für ein Hochschulstudium. Bewerbungen die offensichtlich nicht im Zusammenhang mit der Konferenz stehen werden verworfen.</p>
 <p>Bewerber: Bitte überdenken Sie Ihre finanzielle Lage bevor Sie sich um ein Stipendium bemühen. Die vorhandenen Geldmittel um Unterstützung zu gewähren sind begrenzt und viele Menschen werden ohne diese nicht an der Wikimania teilnehmen können.</p>",
 		'form-error' => '<p class="fieldWithErrors">Es sind Fehler im Formular. Bitte korrigieren Sie diese und übermitteln Sie Ihre Daten erneut.</p>',
 		'contact-info' => "Kontaktinformationen",
@@ -32,7 +32,7 @@ $messages['de'] = array(
 		'form-interest' => "Interesse und Beteiligung an der Wikimania",
 		'form-attended' => "Haben Sie Wikimania schon früher besucht? Wenn ja, in welchen Jahren?",
 		'form-prior-recipient' => "Ich habe bereits früher ein Stipendium zur Teilnahme an Wikimania erhalten.",
-		'form-presenter' => "Ich habe oder werde eine Präsentation zur Wikimania 2012 anmelden (<a href='http://wikimania2011.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Aufruf zur Teilnahme</a>).",
+		'form-presenter' => "Ich habe oder werde eine Präsentation zur Wikimania 2012 anmelden (<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Aufruf zur Teilnahme</a>).",
 		'form-howheard' => "Wie haben Sie von den Stipendien erfahren??",
 		'form-howheard1' => "Mailingliste / E-Mail",
 		'form-howheard2' => "Wikimedia-Projektseite (inkl. Wikipedia)",
@@ -79,7 +79,7 @@ das Wikimania Stipendien-Kommitee",
 "<h1>Vielen Dank!</h1>
 <div><p>Vielen Dank für Ihre Bewerbung für ein Stipendium zur Wikimania 2012. Bei Fragen kontaktieren Sie bitte <a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a>.</p></div>",
 		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>Häufige Fragen</a>",
-		'text-have-submitted-presentation' => "Ich habe eine Präsentation zur Wikimania 2012 eingereicht (<a href='http://wikimania2011.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Aufruf zur Teilnahme</a>)",
+		'text-have-submitted-presentation' => "Ich habe eine Präsentation zur Wikimania 2012 eingereicht (<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Aufruf zur Teilnahme</a>)",
 		'email-confirm-subject' => "Wikimania 2012 Stipendien-Bewerbung",
 		'email-confirm-text' =>
 "Hiermit bestätigen wir Ihnen den Eingang Ihrer Bewerbung für ein Reisekosten-Stipendium für die Wikimania 2012.

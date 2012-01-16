@@ -36,7 +36,7 @@ $messages['en'] = array(
 		'form-interest' => "Interest and involvement in Wikimania",
 		'form-attended' => "Have you attended Wikimania before?  If so, in what year or years?",
 		'form-prior-recipient' => "I am a prior recipient of a Wikimania travel grant / scholarship.",
-		'form-presenter' => "I have or will submit a presentation for Wikimania 2012 (<a href='http://wikimania2011.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Call for Participation</a>)",
+		'form-presenter' => "I have or will submit a presentation for Wikimania 2012 (<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Call for Participation</a>)",
 		'form-howheard' => "How did you hear about this opportunity?",
 		'form-howheard1' => "Mailing list / e-mail",
 		'form-howheard2' => "Wikimedia project Web site (incl. Wikipedia)",
@@ -78,7 +78,7 @@ The Wikimania scholarship team",
                 'confirm-text' =>
 "Thank you for submitting your scholarship application for Wikimania 2012. Please contact <a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a> with any questions.",
 		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>Frequently asked questions</a>",
-		'text-have-submitted-presentation' => "I have submitted a presentation for Wikimania 2012 (<a href='http://wikimania2011.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Call for Participation</a>)",
+		'text-have-submitted-presentation' => "I have submitted a presentation for Wikimania 2012 (<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Call for Participation</a>)",
 		'email-confirm-subject' => "Wikimania 2012 Scholarship applications",
 		'email-confirm-text' =>
 "This is a confirmation of your application for a scholarship to travel to Wikimania 2012.
