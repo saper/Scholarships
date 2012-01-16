@@ -50,6 +50,12 @@ $columns = array(
 		'null' => TRUE,
 		'default' => NULL
 	),
+	'passportnum' => array(
+		'type' => 'varchar',
+		'length' => 128,
+		'null' => TRUE,
+		'default' => NULL
+	),
 	'airport' => array(
 		'type' => 'varchar',
 		'length' => 64,

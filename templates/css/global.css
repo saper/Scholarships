@@ -124,17 +124,21 @@ ul.single li {
 }
 
 /* WTF, Rails */
-p.fieldWithErrors {
+.fieldWithErrors,
+.fieldWithErrors label {
         color: #AA0000;
         font-weight: bold;
 }
 
-p.fieldWithErrors input, p.fieldWithErrors select, p.fieldWithErrors textarea {
+.fieldWithErrors input, .fieldWithErrors select, .fieldWithErrors textarea {
 	border: 1px solid red;
 }
 
+div.errorbox,
 div.errorExplanation {
-	border: 1px solid red;
+	color: #AA0000;
+	font-weight: bold;
+	border: 1px solid #AA0000;
 }
 
 ul.hnav {

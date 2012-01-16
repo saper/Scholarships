@@ -62,7 +62,7 @@ class Lang {
 	}
 
 	public function formHasErrors( $key ) {
-		return "<span class='fieldWithErrors'>" . $this->message( $key ). "</span";
+		return "<span class='fieldWithErrors'>" . $this->message( $key ). "</span>";
 	}
 
 }
