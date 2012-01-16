@@ -8,5 +8,4 @@ require_once( "$BASEDIR/includes/init.php" );
 
 $path = $wgRouter->route();
 include $path;
-#include $BASEDIR . '/templates/apply.php';
 ?>

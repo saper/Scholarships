@@ -2,12 +2,6 @@
 
 class Router {
 
-	public function parse() {
-		$req = explode('/test.php/', $_SERVER['REQUEST_URI']);
-		$page = $req[1];
-		return $page;
-	}
-
 	public function isValid($page) {
 		global $routes;
 		if ( array_key_exists( $page, $routes ) ) {
