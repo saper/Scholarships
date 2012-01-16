@@ -1,8 +1,7 @@
 <?php
 require_once('init.php');
 
-function mail_msg($to, $subject, $body)
-{
+function mail_msg($to, $subject, $body) {
 	require_once "Mail.php";
 	$from = $wgLang->message('email-from') . "<$email_from>";
 	$headers = array ('From' => $from,
@@ -330,9 +329,8 @@ EOM;
 
 session_start();
 
-if (!isset($_SESSION['user_id']))
-{
-	header('location: login.php');
+if (!isset($_SESSION['user_id'])) {
+	header('location: ' . $BASEURL . 'user/login');
 	exit();
 }
 

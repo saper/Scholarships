@@ -3,9 +3,8 @@ require_once('init.php');
 
 session_start();
 
-if (!isset($_SESSION['user_id']))
-{
-	header('location: login.php');
+if (!isset($_SESSION['user_id'])) {
+	header('location: ' . $BASEURL . 'user/login');
 	exit();
 }
 
@@ -65,7 +64,7 @@ $dal->IsSysAdmin($_SESSION['user_id']); if ($isadmin == 1) { ?>
 <p>Is Admin?: <input type="checkbox" name="isadmin" id="isadmin"
 	value="1" <?= $user['isadmin']==1?'checked="checked"':''; ?> /></p>
 </fieldset>
-<input type="submit" id="save" name="save" value="Save"
-	style="width: 10em" /></form>
+<input type="submit" id="save" name="save" value="Save" style="width: 10em" />
+</form>
 <?php } ?>
 <?php include "$BASEDIR/templates/footer.php" ?>

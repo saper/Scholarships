@@ -69,9 +69,8 @@ function RankDropdownList($criterion,$scholarship_id) {
 
 session_start();
 
-if (!isset($_SESSION['user_id']))
-{
-	header('location: login.php');
+if (!isset($_SESSION['user_id'])) {
+	header('location: ' . $BASEURL . 'user/login');
 	exit();
 }
 
@@ -130,7 +129,7 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 		}
 </script>
 
-<form method="post" action="view.php">
+<form method="post" action="<?php echo $BASEURL; ?>review/view">
 <h1>View application</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
 <div id="application-view">

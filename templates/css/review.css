@@ -71,3 +71,21 @@ ul#terms-agree li {
   padding: .5em 0;
   font-weight: bold;
 }
+
+table#country-grid {
+  width: 100%;
+}
+
+table#country-grid tr th {
+  text-align: left;
+}
+
+table#country-grid tr th,
+table#country-grid tr td {
+  background: #eee;
+}
+
+div#country-grid-return {
+  font-size: 0.84em;
+  padding: 1em 0;
+}

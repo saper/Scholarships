@@ -5,7 +5,7 @@ session_start();
 
 if (!isset($_SESSION['user_id']))
 {
-	header('location: login.php');
+	header('location: ' . $BASEURL . 'user/login');
 	exit();
 }
 
@@ -17,7 +17,7 @@ $rowstyleeven = 0;
 $ctr=1;
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
-<form method="post" action="grid.php">
+<form method="post" action="<?php echo $BASEURL; ?>grid">
 <h1>Applications</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
 <table style="width: 100%">

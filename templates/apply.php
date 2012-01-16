@@ -66,7 +66,7 @@ $defaults = array(
         'email' => '',
         'telephone' => '',
         'address' => '',
-        'residence' => 1,
+        'residence' => 0,
 	'haspassport'=> 0,
 	'nationality' => 0,
 	'airport' => '',
@@ -108,7 +108,7 @@ if ($submitted != TRUE) {
 ?>
 <?php echo $wgLang->message('text-intro'); ?>
 <div class="faq"><?php echo $wgLang->message('confirm-faq'); ?></div>
-<form action="<?php echo $BASEURL ?>index.php" method="post">
+<form action="<?php echo $BASEURL ?>apply" method="post">
 <label class="required"><?php echo $wgLang->message('required-field');?></label><br/><br/>
 <input type="hidden" name="lang" id="lang" value="<?php echo $lang; ?>" />
 <fieldset>
