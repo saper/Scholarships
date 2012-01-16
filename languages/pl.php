@@ -6,7 +6,7 @@ $messages['pl'] = array(
 		'text-intro' => "
 <p>To jest wniosek o przyznanie stypendium na udział w konferencji <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, międzynarodowej
 konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, noclegu i kosztów podróży  na konferencję, która odbędzie się w dniach 12-15 lipca w Waszyngtonie.</p>
-<p>To stypendium <strong>nie jest</strong> stypendium naukowym bądź na podjęcie studiów. Wnioski niezwiązane z udziałem w konferencji zostaną odrzucone.</p>
+<p>To stypendium <strong>nie jest</strong> stypendium naukowym ani stypendium na podjęcie studiów. Wnioski niezwiązane z udziałem w konferencji zostaną odrzucone.</p>
 <p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji w przypadku nieotrzymania stypendium. Dziękujemy!</p>
 <p>Termin składania wniosków upływa <strong>15 lutego 2012 roku</strong>.</p>",
 		'form-error' => '<p class="fieldWithErrors">Niektóre pola formularza nie zostały wypełnione właściwie. Prosimy poprawić informację w odpowiednich polach i spróbować wysłać formularz ponownie.</p>',
@@ -57,7 +57,7 @@ konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, 
 		'form-wantspartial' => "Czy możemy brać Twoją kandydaturę pod uwagę przy udzielaniu częściowych stypendiów?",
 		'form-canpaydiff' => "W przypadku otrzymania i przyjęcia częściowego stypendium zobowiązuję się do pokrycia pozostałych kosztów uczestnictwa w Wikimanii 2012.",
 		'form-agree' => "Zobowiązanie osoby starającej się o stypendium",
-		'form-sincere' => "Oświadczam, że rozumiem w jakim celu składam niniejszy wniosek i mam szczery zamiar uczestniczyć w Wikimanii 2012 w Waszyngtonie. Zobowiązuję się wykorzystać przyznane mi środki zgodnie z przeznaczeniem, jeśli otrzymam i przyjmę stypendium.",
+		'form-sincere' => "Oświadczam, że rozumiem, w jakim celu składam niniejszy wniosek i mam szczery zamiar uczestniczyć w Wikimanii 2012 w Waszyngtonie. Zobowiązuję się wykorzystać przyznane mi środki zgodnie z przeznaczeniem, jeśli otrzymam i przyjmę stypendium.",
 		'form-visa' => "Zobowiązuję się uzyskać właściwą wizę z odpowiednim wyprzedzeniem (prosimy sprawdzić <a href='http://wikimania2012.wikimedia.org/wiki/Visas' target='_blank'>wymagania wizowe w przypadku podróży do Stanów Zjednoczonych</a>).",
 		'form-incidentals' => "Zobowiązuję się pokryć koszty dojazdu do i z lotniska, wyżywienia oraz inne własne wydatki podczas konferencji.",
 		'form-travel-conditions' => "Zobowiązuję się (a) skorzystać z biura podróży rekomendowanego przez Fundację Wikimedia w przypadku pokrycia bezpośredniego przez Fundację moich kosztów podróży albo (b) pokryć koszty podróży w cenie nie wyższej niż zaproponowana przez Fundację Wikimedia, a następnie przedstawić dokumenty potwierdzające poniesione koszty w celu otrzymania ich zwrotu.",
