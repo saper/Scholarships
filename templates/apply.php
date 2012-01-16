@@ -19,15 +19,7 @@ if (isset($_POST['submit'])) {
 	}
 }
 
-if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
-	// set lang
-	$res = array_merge( $_GET, $_POST );
-	$lang = $wgLang->setLang($res);
-}
-
-?>
-
-<?php include( 'header.php' ); 
+include( 'header.php' ); 
 
 if (time() < $open_time) {
 	echo $wgLang->message('not-open'); 
