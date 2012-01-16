@@ -40,7 +40,7 @@ $user = $dal->GetUserInfo($id);
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
 
-<form method="post" action="view_user.php">
+<form method="post" action="/user/view">
 <h1>View User Info</h1>
 <?php include "$BASEDIR/templates/admin_nav.php";
  $isadmin =
