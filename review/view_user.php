@@ -27,7 +27,7 @@ if (isset($_POST['save'])) {
 		$answers[$i] = mysql_real_escape_string($_POST[$i]);
 	}
 	if ($_POST['formstate']=='new') {
-		$answers['password'] = sha1($_POST['password']);
+		$answers['password'] = md5($_POST['password']);
 		$id = $dal->NewUserCreate($answers);
 	} else {
 		$dal->UpdateUserInfo($answers,$_POST['id']);
@@ -40,7 +40,7 @@ $user = $dal->GetUserInfo($id);
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
 
-<form method="post" action="/user/view">
+<form method="post" action="<?php echo $BASEURL; ?>user/view">
 <h1>View User Info</h1>
 <?php include "$BASEDIR/templates/admin_nav.php";
  $isadmin =
