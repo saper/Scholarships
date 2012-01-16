@@ -53,7 +53,7 @@ konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, 
 		'form-contrib-explain' => "W jaki sposób uczestniczysz w innych niż Wikimedia projektach związanych z wolnym dostępem do wiedzy, wolnym oprogramowaniem czy też w inicjatywach związanych z edukacją?",
 		'form-future-explain' => "W jaki sposób udział w Wikimanii zmieni Twoje uczestnictwo w ruchu Wikimedia w przyszłości?",
 		'form-partial' => "Stypendium na pokrycie części kosztów",
-		'form-partial-explain' => "Oprócz pełnego pokrycia kosztów, mamy w tym roku możliwość przyznania niewielkiej liczby <b>częściowych stypendiów</b>, które pozwolą na dofinansowanie kosztów dojazdu w wysokości do 300 dolarów amerykańskich.",
+		'form-partial-explain' => "Oprócz pełnego pokrycia kosztów, mamy w tym roku możliwość przyznania niewielkiej liczby <b>częściowych stypendiów</b>, które pozwalają na dofinansowanie kosztów dojazdu w wysokości do 425 dolarów amerykańskich.",
 		'form-wantspartial' => "Czy możemy brać Twoją kandydaturę pod uwagę przy udzielaniu częściowych stypendiów?",
 		'form-canpaydiff' => "W przypadku otrzymania i przyjęcia częściowego stypendium zobowiązuję się do pokrycia pozostałych kosztów uczestnictwa w Wikimanii 2012.",
 		'form-agree' => "Zobowiązanie osoby starającej się o stypendium",
@@ -78,7 +78,7 @@ Z pozdrowieniami,
 Komisja stypendialna Wikimanii 2012",
                 'confirm-thanks' => "Serdecznie dziękujemy!",
                 'confirm-text' => "Dziękujemy za przesłanie wniosku o pokrycie kosztów wyjazdu na konferencję Wikimania 2012. W razie ewentualnych pytań prosimy o kontakt pod adresem <a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a>.",
-		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>Odpowiedzi na najczęściej zadawane pytania (FAQ)</a>",
+		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>Stypendia w pytaniach i odpowiedziach (FAQ)</a>",
 		'text-have-submitted-presentation' => "Zgłosiłam/zgłosiłem propozycję prezentacji na Wikimanię 2012 (<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Call for Participation</a>)",
 		'email-confirm-subject' => "Wikimania 2012 - wniosek o stypendium",
 		'email-confirm-text' =>
@@ -131,8 +131,14 @@ Komitet organizacyjny Wikimanii 2012",
 Komitet organizacyjny Wikimanii 2012",
 		'footer-faq' => "Najczęściej zadawane pytania",
 		'footer-credits' => "Podziękowania i prawa autorskie",
+<<<<<<< HEAD
 		'footer-privacy' => "Zasady zachowania poufności",
 		'footer-contact' => "Napisz do nas"
+=======
+		'footer-privacy' => "Zasady zachowania poufnosci",
+		'footer-contact' => "Napisz do nas",
+                'MONTH_NAMES' =>  array('stycznia','lutego','marca','kwietnia','maja','czerwca','lutego','sierpnia','września','października','listopada','grudnia')
+>>>>>>> 63bb114106ccd47b30045ed6b0d7fc362bf2ac05
 );
 
 ?>

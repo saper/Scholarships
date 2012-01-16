@@ -86,7 +86,6 @@ ul#footerlinks li,
 ul.langlist li {
   display: inline;
   margin: 0;
-  text-transform: lowercase;
 }
 
 ul#footerlinks li:after,

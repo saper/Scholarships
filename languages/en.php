@@ -7,7 +7,7 @@ $messages['en'] = array(
 <p>This is the application for sponsorship to attend <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, Wikimedia's international conference. Awardees will receive a scholarship to pay for registration, hotel, and roundtrip travel to Wikimania in Washington, DC, July 12-15, 2012.</p>
 <p>This is <strong>not</strong> a scholarship for university study. Applications not obviously related to the conference will be discarded.</p>
 <p>Applicants: please carefully consider your financial need, that there are limited funds available for sponsorship to attend Wikimania, and that many applicants do not have the financial means to attend Wikimania without this opportunity. Thank you.</p>
-<p>The deadline to apply is <strong>February 15, 2012</strong>.</p>",
+<p>The deadline to apply is <strong>February 16, 2012</strong>.</p>",
 		'form-error' => 'Your form has errors.  Please correct the errors and submit the form again.',
 		'contact-info' => "Contact information",
 		'name-first' => "First (given) Name:",
@@ -52,7 +52,7 @@ $messages['en'] = array(
 		'form-contrib-explain' => "In the space below, please explain the extent and nature of your participation in other free knowledge, free software, collaborative and/or educational initiatives other than the Wikimedia projects.",
 		'form-future-explain' => "In the space below, please explain how and why will attending Wikimania change the way you are involved with the Wikimedia movement in the future.",
 		'form-partial' => "Partial scholarships",
-		'form-partial-explain' => "In addition to the full scholarship option, this year a limited number of <b>partial scholarships</b> are also available to subsidize up to US$300 of travel expenses.",
+		'form-partial-explain' => "In addition to the full scholarship option, this year a limited number of <b>partial scholarships</b> are also available to subsidize up to 300€ (~US$425) of travel expenses.",
 		'form-wantspartial' => "Would you like to be considered for the partial scholarship option?",
 		'form-canpaydiff' => "If I am awarded and accept the partial scholarship, I will pay the remaining amount in order to attend Wikimania 2012.",
 		'form-agree' => "Application agreement",
@@ -130,7 +130,8 @@ Wikimania 2012 organizing team",
 		'footer-faq' => "faq",
 		'footer-credits' => "credits",
 		'footer-privacy' => "privacy",
-		'footer-contact' => "contact"
+		'footer-contact' => "contact",
+		'MONTH_NAMES' =>  array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'),
 );
 
 ?>
