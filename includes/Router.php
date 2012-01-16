@@ -12,25 +12,12 @@ class Router {
 
 	public function route() {
 		global $defaultRoute, $routes, $BASEURL;
-                $req = explode($BASEURL, $_SERVER['REQUEST_URI']);
+		$parts = explode('?', $_SERVER['REQUEST_URI']);
+                $req = explode($BASEURL, $parts[0]);
 
-                if ( isset($req[1] ) ) {
-			$page = $req[1];
-		} else { 
-			$page = null;
-		}
-
-		if ( isset( $req[2] ) ) {
-			$action = $req[2];
-		} else {
-			$action = null;
-		}
-
-		if ( isset( $req[3] ) ) {
-			$action2 = $req[3];
-		} else {
-			$action2 = null;
-		}
+		$page = isset($req[1]) ? $req[1] : null;
+		$action = isset($req[2]) ? $req[2] : null;
+		$action2 = isset($req[3]) ? $req[3] : null;
 
 		$path = '';		
 		if ( strlen( $page ) > 0 ) {

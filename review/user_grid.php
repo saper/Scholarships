@@ -31,7 +31,7 @@ require_once('init.php');
 		<?php foreach ($users as $row): ?>
 		<tr class="<?php echo ($rowstyleeven==1)?"evenrow":"oddrow"; ?>">
 			<td><?= $row['id']; ?></td>
-			<td><a href="view_user.php?id=<?= $row['id'] ?>"><?= $row['username']; ?></a></td>
+			<td><a href="<?php echo $BASEURL; ?>user/view?id=<?= $row['id'] ?>"><?= $row['username']; ?></a></td>
 			<td><?= $row['email']; ?></td>
 			<?php if ($state=="reviewer") { ?><td><?php $outs = $dal->GetCountAllUnscored($row['id']); echo $outs['COUNT(*)']; ?></td><?php
 			 } else { ?><td><?= $row['isvalid']; ?></th><?php } ?>
