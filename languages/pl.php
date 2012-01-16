@@ -6,7 +6,7 @@ $messages['pl'] = array(
 		'text-intro' => "
 <p>To jest wniosek o przyznanie stypendium na udział w konferencji <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, międzynarodowej
 konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, noclegu i kosztów podróży  na konferencję, która odbędzie się w dniach 12-15 lipca w Waszyngtonie.</p>
-<p>To stypendium <strong>nie jest</strong> stypendium naukowym bądź na podjęcie studiów. Wnioski niezwiązane z udziałem w konferencji zostaną odrzucone.</p>
+<p>To stypendium <strong>nie jest</strong> stypendium naukowym ani stypendium na podjęcie studiów. Wnioski niezwiązane z udziałem w konferencji zostaną odrzucone.</p>
 <p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji w przypadku nieotrzymania stypendium. Dziękujemy!</p>
 <p>Termin składania wniosków upływa <strong>15 lutego 2012 roku</strong>.</p>",
 		'form-error' => '<p class="fieldWithErrors">Niektóre pola formularza nie zostały wypełnione właściwie. Prosimy poprawić informację w odpowiednich polach i spróbować wysłać formularz ponownie.</p>',
@@ -25,7 +25,7 @@ konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, 
 		'form-select' => "Proszę wybrać",
 		'form-nationality' => "Narodowość - w jakim kraju został/będzie wydany Twój paszport?: ",
 		'form-passport-number' => "Numer paszportu",
-		'form-passport-explain' => "(Podanie numeru paszportu umożliwia nam udzielenie pomocy w ubieganiu się o wizę).",
+		'form-passport-explain' => "(Podanie numeru paszportu umożliwi nam udzielenie pomocy w ubieganiu się o wizę).",
 		'form-language' => "Język ojczysty (lub języki): ",
 		'form-dateofbirth' => "Data urodzenia: ",
 		'form-gender' => "Płeć: ",
@@ -38,7 +38,7 @@ konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, 
 		'form-attended' => "Czy w poprzednich latach brałeś lub brałaś udział w Wikimanii? Kiedy?",
 		'form-prior-recipient' => "Otrzymałem/otrzymałam poprzednio stypendium na wyjazd na Wikimanię",
 		'form-presenter' => "Zamierzam zgłosić (lub już zgłosiłam/zgłosiłem) propozycję wystąpienia na Wikimanii 2012 (<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Zaproszenie do zgłaszania wystąpień</a>)",
-		'form-howheard' => "Skąd dowiedziałeś się lub dowiedziałaś się o możliwości starania się o stypendium?",
+		'form-howheard' => "Skąd dowiedziałeś lub dowiedziałaś się o możliwości starania się o stypendium?",
 		'form-howheard1' => "lista dyskusyjna / poczta elektroniczna",
 		'form-howheard2' => "strona jednego z projektów Wikimedia (na przykład strona Wikipedii)",
 		'form-howheard3' => "kawiarenka / bar / portal użytkowników jednego z projektów",
@@ -55,12 +55,12 @@ konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, 
 		'form-partial' => "Stypendium na pokrycie części kosztów",
 		'form-partial-explain' => "Oprócz pełnego pokrycia kosztów, mamy w tym roku możliwość przyznania niewielkiej liczby <b>częściowych stypendiów</b>, które pozwalają na dofinansowanie kosztów dojazdu w wysokości do 425 dolarów amerykańskich.",
 		'form-wantspartial' => "Czy możemy brać Twoją kandydaturę pod uwagę przy udzielaniu częściowych stypendiów?",
-		'form-canpaydiff' => "Zobowiązuję się w przypadku otrzymania i przyjęcia częściowego stypendium, że pokryję pozostałe koszty uczestnictwa w Wikimanii 2012.",
+		'form-canpaydiff' => "W przypadku otrzymania i przyjęcia częściowego stypendium zobowiązuję się do pokrycia pozostałych kosztów uczestnictwa w Wikimanii 2012.",
 		'form-agree' => "Zobowiązanie osoby starającej się o stypendium",
-		'form-sincere' => "Oświadczam, że rozumiem w jakim celu składam niniejszy wniosek i mam szczery zamiar uczestniczyć w Wikimanii 2012 w Waszyngtonie. Zobowiązuję się przyznane mi środki zgodnie z przeznaczeniem, jeśli otrzymam i przyjmę stypendium.",
+		'form-sincere' => "Oświadczam, że rozumiem, w jakim celu składam niniejszy wniosek i mam szczery zamiar uczestniczyć w Wikimanii 2012 w Waszyngtonie. Zobowiązuję się wykorzystać przyznane mi środki zgodnie z przeznaczeniem, jeśli otrzymam i przyjmę stypendium.",
 		'form-visa' => "Zobowiązuję się uzyskać właściwą wizę z odpowiednim wyprzedzeniem (prosimy sprawdzić <a href='http://wikimania2012.wikimedia.org/wiki/Visas' target='_blank'>wymagania wizowe w przypadku podróży do Stanów Zjednoczonych</a>).",
-		'form-incidentals' => "Zobowiązuję się pokryć koszta dojazdu do i z lotniska, wyżywienia oraz inne własne wydatki podczas konferencji.",
-		'form-travel-conditions' => "Zobowiązuję się (a) skorzystać z biura podróży rekomendowanego przez Fundację Wikimedia w przypadku pokrycia bezpośredniego przez Fundację moich kosztów podróży albo (b) pokryć koszta podróży w cenie nie wyższej niż zaproponowana przez Fundację Wikimedia, a następnie przedstawić dokumenty potwierdzające poniesione koszty w celu otrzymania ich zwrotu.",
+		'form-incidentals' => "Zobowiązuję się pokryć koszty dojazdu do i z lotniska, wyżywienia oraz inne własne wydatki podczas konferencji.",
+		'form-travel-conditions' => "Zobowiązuję się (a) skorzystać z biura podróży rekomendowanego przez Fundację Wikimedia w przypadku pokrycia bezpośredniego przez Fundację moich kosztów podróży albo (b) pokryć koszty podróży w cenie nie wyższej niż zaproponowana przez Fundację Wikimedia, a następnie przedstawić dokumenty potwierdzające poniesione koszty w celu otrzymania ich zwrotu.",
 		'form-submit-app' => "Złóż wniosek",
 		'form-email-subject' => "Wikimania 2012 - wniosek o stypendium",
 		'form-email-response' =>
