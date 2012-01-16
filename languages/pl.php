@@ -7,7 +7,8 @@ $messages['pl'] = array(
 <p>To jest wniosek o przyznanie stypendium na udział w konferencji <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, międzynarodowej
 konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, noclegu i kosztów podróży  na konferencję, która odbędzie się 12-15 lipca tego roku w Waszyngtonie.</p>
 <p>To stypendium <strong>nie jest</strong> stypendium naukowym bądź na podjęcie studiów. Wnioski nie związane z udziałem w konferencji zostaną odrzucone.</p>
-<p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji, jeśli nie otrzymają stypendium. Dziękujemy!</p>",
+<p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji, jeśli nie otrzymają stypendium. Dziękujemy!</p>
+<p>Termin składania wniosków upływa <strong>15 lutego 2012 roku</strong>.</p>",
 		'form-error' => '<p class="fieldWithErrors">Niektóre pola formularza nie zostały wypełnione właściwie. Prosimy poprawić informację w odpowiednich polach i spróbować wysłać formularz ponownie.</p>',
 		'contact-info' => "Dane kontaktowe",
 		'name-first' => "Imię:",
@@ -23,6 +24,8 @@ konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, 
 		'form-personalinfo' => "Dane osobiste",
 		'form-select' => "Proszę wybrać",
 		'form-nationality' => "Narodowość - w jakim kraju został/będzie wydany Twój paszport?: ",
+		'form-passport-number' => "Numer paszportu",
+		'form-passport-explain' => "(Podanie numeru paszportu umożliwia nam udzielenie pomocy w ubieganiu się o wizę).",
 		'form-language' => "Język ojczysty (lub języki): ",
 		'form-dateofbirth' => "Data urodzenia: ",
 		'form-gender' => "Płeć: ",
@@ -58,7 +61,6 @@ konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, 
 		'form-visa' => "Zobowiązuję się uzyskać właściwą wizę z odpowiednim wyprzedzeniem (prosimy sprawdzić <a href='http://wikimania2012.wikimedia.org/wiki/Visas' target='_blank'>wymagania wizowe w przypadku podróży do Stanów Zjednoczonych</a>).",
 		'form-incidentals' => "Zobowiązuję się pokryć koszta dojazdu do i z lotniska, wyżywienia oraz inne własne wydatki podczas konferencji.",
 		'form-travel-conditions' => "Zobowiązuję się (a) skorzystać z biura podróży rekomendowanego przez Fundację Wikimedia w przypadku pokrycia bezpośredniego przez Fundację moich kosztów podróży albo (b) pokryć koszta podróży w cenie nie wyższej niż zaproponowana przez Fundację Wikimedia, a następnie przedstawić dokumenty potwierdzające poniesione koszty w celu otrzymania ich zwrotu.",
-		'form-review' => "Wnioski będą rozpatrywane przez członków komisji stypendialnej Wikimanii. Komisja stypendialna i Fundacja Wikipedia utrzymują wszystkie dane osobowe w ścisłej tajemnicy.",
 		'form-submit-app' => "Złóż wniosek",
 		'form-email-subject' => "Wikimania 2012 - wniosek o stypendium",
 		'form-email-response' =>
@@ -77,12 +79,7 @@ Komisja stypendialna Wikimanii",
                 'confirm-thanks' => "Serdecznie dziękujemy!",
                 'confirm-text' => "Dziękujemy za przesłanie wniosku o pokrycie kosztów wyjazdu na konferencję Wikimania 2012. W razie ewentualnych pytań prosimy o kontakt pod adresem  <a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a>.",
 		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>Odpowiedzi na zadawane pytania (FAQ)</a>",
-		'text-program-intro' => "<p>To jest wniosek o przyznanie stypendium na udział w konferencji <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, międzynarodowej
-konferencji ruchu Wikimedia. Osoby, którym zostanie przyznane stypendium, będą miały pokryty koszt rejestracji, noclegu i kosztów podróży na konferencję, która odbyła się w tym roku 12-15 lipca w Waszyngtonie.</p>
-<p>To stypendium <strong>nie jest</strong> stypendium naukowym bądź na podjęcie studiów. Wnioski nie związane z udziałem w konferencji będą odrzucone.</p>
-<p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji, jeśli nie otrzymają stypendium. Dziękujemy!</p>",
 		'text-have-submitted-presentation' => "Zgłosiłam/zgłosiłem propozycję prezentacji na Wikimanię 2012 (<a href='http://wikimania2011.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Call for Participation</a>)",
-		'required-field' => "To pole musi być wypełnione",
 		'email-confirm-subject' => "Wikimania 2012 - wniosek o stypendium",
 		'email-confirm-text' =>
 "Niniejszym potwierdzamy otrzymanie Twojego wniosku o pokrycie kosztów wyjazdu na konferencję
@@ -110,7 +107,19 @@ Możesz zmienić hasło korzystając z adresu:  https://secure.wikidc.org/wm/sch
 
 Z poważaniem, 
 Katie Filbert
-Komitet organizacyjny konferencji Wikimania 2012"
+Komitet organizacyjny konferencji Wikimania 2012",
+                'not-open' => "Jeszcze nie można składać wniosków o stypednia.",
+                'deadline-passed' => "<div>Upłynął termin składania wniosków o stypendia.</div>",
+
+		'required-field' => "To pole musi być wypełnione",
+		'form-privacy' => "Zasady zachowania poufności",
+		'form-review' => "Wnioski będą rozpatrywane przez członków komisji stypendialnej Wikimanii. Komisja stypendialna, <a href='http://wikimediafoundation.org/'>Fundacja Wikipedia</a> oraz <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a> utrzymują wszystkie dane osobowe w ścisłej tajemnicy.",
+		'form-chapteragree' => "Proszę wziąć moją kandydaturę pod uwagę podczas przyznawania stypedniów przez <a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>lokalne oddziały Wikimedia</a> i wyrażam zgodę na przekazanie moich danych osobowych oddziałom w celu uzyskania stypendium.",
+		'privacy-page' => "<p>Wnioski będą rozpatrywane przez członków komisji stypendialnej Wikimanii.</p>
+<p>Komisja stypendialna, <a href='http://wikimediafoundation.org/'>Fundacja Wikipedia</a> oraz <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a> utrzymują wszystkie dane osobowe w ścisłej tajemnicy, zgodnie z zasadami zachowania poufności <a href='http://wikimediafoundation.org/wiki/Zasady_zachowania_poufności'>Fundacji Wikimedia</a> oraz <a href='http://wikimediadc.org/wiki/Privacy_polcy'>Wikimedia District of Columbia</a>, jak również z <a href='http://wikimediadc.org/wiki/Record_retention_and_document_destruction_policy'>zasadami gromadzenia i niszczenia dokumentacji</a> Wikimedia District of Columbia.</p>",
+		'credits' => "Podziękowania i prawa autorskie",
+		'credits-page' => "<p>Kod źródłowy oprogramowania do obsługi stypendiów konferencji Wikimania <a href='http://github.com/filbertkm/Scholarships'>jest powszechnie dostępny</a> na warunkach <a href='http://www.gnu.org/copyleft/gpl.html'>GNU General Public License 3.0</a>.</p>
+<p>Oprogramowanie jest oparte na podstawie systemu obsługi stypendiów Wikimanii w latach 2009, 2010 i 2011 i został zmodyfikowany do potrzeb Wikimanii 2012.</p>"
 );
 
 ?>
