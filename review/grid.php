@@ -36,7 +36,7 @@ $rowstyleeven = 0;
 	<?php foreach ($schols as $row): ?>
 	<tr class="<?php echo ($rowstyleeven==1)?"evenrow":"oddrow"; ?>">
 		<td><?= $row['id']; ?></td>
-		<td width=25%><a href="/review/view?id=<?= $row['id'] ?>"><?= $row['fname'] . ' ' . $row['lname']; ?></a></td>
+		<td width=25%><a href="<?php echo $BASEURL; ?>review/view?id=<?= $row['id'] ?>"><?= $row['fname'] . ' ' . $row['lname']; ?></a></td>
 		<td width=20%><?= $row['email']; ?></td>
 		<td width=25%><?= $row['country_name']; ?></td>
 		<td width=8%><?= $row['sex']; ?></td>
