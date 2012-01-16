@@ -155,11 +155,13 @@ if ($submitted != TRUE) {
     }
 ?></select>
 <select id="mm" name="mm">
-    <?php foreach (range(0, 11) as $i)
+    <?php 
+    $month_names = $wgLang->message('MONTH_NAMES');
+    foreach (range(0, 11) as $i)
     if ($values['mm']==$i+1) {
-        printf('<option value="%02d" selected="selected">%s</option>', $i+1, $MONTH_NAMES[$i]);
+        printf('<option value="%02d" selected="selected">%s</option>', $i+1, $month_names[$i]);
     } else {
-        printf('<option value="%02d">%s</option>', $i+1, $MONTH_NAMES[$i]);
+        printf('<option value="%02d">%s</option>', $i+1, $month_names[$i]);
     }
 ?>
 </select>

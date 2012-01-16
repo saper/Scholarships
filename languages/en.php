@@ -130,7 +130,8 @@ Wikimania 2012 organizing team",
 		'footer-faq' => "faq",
 		'footer-credits' => "credits",
 		'footer-privacy' => "privacy",
-		'footer-contact' => "contact"
+		'footer-contact' => "contact",
+		'MONTH_NAMES' =>  array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'),
 );
 
 ?>
