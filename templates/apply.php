@@ -54,7 +54,7 @@ if ($app->success) {?>
 ?>
 <?php 
 if ($app->haserrors) {
-  echo '<div class="errors">';
+  echo '<div class="errorbox">';
   echo $wgLang->formHasErrors('form-error');
   echo '</div>';
 }
@@ -66,8 +66,9 @@ $defaults = array(
         'email' => '',
         'telephone' => '',
         'address' => '',
-        'residence' => 1,
+        'residence' => 0,
 	'haspassport'=> 0,
+	'passportnum' => '',
 	'nationality' => 0,
 	'airport' => '',
 	'language' => '',
@@ -98,7 +99,8 @@ $defaults = array(
 	'willpayincidentals' => 0,
 	'agreestotravelconditions' => 0,
 	'mm' => 1,
-	'dd' => 1
+	'dd' => 1,
+	'chapteragree' => 1
 );
 $values = array_merge( $defaults, $_POST );
 ?>
@@ -107,18 +109,18 @@ if ($submitted != TRUE) {
 ?>
 <?php echo $wgLang->message('text-intro'); ?>
 <div class="faq"><?php echo $wgLang->message('confirm-faq'); ?></div>
-<form action="<?php echo $BASEURL ?>index.php" method="post">
+<form action="<?php echo $BASEURL ?>apply" method="post">
 <label class="required"><?php echo $wgLang->message('required-field');?></label><br/><br/>
 <input type="hidden" name="lang" id="lang" value="<?php echo $lang; ?>" />
 <fieldset>
 <legend><?php echo $wgLang->message('contact-info'); ?></legend>
 <ul id="form-contact-info" class="appform">
-<li><?php echo haserror('fname', $app); ?><label class='required'><?php echo $wgLang->message('name-first'); ?></label> <input type="text" id="fname" name="fname" <?= isset($values['fname'])?'value="' . $values['fname'] . '"':''; ?> /></li>
+<li <?php echo haserror('fname', $app); ?>><label class='required'><?php echo $wgLang->message('name-first'); ?></label> <input type="text" id="fname" name="fname" <?= isset($values['fname'])?'value="' . $values['fname'] . '"':''; ?> /></li>
 <li <?php echo haserror('lname', $app); ?>><label class='required'><?php echo $wgLang->message('name-last'); ?></label> <input type="text" id="lname" name="lname" <?= isset($values['lname'])?'value="' . $values['lname'] . '"':''; ?> /></span></li>
 <li <?php echo haserror('email', $app); ?>><label class='required'><?php echo $wgLang->message('form-email'); ?></label> <input type="text" id="email" name="email" <?= isset($values['email'])?'value="' . $values['email'] . '"':''; ?> /></span></li>
 <li><?php echo $wgLang->message('form-telephone'); ?> <input type="text" id="telephone" name="telephone"  <?= isset($values['telephone'])?'value="' . $values['telephone'] . '"':''; ?> /></li>
 <li><?php echo $wgLang->message('form-mailing-address'); ?><br/><textarea id="address" name="address" cols="40" rows="3" ><?= isset($values['address'])? $values['address']:''; ?></textarea></li> 
-<li><?php echo $wgLang->message('form-country-residence'); ?>
+<li <?php echo haserror('residence', $app); ?>><label class="required"><?php echo $wgLang->message('form-country-residence'); ?></label>
 <select id="residence" name="residence">
     <option><?= $wgLang->message('form-select'); ?></option>
     <?php foreach (range(0, count($COUNTRY_NAMES)-1) as $i)
@@ -137,7 +139,7 @@ if ($submitted != TRUE) {
 <legend><?php echo $wgLang->message('form-personalinfo'); ?></legend>
 <ul class="appform">
 <li><?php echo $wgLang->message('form-haspassport'); ?> <input type="radio" id="haspassport" name="haspassport" value="1" <?= ($values['haspassport']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-yes'); ?> <input type="radio" id="haspassport" name="haspassport" value="0" <?= ($values['haspassport']==0)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-no'); ?></li> 
-<li><?php echo $wgLang->message('form-nationality'); ?>
+<li <?php echo haserror('nationality', $app); ?>><label class="required"><?php echo $wgLang->message('form-nationality'); ?></label>
 <select id="nationality" name="nationality">
     <option><?= $wgLang->message('form-select'); ?></option>
     <?php foreach (range(0, count($COUNTRY_NAMES)-1) as $i)
@@ -148,6 +150,7 @@ if ($submitted != TRUE) {
     }
 ?></select>
 </li>
+<li><?php echo $wgLang->message('form-passport-number'); ?> <input type="text" id="passportnum" name="passportnum" <?= isset($values['passportnum'])?'value="' . $values['passportnum'] . '"':''; ?> /> <?php echo $wgLang->message('form-passport-explain'); ?></li>
 <li><?php echo $wgLang->message('form-airport'); ?> <input type="text" id="airport" name="airport" <?= isset($values['airport'])?'value="' .$values['airport'] . '"':''; ?> /></li>
 <li><?php echo $wgLang->message('form-language'); ?> <input type="text" id="languages" name="languages" <?= isset($values['languages'])?'value="' .$values['languages'] . '"':''; ?> /></li>
 <li><?php echo $wgLang->message('form-dateofbirth'); ?>
@@ -261,12 +264,11 @@ for ( $i = 2012; $i >= $start; $i-- ) {
 <legend><?php echo $wgLang->message('form-privacy'); ?></legend>
 <p><?php echo $wgLang->message('form-review'); ?></p>
 <ul class="appform">
-<li><input type="checkbox" id="chapteragree" name="chapteragree" value="1" /><?php echo $wgLang->message('form-chapteragree'); ?></li>
+<li><input type="radio" id="chapteragree" name="chapteragree" value="1" <?= ($values['chapteragree']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-yes'); ?> <input type="radio" id="chapteragree" name="chapterargree" value="0" <?= ($values['chapteragree']==0)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-no'); ?>&nbsp;&nbsp;-&nbsp;&nbsp;<?php echo $wgLang->message('form-chapteragree');?></li>
 </ul>
 </fieldset>
 
-<div class="faq"><?php echo $wgLang->message('confirm-faq'); ?></div>
-<p><input type="submit" id="submit" name="submit" value="<?php echo $wgLang->message('form-submit-app'); ?>" /></p>
+<input type="submit" id="submit" name="submit" value="<?php echo $wgLang->message('form-submit-app'); ?>" />
 </fieldset>
 </form>
 <?php 
@@ -274,4 +276,5 @@ for ( $i = 2012; $i >= $start; $i-- ) {
 
 }
 ?>
+<br clear="all" />
 <?php include( 'footer.php' ); ?>

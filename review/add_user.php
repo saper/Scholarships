@@ -3,9 +3,8 @@ require_once('init.php');
 
 session_start();
 
-if (!isset($_SESSION['user_id']))
-{
-	header('location: login.php');
+if (!isset($_SESSION['user_id'])) {
+	header('location: ' . $BASEURL . 'user/login');
 	exit();
 }
 
@@ -52,7 +51,7 @@ if (isset($_POST['save'])) {
 } else {
 
 ?>
-<form method="post" action="add_user.php">
+<form method="post" action="<?php echo $BASEURL; ?>user/add">
 <h1>Add new user</h1>
 <?
 } ?>
@@ -61,25 +60,18 @@ $isadmin = $dal->IsSysAdmin($_SESSION['user_id']);
 if ($isadmin == 1) { 
 $randpass = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$^&*~?/><01234567890123456789',9)),0,9);
 ?>
-<fieldset><input type="hidden" name="id" id="id"
-	value="" /> <input type="hidden" name="formstate"
-	id="formstate" value="new" />
-
-<p>Username: <input type="text" name="username" id="username"
-	value="" /></p>
-<p>Password: <input type="text" name="password" id="password"
-	value="<?php echo $randpass; ?>" /></p>
-<p>Email: <input type="text" name="email" id="email"
-	value=""/ ></p>
-<p>Is Reviewer?: <input type="checkbox" name="reviewer" id="reviewer"
-	value="1" /></p>
-<p>Is Valid?: <input type="checkbox" name="isvalid" id="isvalid"
-	value="1" /></p>
-<p>Is Admin?: <input type="checkbox" name="isadmin" id="isadmin"
-	value="1" /></p>
+<fieldset>
+<input type="hidden" name="id" id="id" value="" /> 
+<input type="hidden" name="formstate" id="formstate" value="new" />
+<p>Username: <input type="text" name="username" id="username" value="" /></p>
+<p>Password: <input type="text" name="password" id="password" value="<?php echo $randpass; ?>" /></p>
+<p>Email: <input type="text" name="email" id="email" value=""/ ></p>
+<p>Is Reviewer?: <input type="checkbox" name="reviewer" id="reviewer" value="1" /></p>
+<p>Is Valid?: <input type="checkbox" name="isvalid" id="isvalid" value="1" /></p>
+<p>Is Admin?: <input type="checkbox" name="isadmin" id="isadmin" value="1" /></p>
 </fieldset>
-<input type="submit" id="save" name="save" value="Save"
-	style="width: 10em" /></form>
+<input type="submit" id="save" name="save" value="Save" />
+</form>
 <?php 
 } else {
   print "Permission denied for this page.";

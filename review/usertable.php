@@ -28,7 +28,7 @@ $uname = $_GET['user'];
 <head>
 	<meta http-equiv="Content-language" content="en-us"/>
 	<meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8"/>
-	<title>Wikimania 2011 Scholarships</title>
+	<title>Wikimania 2012 Scholarships</title>
 	<link rel="stylesheet" type="text/css" href="/global.css"/>
 	<link rel="stylesheet" type="text/css" href="/attendee.css"/>
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>

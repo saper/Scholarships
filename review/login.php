@@ -8,7 +8,9 @@ require_once('init.php');
 		if (md5($_POST['password']) == $res['password']) {
 			session_start();
 			$_SESSION['user_id'] = $res['id'];
-			header('location: grid.php');
+			print $res['id'];
+			header('location: ' . $BASEURL . 'review/grid');
+			print 'login';
 			exit();
 		}
 		else {
@@ -17,7 +19,7 @@ require_once('init.php');
 	}
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
-	<form method="post" action="login.php">
+	<form method="post" action="<?php echo $BASEURL; ?>user/login" >
 	<h1>Log in</h1>
 	<?php if (isset($error)) print "<p>" . $error . "</p>\n"; ?>
 	<fieldset>

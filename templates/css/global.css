@@ -45,8 +45,7 @@ a:link {
 }
 
 a:hover {
-	background-color: #ffff00;
-	color: black;
+	color: #0082C0;
 }
 
 a#banner {
@@ -66,27 +65,32 @@ div#draft {
 }
 
 /* application form */
+div#footer,
 div#langbar {
   padding: 1em 1em 0 1em;
   border: none;
   text-align: right;
 }
 
+ul#footerlinks,
 ul.langlist {
   list-style: none;
   padding-left: 0;
 }
 
+ul#footerlinks li,
 ul.langlist li {
   display: inline;
   margin: 0;
 }
 
+ul#footerlinks li:after,
 ul.langlist li:after {
  content: '·';
  padding: 0 .5em;
 }
 
+ul#footerlinks li.last:after,
 ul.langlist li.last:after {
  content: '';
 }
@@ -119,17 +123,21 @@ ul.single li {
 }
 
 /* WTF, Rails */
-p.fieldWithErrors {
+.fieldWithErrors,
+.fieldWithErrors label {
         color: #AA0000;
         font-weight: bold;
 }
 
-p.fieldWithErrors input, p.fieldWithErrors select, p.fieldWithErrors textarea {
+.fieldWithErrors input, .fieldWithErrors select, .fieldWithErrors textarea {
 	border: 1px solid red;
 }
 
+div.errorbox,
 div.errorExplanation {
-	border: 1px solid red;
+	color: #AA0000;
+	font-weight: bold;
+	border: 1px solid #AA0000;
 }
 
 ul.hnav {
@@ -196,4 +204,13 @@ border: 1px solid darkblue;
 
 #appresponse {
   margin-bottom: 6em;
+}
+
+#submit { 
+  float: left;
+  margin: 1.5em;
+}
+
+div#contact p {
+  text-align: center;
 }

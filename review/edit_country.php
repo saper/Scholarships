@@ -5,14 +5,14 @@ session_start();
 
 if (!isset($_SESSION['user_id']))
 {
-	header('location: login.php');
+	header('location: ' . $BASEURL . 'user/login');
 	exit();
 }
 
 $user_id = $_SESSION['user_id'];
 $dal = new DataAccessLayer();
 
-if ($_GET['id']) {
+if (isset( $_GET['id']) ) {
 	$id = $_GET['id'];
 } else {
 	$id = $_POST['id'];
@@ -28,11 +28,12 @@ $country = $dal->GetCountryInfo($id);
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
 
-<form method="post" action="edit_country.php">
+<form method="post" action="<?php echo $BASEURL; ?>review/country/edit">
 <h1>Edit Country Info</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
-<div style="align: center; font-size: 0.84em;"><a
-	href="country_grid.php">Return to country grid</a></div>
+<div id="country-grid-return">
+<a href="<?php echo $BASEURL; ?>review/country/grid">Return to country grid</a>
+</div>
 <fieldset><input type="hidden" name="id" id="id"
 	value="<?= $country['id'] ?>" />
 <p><span style="font-size: 150%">ID: <strong><?= $country['id'] ?></strong></span></p>

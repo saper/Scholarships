@@ -5,7 +5,7 @@ require_once('init.php');
 
 	if (!isset($_SESSION['user_id']))
 	{
-		header('location: login.php');
+		header('location: ' . $BASEURL . 'user/login');
 		exit();
 	}
 	

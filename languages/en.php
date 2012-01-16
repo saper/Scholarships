@@ -6,7 +6,8 @@ $messages['en'] = array(
 		'text-intro' => "
 <p>This is the application for sponsorship to attend <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, Wikimedia's international conference. Awardees will receive a scholarship to pay for registration, hotel, and roundtrip travel to Wikimania in Washington, DC, July 12-15, 2012.</p>
 <p>This is <strong>not</strong> a scholarship for university study. Applications not obviously related to the conference will be discarded.</p>
-<p>Applicants: please carefully consider your financial need, that there are limited funds available for sponsorship to attend Wikimania, and that many applicants do not have the financial means to attend Wikimania without this opportunity. Thank you.</p>",
+<p>Applicants: please carefully consider your financial need, that there are limited funds available for sponsorship to attend Wikimania, and that many applicants do not have the financial means to attend Wikimania without this opportunity. Thank you.</p>
+<p>The deadline to apply is <strong>February 15, 2012</strong>.</p>",
 		'form-error' => 'Your form has errors.  Please correct the errors and submit the form again.',
 		'contact-info' => "Contact information",
 		'name-first' => "First (given) Name:",
@@ -22,6 +23,8 @@ $messages['en'] = array(
 		'form-personalinfo' => "Personal information",
 		'form-select' => "Please select",
 		'form-nationality' => "Nationality (Who has issued/will issue your passport?): ",
+		'form-passport-number' => "Passport number",
+		'form-passport-explain' => "(If you need a visa, this enables us to help with the visa process.)",
 		'form-language' => "Primary language(s): ",
 		'form-dateofbirth' => "Date of birth: ",
 		'form-gender' => "Gender: ",
@@ -57,7 +60,6 @@ $messages['en'] = array(
 		'form-visa' => "If I am awarded and accept a grant, I will be responsible for obtaining a travel visa, if necessary, prior to travel (please see <a href='https://wikimania2012.wikimedia.org/wiki/Visas' alt='Visa requirements'>visa requirements</a> for travel to the United States).",
 		'form-incidentals' => "If I am awarded and accept a grant, I will be responsible for the cost of airport transfer, incidentals, and meals during the conference.",
 		'form-travel-conditions' => "If I am awarded and accept a grant, I agree to either a) use the travel booking service recommended by the Wikimedia Foundation, and paid for directly by the Wikimedia Foundation; or b) book my own travel at or below the cost estimate provided by the Wikimedia Foundation, and provide a receipt to the Wikimedia Foundation in order to be reimbursed for the exact cost.",
-		'form-review' => "All information contained in this application will be reviewed by the members of the Wikimania Scholarships Program Committee. All personal information will be held strictly confidential by the Committee and the Wikimedia Foundation.",
 		'form-submit-app' => "Submit application",
 		'form-email-subject' => "Wikimania 2012 scholarship applications",
 		'form-email-response' =>
@@ -108,7 +110,17 @@ Wikimania 2012 Organizing Team",
 		'deadline-passed' => "<div>Scholarship application deadline has passed.</div>",
 		'required-field' => "Required field",
 		'form-privacy' => "Privacy",
-		'form-chapteragree' => "I would like to be considered for a chapter scholarship, and understand the information in the application will be shared with my <a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>local chapter</a> (if applicable) for purposes of awarding scholarships."
+                'form-review' => "All information contained in this application will be reviewed by the members of the Wikimania Scholarships Program Committee. All personal information will be held strictly confidential by the Committee, the <a href='http://wikimediafoundation.org'>Wikimedia Foundation</a>, and <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a>.",
+		'form-chapteragree' => "I would like to be considered for a <a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>Wikimedia chapter</a> scholarship, and agree to share my information with chapters for purpose of selecting and awarding scholarships.",
+		'privacy-page' => "<p>All information submitted in scholarship applications will be reviewed by the members of the Wikimania Scholarships Program Committee.</p>
+<p>All personal information will be held strictly confidential by the Committee, the <a href='http://wikimediafoundation.org'>Wikimedia Foundation</a>, and <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a>, in accordance to the Wikimedia Foundation <a href='http://wikimediafoundation.org/wiki/Privacy_policy'>privacy policy</a> and Wikimedia District of Columbia <a href='http://wikimediadc.org/wiki/Privacy_polcy'>privacy</a> and <a href='http://wikimediadc.org/wiki/Record_retention_and_document_destruction_policy'>Record retention and document destruction policy</a>, respectively.</p>",
+		'contact-us' => "Contact us",
+		'contact-page' => "Email: wikimania-scholarships@wikimedia.org",
+		'credits' => "Credits & licensing",
+		'credits-page' => "<p>The Wikimania scholarships software is open source and <a href='http://github.com/filbertkm/Scholarships'>available</a> under the <a href='http://www.gnu.org/copyleft/gpl.html'>GNU General Public License 3.0</a>.</p>
+
+<p>The code is based on the Wikimania scholarships system used for Wikimania 2009, 2010 and 2011 and modified for use for Wikimania 2012.</p>"
+
 );
 
 ?>
