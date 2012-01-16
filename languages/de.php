@@ -4,7 +4,7 @@ $messages['de'] = array(
 		'header-title' => "Wikimania 2012 - Stipendien",
 		'page-header' => "Bewerbung für ein Stipendium zur Teilnahme an Wikimania 2012",
 		'text-intro' => "
-<p>Dies ist die Bewerbung für finanzielle Unterstützung um an der <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, der internationalen Wikimedia Konferenz, teilnehmen zu können. Die Stipendiaten erhalten ein Stipendium für die Registrierungsgebühren, Übernachtung sowie Hin- und Rückreise zur Wikimania in Washington, D.C., am 12. bis 24. Juli 2012. Dies ist <strong>kein</strong> Stipendium für ein Hochschulstudium. Bewerbungen die offensichtlich nicht im Zusammenhang mit der Konferenz stehen werden verworfen.</p>
+<p>Dies ist die Bewerbung für finanzielle Unterstützung um an der <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, der internationalen Wikimedia Konferenz, teilnehmen zu können. Die Stipendiaten erhalten ein Stipendium für die Registrierungsgebühren, Übernachtung sowie Hin- und Rückreise zur Wikimania in Washington, D.C., am 12. bis 15. Juli 2012. Dies ist <strong>kein</strong> Stipendium für ein Hochschulstudium. Bewerbungen die offensichtlich nicht im Zusammenhang mit der Konferenz stehen werden verworfen.</p>
 <p>Bewerber: Bitte überdenken Sie Ihre finanzielle Lage bevor Sie sich um ein Stipendium bemühen. Die vorhandenen Geldmittel um Unterstützung zu gewähren sind begrenzt und viele Menschen werden ohne diese nicht an der Wikimania teilnehmen können.</p>",
 		'form-error' => '<p class="fieldWithErrors">Es sind Fehler im Formular. Bitte korrigieren Sie diese und übermitteln Sie Ihre Daten erneut.</p>',
 		'contact-info' => "Kontaktinformationen",
@@ -52,7 +52,7 @@ $messages['de'] = array(
 		'form-wantspartial' => "Möchten Sie bei der Vergabe der Teil-Stipendien berücksichtigt werden?",
 		'form-canpaydiff' => "Wenn ich ein Teil-Stipendium erhalte und annehme werde ich den Restbetrag zur Teilname an der Wikimania 2012 selbst bezahlen.",
 		'form-agree' => "Bewerbungsübereinkunft",
-		'form-sincere' => "Ich habe den Sinn dieser Bewerbung verstanden und ein ernsthaftes Interesse daran die Wikimania 2012 in Haifa, Israel, zu besuchen. Sollte ich ein Stipendium erhalten und annehmen, werde ich es zu diesem Zweck verwenden.",
+		'form-sincere' => "Ich habe den Sinn dieser Bewerbung verstanden und ein ernsthaftes Interesse daran die Wikimania 2012 in Washington, D.C., zu besuchen. Sollte ich ein Stipendium erhalten und annehmen, werde ich es zu diesem Zweck verwenden.",
 		'form-visa' => "Wenn ich ein Stipendium erhalte und annehme bin ich selbst dafür verantwortlich falls nötig rechtzeitig ein Visum zur Einreise nach Israel zu beantragen (Informationen zu den<a href='http://wikimania2012.wikimedia.org/wiki/Visas' target='_blank'>Einreisebestimmungen</a>).",
 		'form-incidentals' => "Wenn ich ein Stipendium erhalte und annehme muss ich selbst für die Kosten für den Flughafentransfer, Verpflegung und weitere Nebenkosten aufkommen.",
 		'form-travel-conditions' => "Wenn ich ein Stipendium erhalte und annehme bin damit einverstanden, dass entweder a) ich den von der Wikimedia Foundation empfohlene Reisebuchungsservice der direkt durch die Wikimedia Foundation bezahlt wird oder b) meine Reise selbst zu gleichen oder niedrigeren Kosten buche und nach Vorlage der Belege die tatsächlichen Auslagen rückerstattet bekomme.",
