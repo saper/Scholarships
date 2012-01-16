@@ -115,7 +115,12 @@ Wikimania 2012 Organizing Team",
 		'privacy-page' => "<p>All information submitted in scholarship applications will be reviewed by the members of the Wikimania Scholarships Program Committee.</p>
 <p>All personal information will be held strictly confidential by the Committee, the <a href='http://wikimediafoundation.org'>Wikimedia Foundation</a>, and <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a>, in accordance to the Wikimedia Foundation <a href='http://wikimediafoundation.org/wiki/Privacy_policy'>privacy policy</a> and Wikimedia District of Columbia <a href='http://wikimediadc.org/wiki/Privacy_polcy'>privacy</a> and <a href='http://wikimediadc.org/wiki/Record_retention_and_document_destruction_policy'>Record retention and document destruction policy</a>, respectively.</p>",
 		'contact-us' => "Contact us",
-		'contact-page' => "Email: wikimania-scholarships@wikimedia.org"
+		'contact-page' => "Email: wikimania-scholarships@wikimedia.org",
+		'credits' => "Credits & licensing",
+		'credits-page' => "<p>The Wikimania scholarships software is open source and <a href='http://github.com/filbertkm/Scholarships'>available</a> under the <a href='http://www.gnu.org/copyleft/gpl.html'>GNU General Public License 3.0</a>.</p>
+
+<p>The code is based on the Wikimania scholarships system used for Wikimania 2009, 2010 and 2011 and modified for use for Wikimania 2012.</p>"
+
 );
 
 ?>
