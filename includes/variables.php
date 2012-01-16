@@ -28,14 +28,14 @@ $FIELDS = array(
 	"presentation",
 	"howheard",
 	"why",
-/*	"future", */
+	"future", 
 	"username",
 	"project",
 	"projectlangs",
 	"involvement",
 	"contribution",
-/*	"wantspartial", */
-/*	"canpaydiff", */
+	"wantspartial", 
+	"canpaydiff", 
 	"sincere",
 	"willgetvisa",
 	"willpayincidentals",

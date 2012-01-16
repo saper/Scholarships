@@ -7,7 +7,7 @@ class Lang {
 
 	function __construct() {
 		$this->loadMessages();
-		$this->lang = 'pl';
+		$this->lang = 'en';
 	}
 
 	function langDir() {
@@ -54,11 +54,15 @@ class Lang {
 
 
 	public function message( $key ) {
-        	return $this->messages[$this->lang][$key];
+		if (isset( $this->messages[$this->lang][$key] ) ) {
+	        	return $this->messages[$this->lang][$key];
+		} else {
+			return $this->messages['en'][$key];
+		}
 	}
 
 	public function formHasErrors( $key ) {
-		return "<span class='fieldWithErrors'>" . $this->message( $key ). "</span";
+		return "<span class='fieldWithErrors'>" . $this->message( $key ). "</span>";
 	}
 
 }

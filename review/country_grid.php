@@ -5,7 +5,7 @@ session_start();
 
 if (!isset($_SESSION['user_id']))
 {
-	header('location: login.php');
+	header('location: ' . $BASEURL . 'user/login');
 	exit();
 }
 
@@ -20,7 +20,7 @@ $rowstyleeven = 0;
 <form method="post" action="grid.php">
 <h1>Applications</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
-<table style="width: 100%">
+<table id="country-grid" style="width: 100%">
 	<tr>
 		<th>id</th>
 		<th>country name</th>
@@ -30,7 +30,7 @@ $rowstyleeven = 0;
 	<?php foreach ($users as $row): ?>
 	<tr class="<?php echo ($rowstyleeven==1)?"evenrow":"oddrow"; ?>">
 		<td><?= $row['id']; ?></td>
-		<td><a href="edit_country.php?id=<?= $row['id'] ?>"><?= $row['country_name']; ?></a></td>
+		<td><a href="<?php echo $BASEURL; ?>review/country/edit?id=<?= $row['id'] ?>"><?= $row['country_name']; ?></a></td>
 		<td><?= $row['country_rank']; ?></td>
 		<td><?= $row['sid']; ?></td>
 	</tr>

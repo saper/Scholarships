@@ -10,4 +10,11 @@
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 </head>
 <body>
-<h1><a id="banner" href="http://wikimania2012.wikimedia.org/" title="Wikimania 2012"><img src="<?php echo $TEMPLATEBASE;?>images/wm2012banner.png" alt="Wikimania 2012"/></a></h1>
+<div id="langbar">
+<ul class="langlist">
+<li><a href="<?php echo $BASEURL; ?>?uselang=en">en</a></li>
+<li><a href="<?php echo $BASEURL; ?>?uselang=pl">pl</a></li>
+<li class="last"><a href="<?php echo $BASEURL; ?>translate">help translate</a></li>
+</ul>
+</div>
+<h1><a id="banner" href="<?php echo $BASEURL; ?>" title="Wikimania 2012"><img src="<?php echo $TEMPLATEBASE;?>images/wm2012banner.png" alt="Wikimania 2012"/></a></h1>

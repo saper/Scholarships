@@ -45,8 +45,7 @@ a:link {
 }
 
 a:hover {
-	background-color: #ffff00;
-	color: black;
+	color: #0082C0;
 }
 
 a#banner {
@@ -58,10 +57,6 @@ a#banner img {
 	border: none;
 }
 
-/* .description {
-	font-size: smaller;
-} */
-
 /* draft, sample */
 div#draft {
 	color: #AA0000;
@@ -69,18 +64,80 @@ div#draft {
 	padding: 1em;
 }
 
+/* application form */
+div#footer,
+div#langbar {
+  padding: 1em 1em 0 1em;
+  border: none;
+  text-align: right;
+}
+
+ul#footerlinks,
+ul.langlist {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul#footerlinks li,
+ul.langlist li {
+  display: inline;
+  margin: 0;
+}
+
+ul#footerlinks li:after,
+ul.langlist li:after {
+ content: '·';
+ padding: 0 .5em;
+}
+
+ul#footerlinks li.last:after,
+ul.langlist li.last:after {
+ content: '';
+}
+
+div.faq {
+  text-align: center;
+  border: none;
+}
+
+div.faq a {
+  text-decoration: none;
+  padding: .5em 1em;
+  font-weight: bold;
+}
+
+ul.appform {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+ul.appform li {
+  list-style-type: none;
+  vertical-align: middle;
+  margin: .8em 0;
+}
+
+ul.single li {
+  margin: .4em 0;
+}
+
 /* WTF, Rails */
-p.fieldWithErrors {
+.fieldWithErrors,
+.fieldWithErrors label {
         color: #AA0000;
         font-weight: bold;
 }
 
-p.fieldWithErrors input, p.fieldWithErrors select, p.fieldWithErrors textarea {
+.fieldWithErrors input, .fieldWithErrors select, .fieldWithErrors textarea {
 	border: 1px solid red;
 }
 
+div.errorbox,
 div.errorExplanation {
-	border: 1px solid red;
+	color: #AA0000;
+	font-weight: bold;
+	border: 1px solid #AA0000;
 }
 
 ul.hnav {
@@ -114,18 +171,17 @@ tr.evenrow {
 }
 
 
-.notice 
-{
-	border-style:solid;
-	border-color: black;
+div.notice {
+	border: none;
 	background-color: #ff6666;
 	width: 95%;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	padding: .2em;
 	text-align: center;
-	font-size: 150%;
-	margin: auto;
+	font-size: 125%;
+	color: #303030;
+	margin: 1.7em auto;
 	line-height: 1.5em;
 }
 
@@ -148,4 +204,13 @@ border: 1px solid darkblue;
 
 #appresponse {
   margin-bottom: 6em;
+}
+
+#submit { 
+  float: left;
+  margin: 1.5em;
+}
+
+div#contact p {
+  text-align: center;
 }

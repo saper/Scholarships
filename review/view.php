@@ -1,6 +1,10 @@
 <?php
 require_once('init.php');
 
+if ( !isset( $phase ) ) {
+	$phase = 1;
+}
+
 function YearsOld($date) {
 	$start = new DateTime($date);
 	$diff = $start->diff( new DateTime( strftime( '%Y-%m-%d' ) ) );
@@ -69,9 +73,8 @@ function RankDropdownList($criterion,$scholarship_id) {
 
 session_start();
 
-if (!isset($_SESSION['user_id']))
-{
-	header('location: login.php');
+if (!isset($_SESSION['user_id'])) {
+	header('location: ' . $BASEURL . 'user/login');
 	exit();
 }
 
@@ -88,7 +91,7 @@ $dal = new DataAccessLayer();
 $username = $dal->GetUsername($_SESSION['user_id']);
 
 if (isset($_POST['rank'])) {
-	$CRITERIA = array('onwiki', 'offwiki', 'future'); //, 'special');
+	$CRITERIA = array('valid','onwiki', 'offwiki', 'future'); //, 'special');
 	foreach ($CRITERIA as $c)
 	if (isset($_POST[$c]))
 	$dal->InsertOrUpdateRanking($user_id, $_POST['last_id'], $c, $_POST[$c]);
@@ -130,11 +133,20 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 		}
 </script>
 
-<form method="post" action="view.php">
+<form method="post" action="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>">
 <h1>View application</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
 <div id="application-view">
-<table id="rank-box">
+
+<div id="rank-box">
+<h4>Rankings</h4>
+<table>
+<?php if ( $phase == 1 ): ?>
+	<tr>
+		<td>Valid:</td>
+		<td><?= RankDropdownList('valid',$schol['id']) ?></td>
+	</tr>
+<?php else: ?>
 	<tr>
 		<td>Future promise:</td>
 		<td><?= RankDropdownList('future',$schol['id']) ?></td>
@@ -147,6 +159,7 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 		<td>Outside Wikimedia movement:</td>
 		<td><?= RankDropdownList('offwiki',$schol['id']) ?></td>
 	</tr>
+<?php endif; ?>
 	<tr>
 		<td>&nbsp;</td>
 		<td><input type="submit" id="rank" name="rank" value="Rank"/></td>
@@ -285,8 +298,9 @@ if ( ( strtotime( $schol['dob'] ) > strtotime( '1875-01-01' ) ) &&
 <fieldset><legend>Scorings</legend> 
 <?php 
 if (count($scorings) > 0) {
+print "<ul>";
   foreach ($scorings as $r) {
-    print $r['username'] . ' voted';
+   print "<li>" . $r['username'] . ' voted - ' . $r['criterion'] . ' : ' . $r['rank'];
     /*sprintf('%+d', $r['rank'])*/
 /*for <?= $r['criterion'] ?></p>
 <?php endforeach; else: ?>
@@ -294,6 +308,7 @@ if (count($scorings) > 0) {
 <?php endif; ?>
 */
   }
+  print "</ul>";
 }
 ?>
 </fieldset>

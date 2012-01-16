@@ -3,9 +3,8 @@ require_once('init.php');
 
 	session_start();
 
-	if (!isset($_SESSION['user_id']))
-	{
-		header('location: login.php');
+	if (!isset($_SESSION['user_id'])) {
+		header('location: ' . $BASEURL . 'user/login');
 		exit();
 	}
 
@@ -17,7 +16,7 @@ require_once('init.php');
         $rowstyleeven = 0;
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
-	<form method="post" action="grid.php">
+	<form method="post" action="<?php echo $BASEURL; ?>review/grid">
 	<h1>Applications</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
 	<table style="width: 100%">
@@ -31,7 +30,7 @@ require_once('init.php');
 		<?php foreach ($users as $row): ?>
 		<tr class="<?php echo ($rowstyleeven==1)?"evenrow":"oddrow"; ?>">
 			<td><?= $row['id']; ?></td>
-			<td><a href="view_user.php?id=<?= $row['id'] ?>"><?= $row['username']; ?></a></td>
+			<td><a href="<?php echo $BASEURL; ?>user/view?id=<?= $row['id'] ?>"><?= $row['username']; ?></a></td>
 			<td><?= $row['email']; ?></td>
 			<?php if ($state=="reviewer") { ?><td><?php $outs = $dal->GetCountAllUnscored($row['id']); echo $outs['COUNT(*)']; ?></td><?php
 			 } else { ?><td><?= $row['isvalid']; ?></th><?php } ?>

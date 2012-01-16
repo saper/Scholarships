@@ -3,9 +3,8 @@ require_once('init.php');
 
 session_start();
 
-if (!isset($_SESSION['user_id']))
-{
-	header('location: login.php');
+if (!isset($_SESSION['user_id'])) {
+	header('location: ' . $BASEURL . 'user/login');
 	exit();
 }
 
@@ -27,7 +26,7 @@ if (isset($_POST['save'])) {
 		$answers[$i] = mysql_real_escape_string($_POST[$i]);
 	}
 	if ($_POST['formstate']=='new') {
-		$answers['password'] = sha1($_POST['password']);
+		$answers['password'] = md5($_POST['password']);
 		$id = $dal->NewUserCreate($answers);
 	} else {
 		$dal->UpdateUserInfo($answers,$_POST['id']);
@@ -40,7 +39,7 @@ $user = $dal->GetUserInfo($id);
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
 
-<form method="post" action="view_user.php">
+<form method="post" action="<?php echo $BASEURL; ?>user/view">
 <h1>View User Info</h1>
 <?php include "$BASEDIR/templates/admin_nav.php";
  $isadmin =
@@ -65,7 +64,7 @@ $dal->IsSysAdmin($_SESSION['user_id']); if ($isadmin == 1) { ?>
 <p>Is Admin?: <input type="checkbox" name="isadmin" id="isadmin"
 	value="1" <?= $user['isadmin']==1?'checked="checked"':''; ?> /></p>
 </fieldset>
-<input type="submit" id="save" name="save" value="Save"
-	style="width: 10em" /></form>
+<input type="submit" id="save" name="save" value="Save" style="width: 10em" />
+</form>
 <?php } ?>
 <?php include "$BASEDIR/templates/footer.php" ?>

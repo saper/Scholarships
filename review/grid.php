@@ -5,7 +5,7 @@ session_start();
 
 if (!isset($_SESSION['user_id']))
 {
-	header('location: login.php');
+	header('location: ' . $BASEURL . 'user/login');
 	exit();
 }
 
@@ -17,7 +17,7 @@ $schols = $dal->GetPhase1GridData($min, $max);
 $rowstyleeven = 0;
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
-<form method="post" action="grid.php">
+<form method="post" action="<?php echo $BASEURL; ?>review/grid">
 <h1>Applications</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
 <table style="width: 100%">
@@ -36,7 +36,7 @@ $rowstyleeven = 0;
 	<?php foreach ($schols as $row): ?>
 	<tr class="<?php echo ($rowstyleeven==1)?"evenrow":"oddrow"; ?>">
 		<td><?= $row['id']; ?></td>
-		<td width=25%><a href="view.php?id=<?= $row['id'] ?>"><?= $row['fname'] . ' ' . $row['lname']; ?></a></td>
+		<td width=25%><a href="<?php echo $BASEURL; ?>review/view?id=<?= $row['id'] ?>"><?= $row['fname'] . ' ' . $row['lname']; ?></a></td>
 		<td width=20%><?= $row['email']; ?></td>
 		<td width=25%><?= $row['country_name']; ?></td>
 		<td width=8%><?= $row['sex']; ?></td>

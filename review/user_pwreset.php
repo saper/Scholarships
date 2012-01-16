@@ -3,9 +3,8 @@ require_once('init.php');
 
 	session_start();
 
-	if (!isset($_SESSION['user_id']))
-	{
-		header('location: login.php');
+	if (!isset($_SESSION['user_id'])) {
+		header('location: ' . $BASEURL . 'user/login');
 		exit();
 	}
 
@@ -48,7 +47,7 @@ require_once('init.php');
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
 
-	<form method="post" action="user_pwreset.php">
+	<form method="post" action="<?php echo $BASEURL; ?>user/password/reset">
 	<h1>View User Info</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
 	
