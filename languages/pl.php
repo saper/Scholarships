@@ -117,9 +117,22 @@ Komitet organizacyjny konferencji Wikimania 2012",
 		'form-chapteragree' => "Proszę wziąć moją kandydaturę pod uwagę podczas przyznawania stypedniów przez <a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>lokalne oddziały Wikimedia</a> i wyrażam zgodę na przekazanie moich danych osobowych oddziałom w celu uzyskania stypendium.",
 		'privacy-page' => "<p>Wnioski będą rozpatrywane przez członków komisji stypendialnej Wikimanii.</p>
 <p>Komisja stypendialna, <a href='http://wikimediafoundation.org/'>Fundacja Wikipedia</a> oraz <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a> utrzymują wszystkie dane osobowe w ścisłej tajemnicy, zgodnie z zasadami zachowania poufności <a href='http://wikimediafoundation.org/wiki/Zasady_zachowania_poufności'>Fundacji Wikimedia</a> oraz <a href='http://wikimediadc.org/wiki/Privacy_polcy'>Wikimedia District of Columbia</a>, jak również z <a href='http://wikimediadc.org/wiki/Record_retention_and_document_destruction_policy'>zasadami gromadzenia i niszczenia dokumentacji</a> Wikimedia District of Columbia.</p>",
+                'contact-us' => "Napisz do nas",
+                'contact-page' => "Nasz adres email: wikimania-scholarships@wikimedia.org",
 		'credits' => "Podziękowania i prawa autorskie",
 		'credits-page' => "<p>Kod źródłowy oprogramowania do obsługi stypendiów konferencji Wikimania <a href='http://github.com/filbertkm/Scholarships'>jest powszechnie dostępny</a> na warunkach <a href='http://www.gnu.org/copyleft/gpl.html'>GNU General Public License 3.0</a>.</p>
-<p>Oprogramowanie jest oparte na podstawie systemu obsługi stypendiów Wikimanii w latach 2009, 2010 i 2011 i został zmodyfikowany do potrzeb Wikimanii 2012.</p>"
+<p>Oprogramowanie jest oparte na podstawie systemu obsługi stypendiów Wikimanii w latach 2009, 2010 i 2011 i został zmodyfikowany do potrzeb Wikimanii 2012.</p>",
+		'help-translate' => "Przetłumacz na swój język",
+		'translate-page' => "<p>Chcielibyśmy, aby system obsługi stypendiów był dostępny w innych językach.</p>
+
+<p>Kod źródłowy systemu oraz pliki z tłumaczeniami <a href='http://github.com/filbertkm/Scholarships'>są dostępne w serwisie github</a>, i tam można zgłaszać przetłumaczone teksty.</p>
+
+<p>Thank you!<br/>
+Wikimania 2012 organizing team",
+		'footer-faq' => "często zadawane pytania",
+		'footer-credits' => "podziękowania i prawa autorskie",
+		'footer-privacy' => "zasady zachowania poufnosci",
+		'footer-contact' => "napisz do nas"
 );
 
 ?>
