@@ -22,7 +22,7 @@ if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
 <ul class="langlist">
 <li><a href="<?php echo $BASEURL; ?>?uselang=en">en</a></li>
 <li><a href="<?php echo $BASEURL; ?>?uselang=pl">pl</a></li>
-<li class="last"><a href="<?php echo $BASEURL; ?>translate">help translate</a></li>
+<li class="last"><a href="<?php echo $BASEURL; ?>translate"><?= $wgLang->message('help-translate') ?></a></li>
 </ul>
 </div>
 <h1><a id="banner" href="<?php echo $BASEURL; ?>" title="Wikimania 2012"><img src="<?php echo $TEMPLATEBASE;?>images/wm2012banner.png" alt="Wikimania 2012"/></a></h1>
