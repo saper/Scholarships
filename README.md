@@ -1,14 +1,12 @@
 # Sample .htaccess file
 
 ```
-DirectoryIndex index.php
-
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /wm/schols/index.php [L]
+RewriteRule .* index.php/$0 [PT]
 </IfModule>
 ```
 
@@ -27,4 +25,4 @@ Create includes/config.php, based on config.sample.php, filling in database cred
 * [:pl:User:Magalia](http://pl.wikipedia.org/wiki/User:Magalia "Magalia")
 
 ##License
-GNU GPL 3.0
+[GNU GPL 3.0](www.gnu.org/copyleft/gpl.html "GNU GPL 3.0")
