@@ -20,8 +20,8 @@ if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
 <body>
 <div id="langbar">
 <ul class="langlist">
-<li><a href="<?php echo $BASEURL; ?>?uselang=en">en</a></li>
-<li><a href="<?php echo $BASEURL; ?>?uselang=pl">pl</a></li>
+<li><a href="<?php echo $basepath; ?>?uselang=en">en</a></li>
+<li><a href="<?php echo $basepath; ?>?uselang=pl">pl</a></li>
 <li class="last"><a href="<?php echo $BASEURL; ?>translate"><?= $wgLang->message('help-translate') ?></a></li>
 </ul>
 </div>
