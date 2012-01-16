@@ -4,7 +4,7 @@ $messages['de'] = array(
 		'header-title' => "Wikimania 2012 - Stipendien",
 		'page-header' => "Bewerbung für ein Stipendium zur Teilnahme an Wikimania 2012",
 		'text-intro' => "
-<p>Dies ist die Bewerbung für finanzielle Unterstützung um an der <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, der internationalen Wikimedia Konferenz, teilnehmen zu können. Die Stipendiaten erhalten ein Stipendium für die Registrierungsgebühren, Übernachtung sowie Hin- und Rückreise zur Wikimania in Haifa, Israel, am 4. bis 7. August 2011. Dies ist <strong>kein</strong> Stipendium für ein Hochschulstudium. Bewerbungen die offensichtlich nicht im Zusammenhang mit der Konferenz stehen werden verworfen.</p>
+<p>Dies ist die Bewerbung für finanzielle Unterstützung um an der <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, der internationalen Wikimedia Konferenz, teilnehmen zu können. Die Stipendiaten erhalten ein Stipendium für die Registrierungsgebühren, Übernachtung sowie Hin- und Rückreise zur Wikimania in Washington, D.C., am 12. bis 24. Juli 2012. Dies ist <strong>kein</strong> Stipendium für ein Hochschulstudium. Bewerbungen die offensichtlich nicht im Zusammenhang mit der Konferenz stehen werden verworfen.</p>
 <p>Bewerber: Bitte überdenken Sie Ihre finanzielle Lage bevor Sie sich um ein Stipendium bemühen. Die vorhandenen Geldmittel um Unterstützung zu gewähren sind begrenzt und viele Menschen werden ohne diese nicht an der Wikimania teilnehmen können.</p>",
 		'form-error' => '<p class="fieldWithErrors">Es sind Fehler im Formular. Bitte korrigieren Sie diese und übermitteln Sie Ihre Daten erneut.</p>',
 		'contact-info' => "Kontaktinformationen",
