@@ -119,8 +119,18 @@ Wikimania 2012 Organizing Team",
 		'credits' => "Credits & licensing",
 		'credits-page' => "<p>The Wikimania scholarships software is open source and <a href='http://github.com/filbertkm/Scholarships'>available</a> under the <a href='http://www.gnu.org/copyleft/gpl.html'>GNU General Public License 3.0</a>.</p>
 
-<p>The code is based on the Wikimania scholarships system used for Wikimania 2009, 2010 and 2011 and modified for use for Wikimania 2012.</p>"
+<p>The code is based on the Wikimania scholarships system used for Wikimania 2009, 2010 and 2011 and modified for use for Wikimania 2012.</p>",
+		'help-translate' => "Help translate",
+		'translate-page' => "<p>We would like the scholarship application system translated in as many languages as possible.</p>
 
+<p>The code and language files are <a href='http://github.com/filbertkm/Scholarships'>on github</a>, and you can submit translations there.</p>
+
+<p>Thank you!<br/>
+Wikimania 2012 organizing team",
+		'footer-faq' => "faq",
+		'footer-credits' => "credits",
+		'footer-privacy' => "privacy",
+		'footer-contact' => "contact"
 );
 
 ?>
