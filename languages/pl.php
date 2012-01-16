@@ -131,14 +131,9 @@ Komitet organizacyjny Wikimanii 2012",
 Komitet organizacyjny Wikimanii 2012",
 		'footer-faq' => "Najczęściej zadawane pytania",
 		'footer-credits' => "Podziękowania i prawa autorskie",
-<<<<<<< HEAD
 		'footer-privacy' => "Zasady zachowania poufności",
-		'footer-contact' => "Napisz do nas"
-=======
-		'footer-privacy' => "Zasady zachowania poufnosci",
 		'footer-contact' => "Napisz do nas",
                 'MONTH_NAMES' =>  array('stycznia','lutego','marca','kwietnia','maja','czerwca','lutego','sierpnia','września','października','listopada','grudnia')
->>>>>>> 63bb114106ccd47b30045ed6b0d7fc362bf2ac05
 );
 
 ?>
