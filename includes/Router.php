@@ -15,6 +15,8 @@ class Router {
 		$parts = explode('?', $_SERVER['REQUEST_URI']);
                 $mainreq = explode($BASEURL, $parts[0]);
 		$req = explode('/', $mainreq[1]);
+		if ($req[0] == "index.php")
+			array_shift($req);
 
 		$page = isset($req[0]) ? $req[0] : null;
 		$action = isset($req[1]) ? $req[1] : null;
