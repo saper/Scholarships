@@ -78,7 +78,7 @@ Z pozdrowieniami,
 Komisja stypendialna Wikimanii",
                 'confirm-thanks' => "Serdecznie dziękujemy!",
                 'confirm-text' => "Dziękujemy za przesłanie wniosku o pokrycie kosztów wyjazdu na konferencję Wikimania 2012. W razie ewentualnych pytań prosimy o kontakt pod adresem  <a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a>.",
-		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>Odpowiedzi na zadawane pytania (FAQ)</a>",
+		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>Pytania i odpowiedzi (FAQ)</a>",
 		'text-have-submitted-presentation' => "Zgłosiłam/zgłosiłem propozycję prezentacji na Wikimanię 2012 (<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Call for Participation</a>)",
 		'email-confirm-subject' => "Wikimania 2012 - wniosek o stypendium",
 		'email-confirm-text' =>
