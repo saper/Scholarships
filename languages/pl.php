@@ -131,7 +131,7 @@ Komitet organizacyjny Wikimanii 2012",
 Komitet organizacyjny Wikimanii 2012",
 		'footer-faq' => "Najczęściej zadawane pytania",
 		'footer-credits' => "Podziękowania i prawa autorskie",
-		'footer-privacy' => "Zasady zachowania poufnosci",
+		'footer-privacy' => "Zasady zachowania poufności",
 		'footer-contact' => "Napisz do nas"
 );
 
