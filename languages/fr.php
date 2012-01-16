@@ -34,7 +34,7 @@ Toute demande n'étant pas directement en relation avec la conférence sera igno
 		'form-interest' => "Intéret et engagement pour Wikimania",
 		'form-attended' => "Avez-vous déjà participé à Wikimania auparavant ? Si oui, quelle(s) année(s) ?",
 		'form-prior-recipient' => "I am a prior recipient of a Wikimania travel grant / scholarship.",
-		'form-presenter' => "J'ai ou je vais proposer une présentation pour Wikimania 2012 (<a href='http://wikimania2011.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Appel à participation</a>)",
+		'form-presenter' => "J'ai ou je vais proposer une présentation pour Wikimania 2012 (<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Appel à participation</a>)",
 		'form-howheard' => "Comment avez-vous pris connaissance de cette opportunité ?",
 		'form-howheard1' => "Liste de diffusion / courriel",
 		'form-howheard2' => "Site Web d'un projet de Wikimedia (Wikipedia inclu)",
@@ -54,7 +54,7 @@ Toute demande n'étant pas directement en relation avec la conférence sera igno
 		'form-wantspartial' => "Êtes-vous intéressé(e) par une bourse complémentaire ?",
 		'form-canpaydiff' => "Si je suis récipiendaire d'une bourse complémentaire et l'accepte, je m'engage à payer les frais restant pour assister à Wikimania 2012.",
 		'form-agree' => "Contrat",
-		'form-sincere' => "Je comprend l'objet de cette demande de bourse et j'ai sincèrement l'objectif d'assister à Wikimania 2012 à Haïfa, Israël. Si je suis récipiendaire d'une bourse et l'accepte, je m'engage à l'utiliser dans le cadre de Wikimania 2011.",
+		'form-sincere' => "Je comprend l'objet de cette demande de bourse et j'ai sincèrement l'objectif d'assister à Wikimania 2012 à Haïfa, Israël. Si je suis récipiendaire d'une bourse et l'accepte, je m'engage à l'utiliser dans le cadre de Wikimania 2012.",
 		'form-visa' => "Si je suis récipiendaire d'une bourse et l'accepte, je m'engage à obtenir un visa, si nécessaire avant le voyage (veuillez vous informer sur les formalités nécessaires pour entrer en Israël, <a href='http://wikimania2012.wikimedia.org/wiki/Visas' target='_blank'>ici</a>).",
 		'form-incidentals' => "Si je suis récipiendaire d'une bourse et l'accepte, je suis responsable pour les coûts de transfert depuis l'aéroport et autres coût annexes (comme les repas) durant la conférence.",
 		'form-travel-conditions' => "Si je suis récipiendaire d'une bourse et l'accepte, Je m'engage à a) utiliser le service de réservation de voyages recommandé par la Fondation Wikimédia, et payé directement par la Foundation Wikimédia ; ou b) réserver mon voyage personnellement, pour au maximum l'estimation de prix fournie par la Foundation Wikimédia, et fournir une preuve d'achat afin d'obtenir le remboursement du coût exact.",
@@ -80,7 +80,7 @@ The Wikimania scholarship team",
 "<h1>Merci!</h1>
 <div><p>Merci pour vôtre demande de bourse pour Wikimania 2012. Contactez <a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a> pour toute question relative à vôtre candidature.</p></div>",
 		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>Foire Aux Questions</a>",
-		'text-have-submitted-presentation' => "J'ai soumis une présentation pour Wikimania 2012 (<a href='http://wikimania2011.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Appel à participation</a>)",
+		'text-have-submitted-presentation' => "J'ai soumis une présentation pour Wikimania 2012 (<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>Appel à participation</a>)",
 		'email-confirm-subject' => "Programme de bourses pour Wikimania 2012",
 		'email-confirm-text' =>
 "Nous vous confirmons la réception de vôtre demande de bourse pour voyager et assiter à Wikimania 2012. 
