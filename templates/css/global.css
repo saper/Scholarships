@@ -58,15 +58,64 @@ a#banner img {
 	border: none;
 }
 
-/* .description {
-	font-size: smaller;
-} */
-
 /* draft, sample */
 div#draft {
 	color: #AA0000;
 	border: solid 1px #AA0000;
 	padding: 1em;
+}
+
+/* application form */
+div#langbar {
+  padding: 1em 1em 0 1em;
+  border: none;
+  text-align: right;
+}
+
+ul.langlist {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.langlist li {
+  display: inline;
+  margin: 0;
+}
+
+ul.langlist li:after {
+ content: '·';
+ padding: 0 .5em;
+}
+
+ul.langlist li.last:after {
+ content: '';
+}
+
+div.faq {
+  text-align: center;
+  border: none;
+}
+
+div.faq a {
+  text-decoration: none;
+  padding: .5em 1em;
+  font-weight: bold;
+}
+
+ul.appform {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+ul.appform li {
+  list-style-type: none;
+  vertical-align: middle;
+  margin: .8em 0;
+}
+
+ul.single li {
+  margin: .4em 0;
 }
 
 /* WTF, Rails */
@@ -114,18 +163,17 @@ tr.evenrow {
 }
 
 
-.notice 
-{
-	border-style:solid;
-	border-color: black;
+div.notice {
+	border: none;
 	background-color: #ff6666;
 	width: 95%;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	padding: .2em;
 	text-align: center;
-	font-size: 150%;
-	margin: auto;
+	font-size: 125%;
+	color: #303030;
+	margin: 1.7em auto;
 	line-height: 1.5em;
 }
 
