@@ -22,5 +22,9 @@ Create includes/config.php, based on config.sample.php, filling in database cred
 * Wikimania 2010 Gdansk organizing team
 * Wikimania 2009 Buenos Aires organizing team
 
+###Translations
+* [:pl:User:Saper](http://pl.wikipedia.org/wiki/User:Saper "Saper")
+* [:pl:User:Magalia](http://pl.wikipedia.org/wiki/User:Magalia "Magalia")
+
 ##License
 GNU GPL 3.0
