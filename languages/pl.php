@@ -5,10 +5,10 @@ $messages['pl'] = array(
 		'page-header' => "Wniosek o przyznanie stypendium na Wikimanię 2012",
 		'text-intro' => "
 <p>To jest wniosek o przyznanie stypendium na udział w konferencji <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, międzynarodowej
-konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, noclegu i kosztów podróży  na konferencję, która odbędzie się w dniach 12-15 lipca w Waszyngtonie.</p>
-<p>To stypendium <strong>nie jest</strong> stypendium naukowym bądź na podjęcie studiów. Wnioski niezwiązane z udziałem w konferencji zostaną odrzucone.</p>
-<p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji w przypadku nieotrzymania stypendium. Dziękujemy!</p>
-<p>Termin składania wniosków upływa <strong>15 lutego 2012 roku</strong>.</p>",
+konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, noclegu i kosztów podróży  na konferencję, która odbędzie się 12-15 lipca tego roku w Waszyngtonie.</p>
+<p>To stypendium <strong>nie jest</strong> stypendium naukowym bądź na podjęcie studiów. Wnioski nie związane z udziałem w konferencji zostaną odrzucone.</p>
+<p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji, jeśli nie otrzymają stypendium. Dziękujemy!</p>
+<p>Termin składania wniosków upływa <strong>16 lutego 2012 roku</strong>.</p>",
 		'form-error' => '<p class="fieldWithErrors">Niektóre pola formularza nie zostały wypełnione właściwie. Prosimy poprawić informację w odpowiednich polach i spróbować wysłać formularz ponownie.</p>',
 		'contact-info' => "Dane kontaktowe",
 		'name-first' => "Imię:",
