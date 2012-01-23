@@ -67,7 +67,7 @@ class Application {
 				die('Could not select DB: ' . mysql_error());
 			}
 
-                       $colnames = array("fname", "lname", "email", "telephone", "address", "residence", "nationality", "haspassport", "passportnum", "airport", "languages", "sex", "occupation", "areaofstudy", "wm05", "wm06", "wm07", "wm08", "wm09", "wm10", "wm11", "presentation", "howheard", "why", "username", "project", "projectlangs", "involvement", "contribution", "sincere", "willgetvisa", "willpayincidentals", "agreestotravelconditions", "chapteragree", "wantspartial", "canpaydiff", "dob", "rank");
+                       $colnames = array("fname", "lname", "email", "telephone", "address", "residence", "nationality", "haspassport", "passportnum", "airport", "languages", "sex", "occupation", "areaofstudy", "wm05", "wm06", "wm07", "wm08", "wm09", "wm10", "wm11", "presentation", "howheard", "why", "username", "project", "projectlangs", "involvement", "future", "contribution", "sincere", "willgetvisa", "willpayincidentals", "agreestotravelconditions", "chapteragree", "wantspartial", "canpaydiff", "dob", "rank");
 
 			foreach ($colnames as $i) {
 				if ( ( isset( $data[$i] ) ) and ( ( $i == 'residence' ) or ( $i == 'nationality' ) ) ) {
