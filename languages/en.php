@@ -30,6 +30,7 @@ $messages['en'] = array(
 		'form-gender' => "Gender: ",
 		'form-gender-male' => "Male",
 		'form-gender-female' => "Female",
+		'form-gender-transgender' => "Transgender",
 		'form-gender-unspecified' => "Decline to State",
 		'form-occupation' => "Occupation (if professional): ",
 		'form-study' => "Area of study (if student): ",

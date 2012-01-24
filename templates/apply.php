@@ -179,6 +179,7 @@ for ( $i = 2012; $i >= $start; $i-- ) {
 	<select id="sex" name="sex">
 		<option value="m" <?= ($values['sex']=='m')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-gender-male'); ?></option>
 		<option value="f" <?= ($values['sex']=='f')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-gender-female'); ?></option>
+		<option value="t" <?= ($values['sex']=='t')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-gender-transgender'); ?></option>
 		<option value="d" <?= ($values['sex']=='d')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-gender-unspecified'); ?></option>
 	</select>
 </li>

@@ -18,6 +18,8 @@ function Sex($sex) {
 			return $wgLang->message('form-gender-male');
 		case 'f':
 			return $wgLang->message('form-gender-female');
+		case 't': 
+			return $wgLang->message('form-gender-transgender');
 		default:
 			return $wgLang->message('form-gender-unspecified');
 	}
