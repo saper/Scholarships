@@ -8,7 +8,7 @@ $messages['pl'] = array(
 konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, noclegu i kosztów podróży  na konferencję, która odbędzie się w dniach 12-15 lipca w Waszyngtonie.</p>
 <p>To stypendium <strong>nie jest</strong> stypendium naukowym ani stypendium na podjęcie studiów. Wnioski niezwiązane z udziałem w konferencji zostaną odrzucone.</p>
 <p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji w przypadku nieotrzymania stypendium. Dziękujemy!</p>
-<p>Termin składania wniosków upływa <strong>15 lutego 2012 roku</strong>.</p>",
+<p>Termin składania wniosków upływa <strong>16 lutego 2012 roku o godz. 01:00</strong> (godz. 00:00 UTC).</p>",
 		'form-error' => '<p class="fieldWithErrors">Niektóre pola formularza nie zostały wypełnione właściwie. Prosimy poprawić informację w odpowiednich polach i spróbować wysłać formularz ponownie.</p>',
 		'contact-info' => "Dane kontaktowe",
 		'name-first' => "Imię:",
