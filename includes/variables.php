@@ -196,7 +196,9 @@ $COUNTRY_NAMES = array("Unspecified",
 		"Zimbabwe",
 		"Taiwan (Republic of China)",
 		"Hong Kong",
-		"Macao");
+		"Macao",
+		"Palestinian Territories",
+		"Other");
 
 $COUNTRY_NAMES_CHAPTERS = array("Austria", "Germany", "Switzerland");
 

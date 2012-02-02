@@ -14,9 +14,13 @@ class Router {
 		global $defaultRoute, $routes, $BASEURL;
 		$parts = explode('?', $_SERVER['REQUEST_URI']);
                 $mainreq = explode($BASEURL, $parts[0]);
-		$req = explode('/', $mainreq[1]);
-		if ($req[0] == "index.php")
+	
+		$reqjoin = join($mainreq, '/');
+		$req = explode('/', $reqjoin);
+
+		if ( ( $req[0] == "index.php" ) || ( strlen($req[0]) < 1 ) ) {
 			array_shift($req);
+		}
 
 		$page = isset($req[0]) ? $req[0] : null;
 		$action = isset($req[1]) ? $req[1] : null;
@@ -26,6 +30,7 @@ class Router {
 		if ( strlen( $page ) > 0 ) {
 			$path = $path . $page;
 		}
+
 		if ( strlen( $action ) > 0 ) {
 			$path = $path . '/' . $action;
 		}
@@ -36,7 +41,7 @@ class Router {
 
 		if ( $this->isValid( $path ) ) {
 			return $routes[$path];
-		} elseif ( $page == 'review' ) {
+		} elseif ( ( $page == 'review' ) || ( $page == 'user' ) ) {
 			return $routes['user/login'];
 		} else {
 			return $defaultRoute;
