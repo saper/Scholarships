@@ -70,7 +70,7 @@ $messages['ja'] = array(
 
 あなたのスカラーシップに関する決定は、全ての申し込みの確認と点数付けが終了次第、通知します。
 
-質問がある場合は、wikimania-scholarships@wikimedia.org までご連絡ください。
+質問がある場合は、 wikimania-scholarships@wikimedia.org までご連絡ください。
 
 ウィキマニアスカラーシップチーム",
                 'confirm-thanks' => "ありがとうございました！",
