@@ -1,136 +1,135 @@
 <?php
 
 $messages['ja'] = array(
-		'header-title' => "�E�B�L�}�j�A2012 - �X�J���[�V�b�v�\������",
-		'page-header' => "�E�B�L�}�j�A2012�ɎQ�����邽�߂̃X�J���[�V�b�v�\��",
+		'header-title' => "ウィキマニア2012 - スカラーシップ申し込み",
+		'page-header' => "ウィキマニア2012に参加するためのスカラーシップ申請",
 		'text-intro' => "
-<p>����́A�E�B�L���f�B�A�̍��ۉ�c�u<a href='http://wikimania2012.wikimedia.org'>�E�B�L�}�j�A2012</a>�v�ւ̎Q���Ɋւ���⏕�\���ł��B</p>
-<p>�X�J���[�V�b�v�ł́A2012�N7��12������15���܂Ń��V���g���ŊJ�����E�B�L�}�j�A�ւ̎Q����A�h�����ь�ʔ�x������܂��B</p>
-<p>����́A��w�ł̕׋��Ɋւ��鏧�w���ł�<strong>����܂���</strong>�B���炩�ɃE�B�L�}�j�A�Ɋ֘A���Ȃ��\�����݂͖�������܂��B</p>
-<p>�\�����݂�����ցF�{���ɍ����I�⏕���K�v���ǂ����������Ă��������B�E�B�L�}�j�A�ɎQ�����邽�߂̕⏕�Ɋւ��鎑���͌����Ă���A��������̐l�������⏕�Ȃ��ł̓E�B�L�}�j�A�ɎQ���ł��܂���B���肪�Ƃ��������܂��B</p>
-<p>�\�����݊�����<strong>2012�N2��16��</strong>�ł��B</p>",
-		'form-error' => '�t�H�[���Ɍ�肪����܂��B�����C�����ēx���M���Ă��������B',
-		'contact-info' => "�A������",
-		'name-first' => "���O�i�t�@�[�X�g�l�[���j�F",
-		'name-last' => "�����i���X�g�l�[���j�F",
-		'form-email' => "�d�q���[���A�h���X",
-		'form-telephone' => "�d�b�ԍ��i���ԍ����܂ށj�F",
-		'form-mailing-address' => "�Z���F",
-		'form-country-residence' => "���Z���F ",
-		'form-haspassport' => "���݃p�X�|�[�g�������Ă��܂����H",
-		'form-yes' => "�͂�",
-		'form-no' => "������",
-		'form-airport' => "�Ŋ��̍��ۋ�`�F",
-		'form-personalinfo' => "�l���",
-		'form-select' => "�I�����Ă�������",
-		'form-nationality' => "���Ёi���Ȃ��̃p�X�|�[�g�𔭍s����Ƃ���j�F ",
-		'form-passport-number' => "�p�X�|�[�g�ԍ��F",
-		'form-passport-explain' => "�i����́A�r�U���K�v�ȏꍇ�ɂ��̐\����⏕����̂ɕK�v�ł��j",
-		'form-language' => "��ꌾ��i�����j�F ",
-		'form-dateofbirth' => "�a�����F",
-		'form-gender' => "���ʁF",
-		'form-gender-male' => "�j",
-		'form-gender-female' => "��",
-		'form-gender-transgender' => "�g�����X�W�F���_�[",
-		'form-gender-unspecified' => "�ǂ�ɂ��Y�����Ȃ�",
-		'form-occupation' => "�E��i���Ƃ̏ꍇ�j�F",
-		'form-study' => "��啪��i�w���̏ꍇ�j�F",
-		'form-interest' => "�E�B�L�}�j�A�ւ̊֐S�Ɗ֗^",
-		'form-attended' => "�ȑO�ɃE�B�L�}�j�A�ɎQ���������Ƃ͂���܂����H����ꍇ�A����͉��N�̃E�B�L�}�j�A�ł������H",
-		'form-prior-recipient' => "�ȑO�ɂ��E�B�L�}�j�A�ւ̓n�q�⏕�E�X�J���[�V�b�v���󂯎�������Ƃ�����܂��B",
-		'form-presenter' => "�E�B�L�}�j�A2012�ł̔��\�ɐ\�����݂܂���/�\�����ޗ\��ł��i<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>���\�\��</a>�j",
-		'form-howheard' => "���̐\�����ǂ��Œm��܂������H",
-		'form-howheard1' => "���[�����O���X�g/�d�q���[��",
-		'form-howheard2' => "�E�B�L���f�B�A�E�v���W�F�N�g�̃E�F�u�T�C�g�i�E�B�L�y�f�B�A�Ȃǁj",
-		'form-howheard3' => "��˒[/�J�t�F/�R�~���j�e�B�[�|�[�^��",
-		'form-howheard4' => "���R�~",
-		'form-howheard5' => "���̑�",
-		'form-enrichment' => "�ȉ��̃X�y�[�X�ŁA���Ȃ����E�B�L�}�j�A2012�ɎQ�����邱�ƂŁA�ǂ̂悤�ɉ�c���ǂ��Ȃ�̂��ɂ��Đ������Ă��������B",
-		'form-participation' => "�E�B�L���f�B�A�v���W�F�N�g�ւ̎Q��",
-		'form-username' => "�ł��Q�����Ă���E�B�L���f�B�A�v���W�F�N�g�ł̗��p�Җ��F",
-		'form-primary-project' => "�ł��Q�����Ă���E�B�L���f�B�A�E�v���W�F�N�g�i�E�B�L�y�f�B�A�B�E�B�L���f�B�A�E�R�����Y�Ȃǁj�F",
-		'form-lang-version' => "�E�B�L���f�B�A�̂ǂ̌���ł���Ԏg�p���܂����H",
-		'form-extent-explain' => "�ȉ��̃X�y�[�X�ŁA���Ȃ����E�B�L���f�B�A�v���W�F�N�g�ɂǂ͈̔͂łǂ̂悤�Ȋ��������Ă���̂��������Ă��������i�n�拦��ɏ������Ă��܂����H�Ǘ��҂ł����H�ҏW���͒����ł����H�G��ȋL���̒��҂ł����H���i���ȉ摜�𓊍e���Ă��܂����H�Ȃǁj",
-		'form-contrib-explain' => "�ȉ��̃X�y�[�X�ŁA�E�B�L���f�B�A�v���W�F�N�g�ȊO�̎��R�Ȓm�����L��t���[�\�t�g�E�F�A�A������Ƃł̋���I�C�j�V�A�`�u�ւ̎Q���ɂ��Đ������Ă��������B",
-		'form-future-explain' => "�ȉ��̃X�y�[�X�ŁA�ǂ̂悤��/�Ȃ��E�B�L�}�j�A�ւ̎Q�����A���Ȃ��̏����̃E�B�L���f�B�A�^���ւ̊֗^��ς���̂��ɂ��Đ������Ă��������B",
-		'form-partial' => "�����I�X�J���[�V�b�v",
-		'form-partial-explain' => "���S�X�J���[�V�b�v�ɉ����A���N�͌�ʔ�̏����300���[���i���悻380�ăh���A3���~�j��<b>�����I�X�J���[�V�b�v</b>���I���\�ł��B",
-		'form-wantspartial' => "�����I�X�J���[�V�b�v�ɂ��\�����݂܂����H",
-		'form-canpaydiff' => "���������I�X�J���[�V�b�v�����^�����ꍇ�A���̓E�B�L�}�j�A2012�֎Q�����邽�߂̎c��̔�p���x�����܂��B",
-		'form-agree' => "�\�����݂Ɋւ��铯��",
-		'form-sincere' => "���͂��̐\���̖ړI�𗝉����A���V���g��DC�ł̃E�B�L�}�j�A2012�ւ̎Q���ɖ{���ɋ���������܂��B�⏕���󂯎�邱�Ƃ��ł����ꍇ�A���͂�������̖ړI�̂��߂Ɏg�p���܂��B",
-		'form-visa' => "�⏕���󂯎�邱�Ƃ��ł����ꍇ�A�K�v�ȏꍇ�A���͓n�q�r�U�i�������\���؁j�𗷍s�O�ɐӔC�������Ď擾���܂��i�A�����J���O���ւ̗��s�̂��߂�<a href='https://wikimania2012.wikimedia.org/wiki/Visas' alt='�r�U�v��'>�r�U�v��</a>���Q�Ɓj�B",
-		'form-incidentals' => "�⏕���󂯎�邱�Ƃ��ł����ꍇ�A���͉�c���̋�`�ւ̌�ʔ�A�G��A�H��Ȃǂ�ӔC�������Ďx�����܂��B",
-		'form-travel-conditions' => "�⏕���󂯎�邱�Ƃ��ł����ꍇ�A����a)�E�B�L���f�B�A���c���������闷�s�\��T�[�r�X���g�p����p�𒼐ڎx�����Ab)�������g�ŃE�B�L���f�B�A���c�ɂ���p���ς�ȉ��ŗ\�񂵕⏕���󂯎�邽�߂ɗ̎������o����A�̂ǂ��炩�ɓ��ӂ��܂��B",
-		'form-submit-app' => "�\���𑗐M",
-		'form-email-subject' => "�E�B�L�}�j�A2012�X�J���[�V�b�v�\��",
+<p>これは、ウィキメディアの国際会議「<a href='http://wikimania2012.wikimedia.org'>ウィキマニア2012</a>」への参加するための補助申請です。スカラーシップでは、2012年7月12日から15日までワシントンDCで開かれるウィキマニアへの参加費、宿泊費および交通費が支給されます。</p>
+<p>これは、大学での勉強に関する奨学金では<strong>ありません</strong>。明らかにウィキマニアに関連しない申し込みは無視されます。</p>
+<p>申し込みする方へ：本当に財政的補助が必要かどうか検討してください。ウィキマニアに参加するための補助に関する資金は限られており、たくさんの人たちが補助なしではウィキマニアに参加できません。ありがとうございます。</p>
+<p>申し込み期限は<strong>2012年2月16日</strong>です。</p>",
+		'form-error' => 'フォームに誤りがあります。誤りを修整し再度送信してください。',
+		'contact-info' => "連絡先情報",
+		'name-first' => "名前（ファーストネーム）：",
+		'name-last' => "名字（ラストネーム）：",
+		'form-email' => "電子メールアドレス",
+		'form-telephone' => "電話番号（国番号を含む）：",
+		'form-mailing-address' => "住所：",
+		'form-country-residence' => "居住国： ",
+		'form-haspassport' => "現在パスポートを持っていますか？",
+		'form-yes' => "はい",
+		'form-no' => "いいえ",
+		'form-airport' => "最寄りの国際空港：",
+		'form-personalinfo' => "個人情報",
+		'form-select' => "選択してください",
+		'form-nationality' => "国籍（あなたのパスポートを発行するところ）： ",
+		'form-passport-number' => "パスポート番号：",
+		'form-passport-explain' => "（これは、ビザが必要な場合にその申請を補助するのに必要です）",
+		'form-language' => "第一言語（複数可）： ",
+		'form-dateofbirth' => "誕生日：",
+		'form-gender' => "性別：",
+		'form-gender-male' => "男",
+		'form-gender-female' => "女",
+		'form-gender-transgender' => "トランスジェンダー",
+		'form-gender-unspecified' => "どれにも該当しない",
+		'form-occupation' => "職種（専門家の場合）：",
+		'form-study' => "専門分野（学生の場合）：",
+		'form-interest' => "ウィキマニアへの関心と関与",
+		'form-attended' => "以前にウィキマニアに参加したことはありますか？ある場合、それは何年のウィキマニアでしたか？",
+		'form-prior-recipient' => "以前にもウィキマニアへの渡航補助・スカラーシップを受け取ったことがあります。",
+		'form-presenter' => "ウィキマニア2012での発表に申し込みました/申し込む予定です（<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>発表申込</a>）",
+		'form-howheard' => "この申請をどこで知りましたか？",
+		'form-howheard1' => "メーリングリスト/電子メール",
+		'form-howheard2' => "ウィキメディア・プロジェクトのウェブサイト（ウィキペディアなど）",
+		'form-howheard3' => "井戸端/カフェ/コミュニティーポータル",
+		'form-howheard4' => "口コミ",
+		'form-howheard5' => "その他",
+		'form-enrichment' => "以下のスペースで、あなたがウィキマニア2012に参加することで、どのように会議が良くなるのかについて説明してください。",
+		'form-participation' => "ウィキメディアプロジェクトへの参加",
+		'form-username' => "最も参加しているウィキメディアプロジェクトでの利用者名：",
+		'form-primary-project' => "最も参加しているウィキメディア・プロジェクト（ウィキペディア、ウィキメディア・コモンズなど）：",
+		'form-lang-version' => "ウィキメディアのどの言語版を一番使用しますか？（複数可）",
+		'form-extent-explain' => "以下のスペースで、あなたがウィキメディアプロジェクトにどの範囲でどのような活動をしているのか説明してください（地域協会に所属していますか？管理者ですか？編集歴は長いですか？秀逸な記事の著者ですか？高品質な画像を投稿していますか？など）",
+		'form-contrib-explain' => "以下のスペースで、ウィキメディアプロジェクト以外の自由な知識共有やフリーソフトウェア、共同作業での教育的イニシアチブへの参加について説明してください。",
+		'form-future-explain' => "以下のスペースで、ウィキマニアへの参加が、どのように/何故あなたの将来のウィキメディア運動への関与を変えるのかについて説明してください。",
+		'form-partial' => "部分的スカラーシップ",
+		'form-partial-explain' => "完全スカラーシップに加え、今年は交通費の上限が300ユーロ（およそ380米ドル、3万円）の<b>部分的スカラーシップ</b>も選択可能です。",
+		'form-wantspartial' => "部分的スカラーシップにも申し込みますか？",
+		'form-canpaydiff' => "もし部分的スカラーシップが授与される場合、私はウィキマニア2012へ参加するための残りの費用を支払います。",
+		'form-agree' => "申し込みに関する同意",
+		'form-sincere' => "私はこの申込の目的を理解し、ワシントンDCでのウィキマニア2012への参加に本当に興味があります。補助を受け取ることができた場合、私はそれをこの目的のために使用します。",
+		'form-visa' => "補助を受け取ることができた場合、必要な場合、私は渡航ビザ（入国許可申請証）を旅行前に責任をもって取得します（アメリカ合衆国への旅行のための<a href='https://wikimania2012.wikimedia.org/wiki/Visas' alt='ビザ要件'>ビザ要件</a>も参照）。",
+		'form-incidentals' => "補助を受け取ることができた場合、私は会議中の空港への交通費、雑費、食費などを責任をもって支払います。",
+		'form-travel-conditions' => "補助を受け取ることができた場合、私はa)ウィキメディア財団が推奨する旅行予約サービスを使用し費用を直接支払う、b)自分自身でウィキメディア財団による費用見積り以下の費用で予約し補助を受け取るために領収書を提出する、のどちらかに同意します。",
+		'form-submit-app' => "申請を送信",
+		'form-email-subject' => "ウィキマニア2012スカラーシップ申請",
 		'form-email-response' =>
-"$1�l
+"$1様
 
-����́A�E�B�L�}�j�A2012�̃X�J���[�V�b�v�\���̊m�F���[���ł��B
+これは、ウィキマニア2012のスカラーシップ申請の確認メールです。
 
-���Ȃ��̃X�J���[�V�b�v�Ɋւ��錈��́A�S�Ă̐\�����݂̊m�F�Ɠ_���t�����I������A�ʒm���܂��B
+あなたのスカラーシップに関する決定は、全ての申し込みの確認と点数付けが終了次第、通知します。
 
-���₪����ꍇ�́Awikimania-scholarships@wikimedia.org �܂ł��A�����������B
+質問がある場合は、wikimania-scholarships@wikimedia.org までご連絡ください。
 
-�E�B�L�}�j�A�X�J���[�V�b�v�`�[��",
-                'confirm-thanks' => "���肪�Ƃ��������܂����I",
+ウィキマニアスカラーシップチーム",
+                'confirm-thanks' => "ありがとうございました！",
                 'confirm-text' =>
-"�E�B�L�}�j�A2012�E�B�L�}�j�A2012�̃X�J���[�V�b�v�ւ��\�����݂����������肪�Ƃ��������܂����B
-���₪�������܂�����<a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a>�܂ł��A�����������B",
-		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>�悭���鎿��Ɖ�</a>",
+"ウィキマニア2012ウィキマニア2012のスカラーシップへお申し込みいただきありがとうございました。
+質問がございましたら<a href='mailto:wikimania-scholarships@wikimedia.org'>wikimania-scholarships@wikimedia.org</a>までご連絡ください。",
+		'confirm-faq' => "<a href='http://wikimania2012.wikimedia.org/wiki/Scholarships/FAQ' target='_blank'>よくある質問と回答</a>",
 		'text-have-submitted-presentation' => "
-�E�B�L�}�j�A2012�̔��\�𑗐M���܂����i<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>���\�\������</a>�j",
-		'email-confirm-subject' => "�E�B�L�}�j�A2012�X�J���[�V�b�v�\��",
+ウィキマニア2012の発表を送信しました（<a href='http://wikimania2012.wikimedia.org/wiki/Call_for_Participation' target='_blank'>発表申し込み</a>）",
+		'email-confirm-subject' => "ウィキマニア2012スカラーシップ申請",
 		'email-confirm-text' =>
-"����́A�E�B�L�}�j�A2012�̃X�J���[�V�b�v�\���̊m�F���[���ł��B
+"これは、ウィキマニア2012のスカラーシップ申請の確認メールです。
 
-�ǉ��̎���ɂ��Ă� ######################## �܂ł��A�����������B
+追加の質問については ######################## までご連絡ください。
 
-�E�B�L�}�j�A�X�J���[�V�b�v�`�[��",
-		'mock' => "����̓X�J���[�V�b�v�\���̖͋[�����T�C�g�ł��B�����̂��߂݂̂Ɏg�p���Ă��������B",
-		'email-from' => "�E�B�L�}�j�A2012�X�J���[�V�b�v",
-		'scholarship-decision' => "�E�B�L�}�j�A2012�X�J���[�V�b�v�Ɋւ��錈��",
-		'new-account-subject' => "�E�B�L�}�j�A�X�J���[�V�b�v�̃A�J�E���g",
-		'new-account-email' => "�E�B�L�}�j�A�X�J���[�V�b�v�̂��Ȃ��̐V�����A�J�E���g���쐬����܂����B
+ウィキマニアスカラーシップチーム",
+		'mock' => "これはスカラーシップ申請の模擬試験サイトです。試験のみに使用してください。",
+		'email-from' => "ウィキマニア2012スカラーシップ",
+		'scholarship-decision' => "ウィキマニア2012スカラーシップに関する決定",
+		'new-account-subject' => "ウィキマニアスカラーシップのアカウント",
+		'new-account-email' => "ウィキマニアスカラーシップのあなたの新しいアカウントが作成されました。
 
-���O�C�����F
+ログイン情報：
 
-���p�Җ��F%s
-�p�X���[�h�F%s
+利用者名：%s
+パスワード：%s
 
-http://secure.wikidc.org/wm/schols/review/ ���烍�O�C�����Ă��������B
+http://secure.wikidc.org/wm/schols/review/ からログインしてください。
 
-�p�X���[�h�� https://secure.wikidc.org/wm/schols/review/user_pwreset.php �ŕύX�\�ł��B
+パスワードは https://secure.wikidc.org/wm/schols/review/user_pwreset.php で変更可能です。
 
 Katie Filbert
-�E�B�L�}�j�A2012�^�c�`�[��",
-		'not-open' => "�X�J���[�V�b�v�\���͂܂��J�n����Ă��܂���B",
-		'deadline-passed' => "<div>�X�J���[�V�b�v�\���̐\���������߂��܂����B</div>",
-		'required-field' => "�K�{����",
-		'form-privacy' => "�v���C�o�V�[",
-                'form-review' => "�{�\���Ɋ܂܂�邷�ׂĂ̏��́A�E�B�L�}�j�A�X�J���[�V�b�v�v���O�����ψ���̈ψ��ɂ���Ċm�F����܂��B���ׂĂ̌l���́A�ψ���A<a href='http://wikimediafoundation.org'>�E�B�L���f�B�A���c</a>�A<a href='http://wikimediadc.org'>�E�B�L���f�B�A�E�R�����r�A���ʋ�</a>�ɂ���ċ@�����Ƃ��Ĉ����܂��B",
-		'form-chapteragree' => "<a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>�E�B�L���f�B�A�n�拦��</a>�̃X�J���[�V�b�v���\�����A�\�������X�J���[�V�b�v�I�l�̂��߂ɒn�拦��Ƌ��L���邱�Ƃɓ��ӂ��܂��B",
-		'privacy-page' => "<p>���ׂĂ̏��́A�E�B�L�}�j�A�X�J���[�V�b�v�v���O�����ψ���̈ψ��ɂ���Ċm�F����܂��B</p>
-<p>���ׂĂ̌l���́A�ψ���A<a href='http://wikimediafoundation.org'>�E�B�L���f�B�A���c</a>�A<a href='http://wikimediadc.org'>�E�B�L���f�B�A�E�R�����r�A���ʋ�</a>�ɂ���ċ@�����Ƃ��Ĉ����܂��A�E�B�L���f�B�A���c��<a href='http://wikimediafoundation.org/wiki/Privacy_policy'>�v���C�o�V�[�|���V�[</a>�ƃE�B�L���f�B�A�E�R�����r�A���ʋ��<a href='http://wikimediadc.org/wiki/Privacy_polcy'>�l���</a>�����<a href='http://wikimediadc.org/wiki/Record_retention_and_document_destruction_policy'>�L�^�ێ��ƕ����j���Ɋւ�����j</a>�ɂ��ꂼ��]���܂��B.</p>",
-		'contact-us' => "�A����",
-		'contact-page' => "���[���F wikimania-scholarships@wikimedia.org",
-		'credits' => "�N���W�b�g�ƃ��C�Z���X",
-		'credits-page' => "<p>�E�B�L�}�j�A�X�J���[�V�b�v�\�t�g�E�F�A�̓I�[�v���\�[�X�ŁA<a href='http://www.gnu.org/copyleft/gpl.html'>GNU General Public License 3.0</a>��<a href='http://github.com/filbertkm/Scholarships'>����\</a>�ł��B</p>
+ウィキマニア2012運営チーム",
+		'not-open' => "スカラーシップ申請はまだ開始されていません。",
+		'deadline-passed' => "<div>スカラーシップ申請の申込期限を過ぎました。</div>",
+		'required-field' => "必須事項",
+		'form-privacy' => "プライバシー",
+                'form-review' => "本申請に含まれるすべての情報は、ウィキマニアスカラーシッププログラム委員会の委員によって確認されます。すべての個人情報は、委員会、<a href='http://wikimediafoundation.org'>ウィキメディア財団</a>、<a href='http://wikimediadc.org'>ウィキメディア・コロンビア特別区</a>によって機密情報として扱われます。",
+		'form-chapteragree' => "<a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>ウィキメディア地域協会</a>のスカラーシップも申請し、申請情報をスカラーシップ選考のために地域協会と共有することに同意します。",
+		'privacy-page' => "<p>すべての情報は、ウィキマニアスカラーシッププログラム委員会の委員によって確認されます。</p>
+<p>すべての個人情報は、委員会、<a href='http://wikimediafoundation.org'>ウィキメディア財団</a>、<a href='http://wikimediadc.org'>ウィキメディア・コロンビア特別区</a>によって機密情報として扱われます、ウィキメディア財団の<a href='http://wikimediafoundation.org/wiki/Privacy_policy'>プライバシーポリシー</a>とウィキメディア・コロンビア特別区の<a href='http://wikimediadc.org/wiki/Privacy_polcy'>個人情報</a>および<a href='http://wikimediadc.org/wiki/Record_retention_and_document_destruction_policy'>記録保持と文書破棄に関する方針</a>にそれぞれ従います。.</p>",
+		'contact-us' => "連絡先",
+		'contact-page' => "メール： wikimania-scholarships@wikimedia.org",
+		'credits' => "クレジットとライセンス",
+		'credits-page' => "<p>ウィキマニアスカラーシップソフトウェアはオープンソースで、<a href='http://www.gnu.org/copyleft/gpl.html'>GNU General Public License 3.0</a>で<a href='http://github.com/filbertkm/Scholarships'>入手可能</a>です。</p>
 
-<p>�R�[�h�̓E�B�L�}�j�A2009�A2010�A2011�Ɏg�p���ꂽ�X�J���[�V�b�v�\���V�X�e������{�ɁA�E�B�L�}�j�A2012�p�ɏC�����ꂽ���̂ł��B</p>",
-		'help-translate' => "�|�󂷂�",
-		'translate-page' => "<p>�X�J���[�V�b�v�\���V�X�e�����ł��邾�������̌���ł̖|������}���܂��B</p>
+<p>コードはウィキマニア2009、2010、2011に使用されたスカラーシップ申請システムを基本に、ウィキマニア2012用に修正されたものです。</p>",
+		'help-translate' => "翻訳する",
+		'translate-page' => "<p>スカラーシップ申請システムをできるだけ多くの言語での翻訳を歓迎します。</p>
 
-<p>�R�[�h�ƌ���t�@�C����<a href='http://github.com/filbertkm/Scholarships'>github</a>�ɂ���A�����Ŗ|��𑗐M���Ă��������B</p>
+<p>コードと言語ファイルは<a href='http://github.com/filbertkm/Scholarships'>github</a>にあり、そこで翻訳を送信してください。</p>
 
-<p>���肪�Ƃ��������܂��I<br/>
-�E�B�L�}�j�A2012�^�c�`�[��",
+<p>ありがとうございます！<br/>
+ウィキマニア2012運営チーム",
 		'footer-faq' => "FAQ",
-		'footer-credits' => "�N���W�b�g",
-		'footer-privacy' => "�v���C�o�V�[",
-		'footer-contact' => "�A����",
-		'MONTH_NAMES' =>  array('1��','2��','3��','4��','5��','6��','7��','8��','9��','10��','11��','12��'),
+		'footer-credits' => "クレジット",
+		'footer-privacy' => "プライバシー",
+		'footer-contact' => "連絡先",
+		'MONTH_NAMES' =>  array('1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'),
 );
 
 ?>
