@@ -57,10 +57,10 @@ $messages['ja'] = array(
 		'form-wantspartial' => "参加費用の一部補助を合わせて申請しますか？",
 		'form-canpaydiff' => "参加費用の一部補助が認められた場合、私はウィキマニア2012への参加に必要な残りの費用を支払います。",
 		'form-agree' => "申請の同意事項",
-		'form-sincere' => "私はこの申請の目的を理解しており、またアメリカ合衆国ワシントンD.C.で開催されるウィキマニア2012への参加に本当に興味があります。参加費用補助の支給が認められた場合、私は支給された費用をこの目的のために使用します。",
-		'form-visa' => "参加費用補助の支給が認められた場合、必要に応じて、私はビザ（査証）を渡航前に責任をもって取得します（アメリカ合衆国へ渡航するための<a href='https://wikimania2012.wikimedia.org/wiki/Visas' alt='ビザ要件'>ビザ要件</a>も参照）。",
-		'form-incidentals' => "参加費用補助の支給が認められた場合、私は会場最寄りの空港から会場までの交通費、雑費および会期中の食費を責任をもって支払います。",
-		'form-travel-conditions' => "参加費用の支給が認められた場合、私は a)ウィキメディア財団が推奨する旅行予約サービスを使用し、費用をウィキメディア財団が直接支払う、あるいは、b)ウィキメディア財団による見積り以下の金額で自分自身で予約を行い、その領収書をウィキメディア財団に提出して領収書記載の金額の払い戻しを受ける、のいずれかに同意します。",
+		'form-sincere' => "私はこの申請の目的を理解しており、またアメリカ合衆国ワシントンD.C.で開催されるウィキマニア2012への参加に本当に興味があります。参加費用補助が認められた場合、私は支給された費用をこの目的のために使用します。",
+		'form-visa' => "参加費用補助が認められた場合、必要に応じて、私はビザ（査証）を渡航前に責任をもって取得します（アメリカ合衆国へ渡航するための<a href='https://wikimania2012.wikimedia.org/wiki/Visas' alt='ビザ要件'>ビザ要件</a>も参照）。",
+		'form-incidentals' => "参加費用補助が認められた場合、私は空港から・空港までの交通費、雑費および会期中の食費を責任をもって支払います。",
+		'form-travel-conditions' => "参加費用補助が認められた場合、私は、a)ウィキメディア財団が推奨する旅行予約サービスを使用し、費用をウィキメディア財団が直接支払う、あるいは、b)ウィキメディア財団による見積り以下の金額で自分自身で予約を行い、その領収書をウィキメディア財団に提出して領収書記載の金額の払い戻しを受ける、のいずれかに同意します。",
 		'form-submit-app' => "申請を送信",
 		'form-email-subject' => "ウィキマニア2012参加費用補助申請",
 		'form-email-response' =>
@@ -107,7 +107,7 @@ Katie Filbert
 		'required-field' => "必須",
 		'form-privacy' => "プライバシー",
                 'form-review' => "本申請に含まれるすべての情報は、ウィキマニア参加費用補助プログラム委員会の委員によって確認されます。すべての個人情報は、委員会、<a href='http://wikimediafoundation.org'>ウィキメディア財団</a>、<a href='http://wikimediadc.org'>ウィキメディア・コロンビア特別区</a>によって機密情報として厳重に扱われます。",
-		'form-chapteragree' => "<a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>ウィキメディア地域協会</a>の参加費用補助にも申請し、申請情報を参加費用補助の選考のために地域協会と共有することに同意します。",
+		'form-chapteragree' => "<a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>ウィキメディア地域協会</a>の参加費用補助にも申請し、申請情報が参加費用補助の選考のために地域協会と共有されることに同意します。",
 		'privacy-page' => "<p>本申請に含まれるすべての情報は、ウィキマニア参加費用補助プログラム委員会の委員によって確認されます。</p>
 <p>すべての個人情報は、委員会、<a href='http://wikimediafoundation.org'>ウィキメディア財団</a>、<a href='http://wikimediadc.org'>ウィキメディア・コロンビア特別区</a>によって機密情報として厳重に扱われます。情報の取り扱いは、ウィキメディア財団の<a href='http://wikimediafoundation.org/wiki/Privacy_policy'>プライバシーポリシー</a>、および、ウィキメディア・コロンビア特別区の<a href='http://wikimediadc.org/wiki/Privacy_polcy'>プライバシーポリシー</a>並びに<a href='http://wikimediadc.org/wiki/Record_retention_and_document_destruction_policy'>記録保持と文書破棄に関する方針</a>にそれぞれ従います。</p>",
 		'contact-us' => "連絡先",
