@@ -67,7 +67,7 @@ class Application {
 				die('Could not select DB: ' . mysql_error());
 			}
 
-                       $colnames = array("fname", "lname", "email", "telephone", "address", "residence", "nationality", "haspassport", "passportnum", "airport", "languages", "sex", "occupation", "areaofstudy", "wm05", "wm06", "wm07", "wm08", "wm09", "wm10", "wm11", "presentation", "howheard", "why", "username", "project", "projectlangs", "involvement", "future", "contribution", "sincere", "willgetvisa", "willpayincidentals", "agreestotravelconditions", "chapteragree", "wantspartial", "canpaydiff", "dob", "rank");
+                       $colnames = array("fname", "lname", "email", "telephone", "address", "residence", "nationality", "haspassport", "passportnum", "airport", "languages", "sex", "occupation", "areaofstudy", "wm05", "wm06", "wm07", "wm08", "wm09", "wm10", "wm11", "presentation", "howheard", "why", "username", "project", "projectlangs", "involvement", "future", "contribution", "sincere", "willgetvisa", "willpayincidentals", "agreestotravelconditions", "chapteragree", "wantspartial", "canpaydiff", "dob", "rank", "ipaddr");
 
 			foreach ($colnames as $i) {
 				if ( ( isset( $data[$i] ) ) and ( ( $i == 'residence' ) or ( $i == 'nationality' ) ) ) {
@@ -95,13 +95,14 @@ class Application {
 			}
 
 			$answers['rank'] = 1;
+			$answers['ipaddr'] = $_SERVER['REMOTE_ADDR'];
 
 			$fields = array();
 			$subst = '';
 			$values = array();
 			foreach ( $colnames as $c ) {
 				if ( isset( $answers[$c] ) ) {
-					if ( ( $columns[$c]['type'] == 'varchar' ) or ( $columns[$c]['type'] == 'text' )  or ( $columns[$c]['type'] == 'date' ) ) {
+					if ( in_array( $columns[$c]['type'], array( 'varchar', 'text', 'date', 'varbinary' ) ) ) {
 						array_push( $fields, $c );
 						$subst .= "'%s', ";
 						array_push( $values, $answers[$c] );

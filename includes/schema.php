@@ -247,6 +247,11 @@ $columns = array(
 		'type' => 'timestamp',
 		'null' => FALSE,
 		'default' => 'CURRENT_TIMESTAMP'
+	),
+	'ipaddr' => array(
+		'type' => 'varbinary',
+		'null' => TRUE,
+		'default' => '127.0.0.1'
 	)
 );
 
