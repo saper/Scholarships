@@ -8,7 +8,7 @@ $messages['pl'] = array(
 konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, noclegu i kosztów podróży  na konferencję, która odbędzie się w dniach 12-15 lipca w Waszyngtonie.</p>
 <p>To stypendium <strong>nie jest</strong> stypendium naukowym ani stypendium na podjęcie studiów. Wnioski niezwiązane z udziałem w konferencji zostaną odrzucone.</p>
 <p>Prosimy o rozważną ocenę swoich możliwości finansowych, gdyż środki na stypendia są ograniczone, a wielu ubiegających się nie ma w ogóle możliwości uczestniczenia w konferencji w przypadku nieotrzymania stypendium. Dziękujemy!</p>
-<p>Termin składania wniosków upływa <strong>16 lutego 2012 roku o godz. 01:00</strong> (godz. 00:00 UTC).</p>",
+<p>Termin składania wniosków upływa <strong>15 lutego 2012 roku</strong>.</p>",
 		'form-error' => '<p class="fieldWithErrors">Niektóre pola formularza nie zostały wypełnione właściwie. Prosimy poprawić informację w odpowiednich polach i spróbować wysłać formularz ponownie.</p>',
 		'contact-info' => "Dane kontaktowe",
 		'name-first' => "Imię:",
@@ -53,7 +53,7 @@ konferencji ruchu Wikimedia. Stypendium obejmuje pokrycie kosztów rejestracji, 
 		'form-contrib-explain' => "W jaki sposób uczestniczysz w innych niż Wikimedia projektach związanych z wolnym dostępem do wiedzy, wolnym oprogramowaniem czy też w inicjatywach związanych z edukacją?",
 		'form-future-explain' => "W jaki sposób udział w Wikimanii zmieni Twoje uczestnictwo w ruchu Wikimedia w przyszłości?",
 		'form-partial' => "Stypendium na pokrycie części kosztów",
-		'form-partial-explain' => "Oprócz pełnego pokrycia kosztów, mamy w tym roku możliwość przyznania niewielkiej liczby <b>częściowych stypendiów</b>, które pozwolą na dofinansowanie kosztów dojazdu w wysokości do 425 dolarów amerykańskich.",
+		'form-partial-explain' => "Oprócz pełnego pokrycia kosztów, mamy w tym roku możliwość przyznania niewielkiej liczby <b>częściowych stypendiów</b>, które pozwalają na dofinansowanie kosztów dojazdu w wysokości do 425 dolarów amerykańskich.",
 		'form-wantspartial' => "Czy możemy brać Twoją kandydaturę pod uwagę przy udzielaniu częściowych stypendiów?",
 		'form-canpaydiff' => "W przypadku otrzymania i przyjęcia częściowego stypendium zobowiązuję się do pokrycia pozostałych kosztów uczestnictwa w Wikimanii 2012.",
 		'form-agree' => "Zobowiązanie osoby starającej się o stypendium",
@@ -113,7 +113,7 @@ Komitet organizacyjny Wikimanii 2012",
 
 		'required-field' => "Pole obowiązkowe",
 		'form-privacy' => "Zasady zachowania poufności",
-		'form-review' => "Wnioski będą rozpatrywane przez członków komisji stypendialnej Wikimanii. Komisja stypendialna, <a href='http://wikimediafoundation.org/'>Fundacja Wikimedia</a> oraz <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a> zobowiązują się do utrzymania wszystkich danych osobowych w ścisłej tajemnicy.",
+		'form-review' => "Wnioski będą rozpatrywane przez członków komisji stypendialnej Wikimanii. Komisja stypendialna, <a href='http://wikimediafoundation.org/'>Fundacja Wikimedia</a> oraz <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a> utrzymują wszystkie dane osobowe w ścisłej tajemnicy.",
 		'form-chapteragree' => "Proszę wziąć moją kandydaturę pod uwagę podczas przyznawania stypendiów przez <a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>lokalne oddziały Wikimedia</a>. Jednocześnie wyrażam zgodę na przekazanie moich danych osobowych oddziałom dla celów procesu stypendialnego.",
 		'privacy-page' => "<p>Wnioski będą rozpatrywane przez członków komisji stypendialnej Wikimanii 2012.</p>
 <p>Komisja stypendialna, <a href='http://wikimediafoundation.org/'>Fundacja Wikimedia</a> oraz <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a> zobowiązują się do utrzymania wszystkich danych osobowych w ścisłej tajemnicy, zgodnie z zasadami zachowania poufności <a href='http://wikimediafoundation.org/wiki/Zasady_zachowania_poufności'>Fundacji Wikimedia</a> oraz <a href='http://wikimediadc.org/wiki/Privacy_polcy'>Wikimedia District of Columbia</a>, jak również z <a href='http://wikimediadc.org/wiki/Record_retention_and_document_destruction_policy'>zasadami gromadzenia i niszczenia dokumentacji</a> Wikimedia District of Columbia.</p>",
@@ -131,9 +131,14 @@ Komitet organizacyjny Wikimanii 2012",
 Komitet organizacyjny Wikimanii 2012",
 		'footer-faq' => "Najczęściej zadawane pytania",
 		'footer-credits' => "Podziękowania i prawa autorskie",
+<<<<<<< HEAD
 		'footer-privacy' => "Zasady zachowania poufności",
+		'footer-contact' => "Napisz do nas"
+=======
+		'footer-privacy' => "Zasady zachowania poufnosci",
 		'footer-contact' => "Napisz do nas",
                 'MONTH_NAMES' =>  array('stycznia','lutego','marca','kwietnia','maja','czerwca','lutego','sierpnia','września','października','listopada','grudnia')
+>>>>>>> 63bb114106ccd47b30045ed6b0d7fc362bf2ac05
 );
 
 ?>
