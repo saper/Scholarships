@@ -217,15 +217,22 @@ class DataAccessLayer {
 	}
 
 	function UpdateUserInfo($answers, $id) {
-		$fieldnames = array("username","email","reviewer","isvalid","isadmin");
+		$fieldnames = array("username","email","reviewer","isvalid","isadmin","blocked");
 		$query = "update users set ";
-		for ($i=0 ; $i <= 4 ; $i++) {
+		for ($i=0 ; $i <= 5 ; $i++) {
 			$field = $fieldnames[$i];
 			$query .= ($i==0) ? '' : ',';
 			$query .= '`' . $field . '`="' . $answers[$field] . '" ';
 		}
 		$query .= "where `id` = ?";
 		$this->db->query($query, array($id));
+	}
+
+	function UserIsBlocked($id) {
+		$query = "SELECT blocked FROM users WHERE id = ?";
+		$userid = sprintf('%d', $id);
+		$res = $this->db->query($query, $userid)->fetchRow();
+		return $res['blocked'];
 	}
 	
 	function UpdatePassword($oldpw, $newpw, $id, $force = NULL) {

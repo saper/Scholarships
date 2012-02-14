@@ -22,7 +22,7 @@ $messages['de'] = array(
 		'form-select' => "bitte auswählen",
 		'form-nationality' => "Nationalität (welches Land hat / wird Ihren Reisepass ausstellen?): ",
 		'form-passport-number' => "Reisepassnummer",
-		'form-passport-explain' => "(Falls Sie ein Visum benötigen, gibt uns dies die Möglichkeit dabei zu helfen."=,
+		'form-passport-explain' => "(Falls Sie ein Visum benötigen, gibt uns dies die Möglichkeit dabei zu helfen.)",
 		'form-language' => "Muttersprache(n): ",
 		'form-dateofbirth' => "Geburtsdatum: ",
 		'form-gender' => "Geschlecht: ",
@@ -113,9 +113,9 @@ Wikimania 2012 Organisations-Team",
 		'deadline-passed' => "<div>Die Bewerbungsfrist für Stipendien ist bereits abgelaufen.</div>",
 		'required-field' => "Pflichtfeld",
 		'form-privacy' => "Privatsphäre",
-                'form-review' => "Alle in dieser Bewerbung enthaltenen Information werden von den Mitgliedern des "Wikimania Scholarships Program Committee" geprüft. Alle personenbezogenen Daten werden durch das Kommittee, die <a href='http://wikimediafoundation.org'>Wikimedia Foundation</a>, und die lokale Organisation <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a> streng vertraulich behandelt.",
-		'form-chapteragree' => "Ich möchte auch für ein <a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>Wikimedia chapter</a> Stipendium in Betracht gezogen werden, und stimme daher zu meine Information, ausschliesslich zu diesem Zweck, auch nationalen oder lokalen Wikimedia Gruppen ("chapters") weiterzugeben.",
-		'privacy-page' => "<p>Alle in dieser Bewerbung enthaltenen Informationen werden von den Mitgliedern des "Wikimania Scholarships Program Committee" geprüft.</p>
+                'form-review' => "Alle in dieser Bewerbung enthaltenen Information werden von den Mitgliedern des \"Wikimania Scholarships Program Committee\" geprüft. Alle personenbezogenen Daten werden durch das Kommittee, die <a href='http://wikimediafoundation.org'>Wikimedia Foundation</a>, und die lokale Organisation <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a> streng vertraulich behandelt.",
+		'form-chapteragree' => "Ich möchte auch für ein <a href='http://meta.wikimedia.org/wiki/Wikimedia chapters' alt='Wikimedia chapters'>Wikimedia chapter</a> Stipendium in Betracht gezogen werden, und stimme daher zu meine Information, ausschliesslich zu diesem Zweck, auch nationalen oder lokalen Wikimedia Gruppen (\"chapters\") weiterzugeben.",
+		'privacy-page' => "<p>Alle in dieser Bewerbung enthaltenen Informationen werden von den Mitgliedern des \"Wikimania Scholarships Program Committee\" geprüft.</p>
 <p>Alle personenbezogenen Daten werden durch das Kommittee, die <a href='http://wikimediafoundation.org'>Wikimedia Foundation</a>, und die lokale Organisation <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a> streng vertraulich behandelt. Dies erfolgt in Übereinstimmung mit den folgenden Erklärungen zur Privatsphäre: der Wikimedia Foundation <a href='http://wikimediafoundation.org/wiki/Privacy_policy'>privacy policy</a> bzw. der  Wikimedia District of Columbia <a href='http://wikimediadc.org/wiki/Privacy_policy'>privacy policy</a> und der <a href='http://wikimediadc.org/wiki/Record_retention_and_document_destruction_policy'>Record retention and document destruction policy</a>.</p>",
 		'contact-us' => "Kontaktieren Sie uns",
 		'contact-page' => "Email: wikimania-scholarships@wikimedia.org",
@@ -135,10 +135,6 @@ Wikimania 2012 organizing team",
 		'footer-privacy' => "Privatsphäre",
 		'footer-contact' => "Kontakt",
 		'MONTH_NAMES' =>  array('Jan','Feb','Mrz','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'),
-);
-
-?>
-
 );
 
 ?>

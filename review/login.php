@@ -1,22 +1,18 @@
 <?php 
 require_once('init.php');
 
-	if (isset($_POST['username']) && isset($_POST['password']))
-	{
-		$user = new DataAccessLayer();
-		$res = $user->GetUser($_POST['username']);
-		if (md5($_POST['password']) == $res['password']) {
-			session_start();
-			$_SESSION['user_id'] = $res['id'];
-			print $res['id'];
-			header('location: ' . $BASEURL . 'review/grid');
-			print 'login';
-			exit();
-		}
-		else {
-			$error = "Invalid credentials.";
-		}
+if (isset($_POST['username']) && isset($_POST['password'])) {
+	$user = new DataAccessLayer();
+	$res = $user->GetUser($_POST['username']);
+	if ( ( md5($_POST['password']) == $res['password'] ) AND ( $user->UserIsBlocked() == 0 ) ) {
+		session_start();
+		$_SESSION['user_id'] = $res['id'];
+		header('location: ' . $BASEURL . 'review/grid');
+		exit();
+	} else {
+		$error = "Invalid credentials.";
 	}
+}
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
 	<form method="post" action="<?php echo $BASEURL; ?>user/login" >

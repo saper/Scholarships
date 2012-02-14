@@ -21,7 +21,7 @@ $dal = new DataAccessLayer();
 $username = $dal->GetUsername($_SESSION['user_id']);
 
 if (isset($_POST['save'])) {
-	$fieldnames = array("username","password","email","reviewer","isvalid","isadmin");
+	$fieldnames = array("username","password","email","reviewer","isvalid","isadmin","blocked");
 	foreach ($fieldnames as $i) {
 		$answers[$i] = mysql_real_escape_string($_POST[$i]);
 	}
@@ -63,6 +63,8 @@ $dal->IsSysAdmin($_SESSION['user_id']); if ($isadmin == 1) { ?>
 	value="1" <?= $user['isvalid']==1?'checked="checked"':''; ?> /></p>
 <p>Is Admin?: <input type="checkbox" name="isadmin" id="isadmin"
 	value="1" <?= $user['isadmin']==1?'checked="checked"':''; ?> /></p>
+<p>Blocked?: <input type="checkbox" name="blocked" id="blocked" 
+        value="1" <?= $user['blocked']==1?'checked="checked"':''; ?> /></p>
 </fieldset>
 <input type="submit" id="save" name="save" value="Save" style="width: 10em" />
 </form>

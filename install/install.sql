@@ -342,5 +342,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `reviewer` tinyint(1) default NULL,
   `isvalid` tinyint(1) default NULL,
   `isadmin` tinyint(1) default NULL,
+  `blocked` tinyint(1) default 0,
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;

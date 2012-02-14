@@ -126,7 +126,6 @@ ul.single li {
   margin: .4em 0;
 }
 
-/* WTF, Rails */
 .fieldWithErrors,
 .fieldWithErrors label {
         color: #AA0000;

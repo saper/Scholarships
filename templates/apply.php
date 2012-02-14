@@ -259,7 +259,11 @@ for ( $i = 2012; $i >= $start; $i-- ) {
 <legend><?php echo $wgLang->message('form-privacy'); ?></legend>
 <p><?php echo $wgLang->message('form-review'); ?></p>
 <ul class="appform">
-<li><input type="radio" id="chapteragree" name="chapteragree" value="1" <?= ($values['chapteragree']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-yes'); ?> <input type="radio" id="chapteragree" name="chapterargree" value="0" <?= ($values['chapteragree']==0)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-no'); ?>&nbsp;&nbsp;-&nbsp;&nbsp;<?php echo $wgLang->message('form-chapteragree');?></li>
+<li>
+<input type="radio" id="chapteragree" name="chapteragree" value="1" <?= ($values['chapteragree']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-yes'); ?> 
+<input type="radio" id="chapteragree" name="chapteragree" value="0" <?= ($values['chapteragree']==0)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-no'); ?>
+&nbsp;&nbsp;-&nbsp;&nbsp;<?php echo $wgLang->message('form-chapteragree');?>
+</li>
 </ul>
 </fieldset>
 
