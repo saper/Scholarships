@@ -107,9 +107,9 @@ if ($submitted != TRUE) {
 <fieldset>
 <legend><?php echo $wgLang->message('contact-info'); ?></legend>
 <ul id="form-contact-info" class="appform">
-<li <?php echo haserror('fname', $app); ?>><label class='required'><?php echo $wgLang->message('name-first'); ?></label> <input type="text" id="fname" name="fname" <?= isset($values['fname'])?'value="' . $values['fname'] . '"':''; ?> /></li>
-<li <?php echo haserror('lname', $app); ?>><label class='required'><?php echo $wgLang->message('name-last'); ?></label> <input type="text" id="lname" name="lname" <?= isset($values['lname'])?'value="' . $values['lname'] . '"':''; ?> /></span></li>
-<li <?php echo haserror('email', $app); ?>><label class='required'><?php echo $wgLang->message('form-email'); ?></label> <input type="text" id="email" name="email" <?= isset($values['email'])?'value="' . $values['email'] . '"':''; ?> /></span></li>
+<li <?php echo haserror('fname', $app); ?>><label class='required'><?php echo $wgLang->message('name-first'); ?></label> <input type="text" id="fname" name="fname" <?= isset($values['fname'])?'value="' . $values['fname'] . '"':''; ?> required /></li>
+<li <?php echo haserror('lname', $app); ?>><label class='required'><?php echo $wgLang->message('name-last'); ?></label> <input type="text" id="lname" name="lname" <?= isset($values['lname'])?'value="' . $values['lname'] . '"':''; ?> required /></span></li>
+<li <?php echo haserror('email', $app); ?>><label class='required'><?php echo $wgLang->message('form-email'); ?></label> <input type="email" id="email" name="email" <?= isset($values['email'])?'value="' . $values['email'] . '"':''; ?> required /></span></li>
 <li><?php echo $wgLang->message('form-telephone'); ?> <input type="text" id="telephone" name="telephone"  <?= isset($values['telephone'])?'value="' . $values['telephone'] . '"':''; ?> /></li>
 <li><?php echo $wgLang->message('form-mailing-address'); ?><br/><textarea id="address" name="address" cols="40" rows="3" ><?= isset($values['address'])? $values['address']:''; ?></textarea></li> 
 <li <?php echo haserror('residence', $app); ?>><label class="required"><?php echo $wgLang->message('form-country-residence'); ?></label>
@@ -132,7 +132,7 @@ if ($submitted != TRUE) {
 <ul class="appform">
 <li><?php echo $wgLang->message('form-haspassport'); ?> <input type="radio" id="haspassport" name="haspassport" value="1" <?= ($values['haspassport']==1)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-yes'); ?> <input type="radio" id="haspassport" name="haspassport" value="0" <?= ($values['haspassport']==0)?'checked = "checked" ':''; ?> /><?php echo $wgLang->message('form-no'); ?></li> 
 <li <?php echo haserror('nationality', $app); ?>><label class="required"><?php echo $wgLang->message('form-nationality'); ?></label>
-<select id="nationality" name="nationality">
+<select id="nationality" name="nationality" required>
     <option><?= $wgLang->message('form-select'); ?></option>
     <?php foreach (range(0, count($COUNTRY_NAMES)-1) as $i)
     if ($values['nationality']==$i) {
@@ -216,10 +216,10 @@ for ( $i = 2012; $i >= $start; $i-- ) {
 </select></li>
 <li <?php echo haserror('why', $app); ?>><label class='required'>
 <?php echo $wgLang->message('form-enrichment'); ?></label><br/>
-<textarea id="why" name="why" cols="80" rows="3"><?= isset($values['why'])?$values['why']:''; ?></textarea></li>
+<textarea id="why" name="why" cols="80" rows="3" required><?= isset($values['why'])?$values['why']:''; ?></textarea></li>
 <li <?php echo haserror('future', $app); ?>><label class='required'>
 <?php echo $wgLang->message('form-future-explain'); ?></label><br />
-<textarea id="future" name="future" cols="80" rows="3"><?= isset($values['future'])?$values['future']:''; ?></textarea></span></li>
+<textarea id="future" name="future" cols="80" rows="3" required><?= isset($values['future'])?$values['future']:''; ?></textarea></span></li>
 </ul>
 </fieldset>
 

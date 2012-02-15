@@ -5,8 +5,7 @@
 	<meta http-equiv="Content-language" content="en-us"/>
 	<meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8"/>
 	<title><?php echo $wgLang->message('header-title');?></title>
-	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/global.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/attendee.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/review.css" />
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 </head>
