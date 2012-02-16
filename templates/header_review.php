@@ -12,6 +12,8 @@ if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
         <meta http-equiv="Content-language" content="<?= $lang ?>"/>
         <meta charset="utf-8"/>
 	<title><?php echo $wgLang->message('header-title');?></title>
+	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/base.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/skeleton.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/review.css" />
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
@@ -20,4 +22,5 @@ if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
 	<![endif]-->
 </head>
 <body>
+<div class="container">
 <h1><a id="banner" href="<?php echo $BASEURL; ?>" title="Wikimania 2012"><img src="<?php echo $TEMPLATEBASE;?>images/wm2012banner.png" alt="Wikimania 2012"/></a></h1>

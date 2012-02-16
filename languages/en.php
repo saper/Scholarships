@@ -2,7 +2,7 @@
 
 $messages['en'] = array(
 		'header-title' => "Wikimania 2012 - Scholarship application",
-		'page-header' => "Application for Scholarship to attend Wikimania 2012",
+		'page-header' => "Wikimania 2012 travel scholarships",
 		'text-intro' => "
 <p>This is the application for sponsorship to attend <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, Wikimedia's international conference. Awardees will receive a scholarship to pay for registration, hotel, and roundtrip travel to Wikimania in Washington, DC, July 12-15, 2012.</p>
 <p>This is <strong>not</strong> a scholarship for university study. Applications not obviously related to the conference will be discarded.</p>

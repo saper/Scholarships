@@ -4,7 +4,7 @@
 
 body {
   font-family: Tahoma, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   color: #444;
   text-decoration: bold;
   background-color: #FFFFFF;	
@@ -22,7 +22,15 @@ h1, h2 {
 }
 
 h2 { 
-  font-size: 20px;
+  font-size: 32px;
+}
+
+ul, li, p {
+  line-height: 24px;
+}
+
+p {
+  margin: 0 0 16px;
 }
 
 a:visited {
@@ -62,6 +70,32 @@ input[type="submit"], input[type="reset"] {
   -moz-border-radius: 5px;
 }
 
+label {
+  font-size: 15px;
+}
+
+fieldset, body > div {
+  color: #000;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+fieldset {
+  border: 2px solid #ccc;
+}
+
+legend {
+  background-color: #e8e8e8;
+  border: 2px solid #ccc;
+  padding-left: 5px;
+  padding-right: 5px;
+  -moz-border-radius: 5px;
+}
+
+select {
+  width: auto;
+}
+
 .container .fifteen.columns,
 .container .fourteen.columns {
   margin: auto;
@@ -77,6 +111,10 @@ div#draft {
 }
 
 /* application form */
+form > p {
+  margin: 0;
+}
+
 div#footer,
 div#langbar {
   padding: 1em 1em 0 1em;
@@ -114,6 +152,7 @@ ul.langlist li.last:after {
 div.faq {
   text-align: center;
   border: none;
+  margin: 10px 0;
 }
 
 div.faq a {
@@ -155,6 +194,10 @@ div.errorExplanation {
   border: 1px solid #AA0000;
 }
 
+li#dob select {
+  float: left;
+}
+
 ul.hnav {
   text-align: center;
 }
@@ -175,10 +218,6 @@ ul.hnav li:first-child:before {
   content: "";
 }
 
-#dump {
-  display: none;
-}
-
 tr.oddrow {
   background-color: #f3f3f3;
 }
@@ -194,7 +233,7 @@ div.notice {
   margin-bottom: 5px;
   padding: .2em;
   text-align: center;
-  font-size: 125%;
+  font-size: 18px;
   color: #303030;
   margin: 1.7em auto;
   line-height: 1.5em;
@@ -230,29 +269,11 @@ div#contact p {
   text-align: center;
 }
 
-/**
- * attendee.css
- */
-fieldset, body > div, div#errorExplanation {
+div#errorExplanation {
   background: #fff;
   color: #000;
   padding: 1em;
   margin-bottom: 1em;
-}
-
-fieldset {
-  border: 2px solid #ccc;
-}
-
-legend {
-  background-color: #e8e8e8;
-  border: 2px solid #ccc;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-border-radius: 5px;
-}
-
-div#errorExplanation {
   border: 1px solid red;
 }
 

@@ -13,7 +13,6 @@ if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
 	<meta charset="utf-8"/>
 	<title><?php echo $wgLang->message('header-title');?></title>
 	<link rel="stylesheet" type="text/css" href="<?= $TEMPLATEBASE ?>css/base.css"/>
-	<link rel="stylesheet" type="text/css" href="<?= $TEMPLATEBASE ?>css/layout.css"/>
 	<link rel="stylesheet" type="text/css" href="<?= $TEMPLATEBASE ?>css/skeleton.css"/>
 	<link rel="stylesheet" type="text/css" href="<?= $TEMPLATEBASE ?>css/style.css"/>
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>

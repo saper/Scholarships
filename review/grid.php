@@ -17,6 +17,7 @@ $schols = $dal->GetPhase1GridData($min, $max);
 $rowstyleeven = 0;
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
+<div id="form-container" class="fourteen columns">
 <form method="post" action="<?php echo $BASEURL; ?>review/grid">
 <h1>Applications</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
@@ -50,4 +51,5 @@ $rowstyleeven = 0;
 	endforeach; ?>
 </table>
 </form>
+</div>
 <?php include "$BASEDIR/templates/footer.php" ?>
