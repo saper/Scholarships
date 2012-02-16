@@ -27,7 +27,7 @@ if (time() < $open_time) {
 	echo $wgLang->mesage('deadline-passed');
 } else {
 ?>
-
+<div id="form-container" class="fourteen columns">
 <h2><?php echo $wgLang->message('page-header'); ?></h2>
 
 <?php if ($mock) {?>
@@ -275,5 +275,6 @@ for ( $i = 2012; $i >= $start; $i-- ) {
 
 }
 ?>
+</div>
 <br clear="all" />
 <?php include( 'footer.php' ); ?>
