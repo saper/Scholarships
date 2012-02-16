@@ -96,6 +96,12 @@ select {
   width: auto;
 }
 
+textarea {
+  width: 450px;
+  height: 120px;
+  padding: 5px;
+}
+
 .container .fifteen.columns,
 .container .fourteen.columns {
   margin: auto;
