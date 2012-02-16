@@ -109,7 +109,7 @@ Z poważaniem,
 Katie Filbert
 Komitet organizacyjny Wikimanii 2012",
                 'not-open' => "Jeszcze nie można składać wniosków o stypendia.",
-                'deadline-passed' => "<div>Upłynął termin składania wniosków o stypendia.</div>",
+                'deadline-passed' => "Upłynął termin składania wniosków o stypendia.",
 
 		'required-field' => "Pole obowiązkowe",
 		'form-privacy' => "Zasady zachowania poufności",

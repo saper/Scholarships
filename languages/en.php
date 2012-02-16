@@ -108,7 +108,7 @@ Sincerely,
 Katie Filbert
 Wikimania 2012 Organizing Team",
 		'not-open' => "Scholarship applications are not open yet.",
-		'deadline-passed' => "<div>Scholarship application deadline has passed.</div>",
+		'deadline-passed' => "Scholarship application deadline was February 16, 2012, 23:59 UTC.",
 		'required-field' => "Required field",
 		'form-privacy' => "Privacy",
                 'form-review' => "All information contained in this application will be reviewed by the members of the Wikimania Scholarships Program Committee. All personal information will be held strictly confidential by the Committee, the <a href='http://wikimediafoundation.org'>Wikimedia Foundation</a>, and <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a>.",

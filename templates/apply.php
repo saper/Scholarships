@@ -24,7 +24,11 @@ include( 'header.php' );
 if (time() < $open_time) {
 	echo $wgLang->message('not-open'); 
 } else if (time() > $close_time) {
-	echo $wgLang->mesage('deadline-passed');
+?>
+<div id="app-closed" class="fourteen columns">
+<p><? echo $wgLang->message('deadline-passed'); ?></p>
+</div>
+<?
 } else {
 ?>
 <div id="form-container" class="fourteen columns">
@@ -99,7 +103,7 @@ $values = array_merge( $defaults, $_POST );
 <?php 
 if ($submitted != TRUE) { 
 ?>
-<?php echo $wgLang->message('text-intro'); ?>
+<div id="introtext"><?php echo $wgLang->message('text-intro'); ?></div>
 <div class="faq"><?php echo $wgLang->message('confirm-faq'); ?></div>
 <form action="<?php echo $BASEURL ?>apply" method="post">
 <label class="required"><?php echo $wgLang->message('required-field');?></label><br/><br/>

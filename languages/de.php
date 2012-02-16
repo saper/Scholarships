@@ -110,7 +110,7 @@ Mit freundlichen Grüssen,
 Katie Filbert
 Wikimania 2012 Organisations-Team",
 		'not-open' => "Der Bewerbungszeitraum für Stipendien hat noch nicht begonnen.",
-		'deadline-passed' => "<div>Die Bewerbungsfrist für Stipendien ist bereits abgelaufen.</div>",
+		'deadline-passed' => "Die Bewerbungsfrist für Stipendien ist bereits abgelaufen.",
 		'required-field' => "Pflichtfeld",
 		'form-privacy' => "Privatsphäre",
                 'form-review' => "Alle in dieser Bewerbung enthaltenen Information werden von den Mitgliedern des \"Wikimania Scholarships Program Committee\" geprüft. Alle personenbezogenen Daten werden durch das Kommittee, die <a href='http://wikimediafoundation.org'>Wikimedia Foundation</a>, und die lokale Organisation <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a> streng vertraulich behandelt.",

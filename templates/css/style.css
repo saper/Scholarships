@@ -1,7 +1,3 @@
-/**
- * global.css
- */
-
 body {
   font-family: Tahoma, sans-serif;
   font-size: 15px;
@@ -109,18 +105,7 @@ textarea {
   float: none;
 }
 
-/* draft, sample */
-div#draft {
-  color: #AA0000;
-  border: solid 1px #AA0000;
-  padding: 1em;
-}
-
-/* application form */
-form > p {
-  margin: 0;
-}
-
+/* langlinks and footer links */
 div#footer,
 div#langbar {
   padding: 1em 1em 0 1em;
@@ -155,6 +140,11 @@ ul.langlist li.last:after {
   content: '';
 }
 
+/* intro text */
+div#introtext p {
+  padding: 0 2em;
+}
+
 div.faq {
   text-align: center;
   border: none;
@@ -165,6 +155,11 @@ div.faq a {
   text-decoration: none;
   padding: .5em 1em;
   font-weight: bold;
+}
+
+/* application form */
+form > p {
+  margin: 0;
 }
 
 ul.appform {
@@ -325,4 +320,10 @@ table#list th a {
 
 table#scholresults {
   border: 1px solid darkblue;
+}
+
+/* app closed */
+div#app-closed {
+  margin: 3em auto;
+  text-align: center;
 }
