@@ -28,10 +28,6 @@ input[type="submit"], input[type="reset"] {
 	-moz-border-radius: 5px;
 }
 
-/* textarea, input[type="checkbox"], input[type="radio"] {
-	margin-left: 1em;
-} */
-
 a:visited {
 	background-color: transparent;
 	color: purple;
