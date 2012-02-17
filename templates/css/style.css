@@ -326,4 +326,5 @@ table#scholresults {
 div#app-closed {
   margin: 3em auto;
   text-align: center;
+  border: 2px solid #ccc;
 }
