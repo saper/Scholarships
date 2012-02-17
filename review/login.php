@@ -15,8 +15,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 }
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
+<div id="form-container" class="fourteen columns">
 	<form method="post" action="<?php echo $BASEURL; ?>user/login" >
-	<h1>Log in</h1>
+	<h2>Log in</h2>
 	<?php if (isset($error)) print "<p>" . $error . "</p>\n"; ?>
 	<fieldset>
 	<p>Username: <input type="text" id="username" name="username" /></p>
@@ -24,4 +25,5 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	<p><input type="submit" value="Log in" />
 	</fieldset>
 	</form>
+</div>
 <?php include "$BASEDIR/templates/footer.php" ?>

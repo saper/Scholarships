@@ -2,7 +2,7 @@
 
 $messages['en'] = array(
 		'header-title' => "Wikimania 2012 - Scholarship application",
-		'page-header' => "Application for Scholarship to attend Wikimania 2012",
+		'page-header' => "Wikimania 2012 travel scholarships",
 		'text-intro' => "
 <p>This is the application for sponsorship to attend <a href='http://wikimania2012.wikimedia.org'>Wikimania 2012</a>, Wikimedia's international conference. Awardees will receive a scholarship to pay for registration, hotel, and roundtrip travel to Wikimania in Washington, DC, July 12-15, 2012.</p>
 <p>This is <strong>not</strong> a scholarship for university study. Applications not obviously related to the conference will be discarded.</p>
@@ -108,7 +108,7 @@ Sincerely,
 Katie Filbert
 Wikimania 2012 Organizing Team",
 		'not-open' => "Scholarship applications are not open yet.",
-		'deadline-passed' => "<div>Scholarship application deadline has passed.</div>",
+		'deadline-passed' => "<p>Scholarship application deadline was February 16, 2012, at 23:59 UTC.</p><p>We will notify applicants in mid or late-March about the result of your application.</p><p>Please see the <a href='http://wikimania2012.wikimedia.org/wiki/Scholarships'>scholarships page</a> on the wiki for more details.</p>",
 		'required-field' => "Required field",
 		'form-privacy' => "Privacy",
                 'form-review' => "All information contained in this application will be reviewed by the members of the Wikimania Scholarships Program Committee. All personal information will be held strictly confidential by the Committee, the <a href='http://wikimediafoundation.org'>Wikimedia Foundation</a>, and <a href='http://wikimediadc.org'>Wikimedia District of Columbia</a>.",

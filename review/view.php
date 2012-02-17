@@ -134,7 +134,7 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 				+ ": \n\n" + notes.value;
 		}
 </script>
-
+<div id="form-container" class="fourteen columns">
 <form method="post" action="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>">
 <h1>View application</h1>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
@@ -318,4 +318,5 @@ print "<ul>";
 <input type="hidden" id="id" name="id" value="<?= $id ?>" /> <input
 	type="hidden" id="last_id" name="last_id" value="<?= $schol['id'] ?>" />
 </form>
+</div>
 <?php include "$BASEDIR/templates/footer.php" ?>

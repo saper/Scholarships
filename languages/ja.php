@@ -103,7 +103,7 @@ http://secure.wikidc.org/wm/schols/review/ からログインしてください�
 Katie Filbert
 ウィキマニア2012運営チーム",
 		'not-open' => "参加費用補助申請の受付はまだ開始していません。",
-		'deadline-passed' => "<div>参加費用補助の申請期限を過ぎました。</div>",
+		'deadline-passed' => "参加費用補助の申請期限を過ぎました。",
 		'required-field' => "必須",
 		'form-privacy' => "プライバシー",
                 'form-review' => "本申請に含まれるすべての情報は、ウィキマニア参加費用補助プログラム委員会の委員によって確認されます。すべての個人情報は、委員会、<a href='http://wikimediafoundation.org'>ウィキメディア財団</a>、<a href='http://wikimediadc.org'>ウィキメディア・コロンビア特別区</a>によって機密情報として厳重に扱われます。",

@@ -24,10 +24,14 @@ include( 'header.php' );
 if (time() < $open_time) {
 	echo $wgLang->message('not-open'); 
 } else if (time() > $close_time) {
-	echo $wgLang->mesage('deadline-passed');
+?>
+<div id="app-closed" class="fourteen columns">
+<p><? echo $wgLang->message('deadline-passed'); ?></p>
+</div>
+<?
 } else {
 ?>
-
+<div id="form-container" class="fourteen columns">
 <h2><?php echo $wgLang->message('page-header'); ?></h2>
 
 <?php if ($mock) {?>
@@ -99,7 +103,7 @@ $values = array_merge( $defaults, $_POST );
 <?php 
 if ($submitted != TRUE) { 
 ?>
-<?php echo $wgLang->message('text-intro'); ?>
+<div id="introtext"><?php echo $wgLang->message('text-intro'); ?></div>
 <div class="faq"><?php echo $wgLang->message('confirm-faq'); ?></div>
 <form action="<?php echo $BASEURL ?>apply" method="post">
 <label class="required"><?php echo $wgLang->message('required-field');?></label><br/><br/>
@@ -142,10 +146,10 @@ if ($submitted != TRUE) {
     }
 ?></select>
 </li>
-<li><?php echo $wgLang->message('form-passport-number'); ?> <input type="text" id="passportnum" name="passportnum" <?= isset($values['passportnum'])?'value="' . $values['passportnum'] . '"':''; ?> /> <?php echo $wgLang->message('form-passport-explain'); ?></li>
+<li><?php echo $wgLang->message('form-passport-number'); ?>: <?php echo $wgLang->message('form-passport-explain'); ?><input type="text" id="passportnum" name="passportnum" <?= isset($values['passportnum'])?'value="' . $values['passportnum'] . '"':''; ?> /></li>
 <li><?php echo $wgLang->message('form-airport'); ?> <input type="text" id="airport" name="airport" <?= isset($values['airport'])?'value="' .$values['airport'] . '"':''; ?> /></li>
 <li><?php echo $wgLang->message('form-language'); ?> <input type="text" id="languages" name="languages" <?= isset($values['languages'])?'value="' .$values['languages'] . '"':''; ?> /></li>
-<li><?php echo $wgLang->message('form-dateofbirth'); ?>
+<li id="dob"><?php echo $wgLang->message('form-dateofbirth'); ?><br/>
 <select id="dd" name="dd">
     <?php foreach (range(1, 31) as $i)
     if ($values['dd']==$i) {
@@ -153,8 +157,7 @@ if ($submitted != TRUE) {
     } else {
     	printf('<option value="%02d">%d</option>', $i, $i);
     }
-?></select>
-<select id="mm" name="mm">
+?></select><select id="mm" name="mm">
     <?php 
     $month_names = $wgLang->message('MONTH_NAMES');
     foreach (range(0, 11) as $i)
@@ -164,8 +167,7 @@ if ($submitted != TRUE) {
         printf('<option value="%02d">%s</option>', $i+1, $month_names[$i]);
     }
 ?>
-</select>
-<select id="yy" name="yy">
+</select><select id="yy" name="yy">
 <?php 
 $now = intval(strftime( '%Y' ));
 $start = $now - 130;
@@ -174,7 +176,7 @@ for ( $i = 2012; $i >= $start; $i-- ) {
 }
 ?>
 </select>
-</li>
+</li><br/>
 <li><?php echo $wgLang->message('form-gender'); ?>
 	<select id="sex" name="sex">
 		<option value="m" <?= ($values['sex']=='m')?'selected = "selected" ':''; ?>><?php echo $wgLang->message('form-gender-male'); ?></option>
@@ -275,5 +277,6 @@ for ( $i = 2012; $i >= $start; $i-- ) {
 
 }
 ?>
+</div>
 <br clear="all" />
 <?php include( 'footer.php' ); ?>

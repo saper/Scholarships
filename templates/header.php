@@ -1,22 +1,28 @@
 <?php
-
 if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
-	// set lang
 	$res = array_merge( $_GET, $_POST );
 	$lang = $wgLang->setLang($res);
 }
-
 ?><!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= $lang ?>" lang="<?= $lang ?>" class="no-js">
+<!--[if lt IE 7 ]><html class="ie ie6 no-js" xml:lang="<?= $lang ?>" lang="<?= $lang ?>"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7 no-js" xml:lang="<?= $lang ?>" lang="<?= $lang ?>"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8 no-js" xml:lang="<?= $lang ?>" lang="<?= $lang ?>"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" xml:lang="<?= $lang ?>" lang="<?= $lang ?>"><!--<![endif]-->
 <head>
 	<meta http-equiv="Content-language" content="<?= $lang ?>"/>
-	<meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8"/>
+	<meta charset="utf-8"/>
 	<title><?php echo $wgLang->message('header-title');?></title>
+	<link rel="stylesheet" type="text/css" href="<?= $TEMPLATEBASE ?>css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="<?= $TEMPLATEBASE ?>css/skeleton.css"/>
 	<link rel="stylesheet" type="text/css" href="<?= $TEMPLATEBASE ?>css/style.css"/>
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="<?= $TEMPLATEBASE ?>js/html5.js"></script>
+        <![endif]-->
 </head>
 <body>
-<div id="langbar">
+<div class="container">
+<div id="langbar" class="fifteen columns">
 <ul class="langlist">
 <li><a href="<?= $basepath ?>?uselang=de">de</a></li>
 <li><a href="<?= $basepath ?>?uselang=en">en</a></li>
