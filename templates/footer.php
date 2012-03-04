@@ -7,7 +7,7 @@
 </ul>
 </div>
 </div><!-- end container //-->
-<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="<?= $TEMPLATEBASE; ?>js/jquery-1.7.1.min.js"></script>
 <script src="<?= $TEMPLATEBASE; ?>js/tabs.js"></script>
 </body>
 </html>
