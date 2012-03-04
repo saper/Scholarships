@@ -1,5 +1,4 @@
 <?php
-
 $submitted = FALSE;
 $lang = 'en';
 $app = new Application();
@@ -12,6 +11,10 @@ function haserror( $field, $app ) {
 	}
 }
 
+if (isset($_GET['special'])) {
+        $special = TRUE;
+}
+
 if (isset($_POST['submit'])) {
 	$app->submit($_POST);
 	if ($app->success === TRUE) {
@@ -22,16 +25,15 @@ if (isset($_POST['submit'])) {
 include( 'header.php' ); 
 
 if (time() < $open_time) {
-	echo $wgLang->message('not-open'); 
-} else if (time() > $close_time) {
-?>
+        echo $wgLang->message('not-open');
+} else if ((time() > $close_time) && (!isset($special) ) ) { ?>
 <div id="app-closed" class="fourteen columns">
 <p><? echo $wgLang->message('deadline-passed'); ?></p>
 </div>
 <?
 } else {
 ?>
-<div id="form-container" class="fourteen columns">
+
 <h2><?php echo $wgLang->message('page-header'); ?></h2>
 
 <?php if ($mock) {?>
