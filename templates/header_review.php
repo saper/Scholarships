@@ -1,4 +1,5 @@
 <?php
+$lang = null;
 if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
         $res = array_merge( $_GET, $_POST );
         $lang = $wgLang->setLang($res);
@@ -16,6 +17,7 @@ if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/skeleton.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/review.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/jquery-ui.css" />
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="<?= $TEMPLATEBASE ?>js/html5.js"></script>

@@ -60,9 +60,9 @@ input, select, textarea {
   border: 1px solid #ccc;
 }
 
+input[type="button"],
 input[type="submit"], input[type="reset"] {
   background-color: #f0f0f9;
-  border: 1px solid #333;
   -moz-border-radius: 5px;
 }
 
@@ -103,6 +103,10 @@ textarea {
   margin: auto;
   display: block;
   float: none;
+}
+
+.container {
+  margin: 20px auto 0;
 }
 
 /* langlinks and footer links */

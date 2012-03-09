@@ -20,23 +20,55 @@ class DataAccessLayer {
 	}
 
 
-	function GetPhase1GridData($min, $max) {
-		return $this->db->getAll("select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, 2012-year(s.dob) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score from scholarships s 
-			left outer join (select *, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
-			left outer join countries c on s.residence = c.id      
-			group by s.id, s.fname, s.lname, s.email, s.residence 
-			having p1score >= ? and p1score <= ? and s.exclude = 0", array($min, $max)); 
-        }
+	function gridData($params) {
+		$where = '';
+		$apps = isset( $params['apps'] ) ? $params['apps'] : 'unreviewed';
+		$p = isset( $params['p'] ) ? $params['p'] : 0;
+		$myid = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : 0;
+		$items = isset( $params['items'] ) ? $params['items'] : 100;
+		if ( $params['phase'] == 1 ) {
+			switch( $apps ) {
+				case 'unreviewed':
+					$where = ' WHERE p1count IS NULL ';
+					break;
+				case 'myapps':
+					$where = ' WHERE mycount IS NULL ';
+					break;
+				default:
+					$where = '';
+			}
+		} else if ( $params['phase'] == 2 ) {
+			switch( $apps ) {
+				case 'unreviewed':
+//					$where = ' WHERE nscorers IS NULL ';
+					$where = '';
+					break;
+				default:
+					$where = '';
+			}
+		}
 
-	function GetPhase2GridData($min, $max) {
-		$res = $this->db->getAll("select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, 2012-year(s.dob) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, coalesce(p2score,0) as p2score, coalesce(nscorers,0) as nscorers from scholarships s 
+		if ($params['phase'] = 1) {
+			$res = $this->db->getAll("SELECT s.id, s.fname, s.lname, s.email, s.residence, s.exclude,  s.sex, 2012-year(s.dob) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, p1count, mycount 
+FROM scholarships s 
+LEFT OUTER JOIN (select *, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
+LEFT OUTER JOIN (select scholarship_id, count(rank) as p1count from rankings where criterion = 'valid' group by scholarship_id) r3 on s.id = r3.scholarship_id 
+LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings where criterion = 'valid' AND user_id = $myid group by scholarship_id) r4 on s.id = r4.scholarship_id
+LEFT OUTER JOIN countries c on s.residence = c.id 
+$where    
+GROUP BY s.id, s.fname, s.lname, s.email, s.residence 
+HAVING p1score >= ? and p1score <= ? and s.exclude = 0 limit ? offset ?", array($params['min'], $params['max'], $items, $p));
+		} else {
+			$res = $this->db->getAll("select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, 2012-year(s.dob) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, coalesce(p2score,0) as p2score, coalesce(nscorers,0) as nscorers from scholarships s 
 			left outer join (select scholarship_id, sum(rank) as p2score from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r on s.id = r.scholarship_id
 			left outer join (select scholarship_id, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
 			left outer join (select scholarship_id, count(distinct user_id) as nscorers from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r3 on s.id = r3.scholarship_id			
 			left outer join countries c on s.residence = c.id      
+$where
 			group by s.id, s.fname, s.lname, s.email, s.residence 
-			having (p1score >= 3 or s.id > 1152) and p2score >= ? and p2score <= ? and s.exclude = 0
-			order by s.id", array($min, $max));
+			having (p1score >= 1) and p2score >= ? and p2score <= ? and s.exclude = 0
+			order by s.id limit ? offset ?", array(-2, 999, $items, $p));
+		}
 		if (PEAR::isError($res)) 
     			die($res->getMessage());
     		return $res;
@@ -50,8 +82,9 @@ class DataAccessLayer {
 		where s.id = ?', array($id))->fetchRow();
 	}
 
-	function GetNextPhase1($id) {
-		return $this->db->query("select *, s.id, s.residence as acountry, c.country_name, res.country_name as residence_name, p1score from scholarships s 
+	function getNext($id, $phase) {
+		if ( $phase = 1 ) {
+			$res = $this->db->query("select *, s.id, s.residence as acountry, c.country_name, res.country_name as residence_name, p1score from scholarships s 
 			left outer join (select *, sum(rank) as p1self from rankings where criterion = 'valid' and user_id = ? group by scholarship_id) r on s.id = r.scholarship_id
 			left outer join (select *, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
 			left outer join countries c on s.nationality = c.id 
@@ -59,10 +92,8 @@ class DataAccessLayer {
 			where p1self is null and s.exclude = 0 and ((p1score < 3 and p1score > -3) or p1score is null) 
 			order by rand() 
 			limit 1;", array($id))->fetchRow();
-	}
-		
-	function GetNextPhase2($id) {
-		return $this->db->query("select *, s.id, s.residence as acountry, c.country_name, res.country_name as residence_name, p2self, coalesce(p1score,0) as p1score from scholarships s 
+		} else {
+			$res = $this->db->query("select *, s.id, s.residence as acountry, c.country_name, res.country_name as residence_name, p2self, coalesce(p1score,0) as p1score from scholarships s 
 			left outer join (select scholarship_id, sum(rank) as p2self from rankings where criterion in ('offwiki', 'onwiki', 'future') and user_id = ? group by scholarship_id) r on s.id = r.scholarship_id
 			left outer join (select scholarship_id, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r3 on s.id = r3.scholarship_id
 			left outer join countries c on s.nationality = c.id 
@@ -70,6 +101,8 @@ class DataAccessLayer {
 			where p2self is null and s.exclude = 0 and (p1score >= 3) 
 			order by rand() 
 			limit 1;", array($id))->fetchRow();
+		}
+		return $res;
 	}
 
 	function GetCountAllUnrankedPhase1($id) {
@@ -104,20 +137,27 @@ class DataAccessLayer {
 		}
 	}
 
-	function GetPhase1Rankings($id) {
-		return $this->db->getAll('select r.scholarship_id, u.username, r.rank, r.criterion from rankings r inner join users u on r.user_id = u.id where r.criterion = "valid" and r.scholarship_id = ?', array($id));
+	function getRankings($id, $phase) {
+		if ( $phase == 1 ) {
+			$res = $this->db->getAll('select r.scholarship_id, u.username, r.rank, r.criterion from rankings r inner join users u on r.user_id = u.id where r.criterion = "valid" and r.scholarship_id = ?', array($id));
+			return $res;
+		} else if ( $phase == 2 ) {
+			$res = $this->db->getAll("select r.scholarship_id, u.username, r.rank, r.criterion from rankings r inner join users u on r.user_id = u.id where r.criterion IN ('onwiki', 'future', 'offwiki') and r.scholarship_id = ? order by r.criterion, u.username, r.rank", array($id));
+			return $res;
+		}
+		return false;
 	}
 	
-        function GetPhase1RankingOfUser($user_id, $scholarship_id, $criterion) {
-                $r = $this->db->query("select rank from rankings where user_id = ? and scholarship_id = ? and criterion = ?", array($user_id, $scholarship_id, $criterion));
-                $ret = $r->numRows() > 0 ? $r->fetchRow(DB_FETCHMODE_ORDERED) : array(0);
-                return $ret[0];
-        }
-	
-	function GetPhase2RankingOfUser($user_id, $scholarship_id, $criterion) {
-		$r = $this->db->query("select rank from rankings where user_id = ? and scholarship_id = ? and criterion = ?", array($user_id, $scholarship_id, $criterion));
-		$ret = $r->numRows() > 0 ? $r->fetchRow(DB_FETCHMODE_ORDERED) : array(0);
-		return $ret[0];
+        function getRankingOfUser($user_id, $scholarship_id, $criterion, $phase) {
+		if ( $phase = 1 ) {
+	                $r = $this->db->query("select rank from rankings where user_id = ? and scholarship_id = ? and criterion = ?", array($user_id, $scholarship_id, $criterion));
+        	        $ret = $r->numRows() > 0 ? $r->fetchRow(DB_FETCHMODE_ORDERED) : array(0);
+                	return $ret[0];
+		} else {
+			$r = $this->db->query("select rank from rankings where user_id = ? and scholarship_id = ? and criterion = ?", array($user_id, $scholarship_id, $criterion));
+			$ret = $r->numRows() > 0 ? $r->fetchRow(DB_FETCHMODE_ORDERED) : array(0);
+			return $ret[0];
+		}
 	}
 		
 	function GetPhase2Rankings($id) {

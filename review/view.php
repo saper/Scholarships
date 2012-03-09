@@ -1,114 +1,54 @@
 <?php
 require_once('init.php');
 
-if ( !isset( $phase ) ) {
-	$phase = 1;
-}
-
-function YearsOld($date) {
-	$start = new DateTime($date);
-	$diff = $start->diff( new DateTime( strftime( '%Y-%m-%d' ) ) );
-	return $diff->format('%Y');
-}
-
-function Sex($sex) {
-	global $wgLang;
-	switch ($sex) {
-		case 'm':
-			return $wgLang->message('form-gender-male');
-		case 'f':
-			return $wgLang->message('form-gender-female');
-		case 't': 
-			return $wgLang->message('form-gender-transgender');
-		default:
-			return $wgLang->message('form-gender-unspecified');
-	}
-}
-
-function GetScholarshipId() {
-	$ret = '';
-
-	if ($_POST['last_id'] > 0)
-	$ret = $_POST['last_id'];
-	else if ($_GET['id'] > 0)
-	$ret = $_GET['id'];
-
-	return $ret;
-}
-
-function RankDropdownList($criterion,$scholarship_id) {
-	global $user_id;
-	$dal = new DataAccessLayer();
-	$rank = $dal->GetPhase2RankingOfUser($user_id, $scholarship_id, $criterion);
-	$ret = sprintf('<select id="%s" name="%s">', $criterion, $criterion);
-
-	for ($i = 4; $i >= 0; $i--)
-	$ret .= sprintf('<option value="%d"%s>%d</option>',
-	$i, $i == $rank ? ' selected="selected"' : '', $i);
-
-	$ret .= '</select>';
-	return $ret;
-}
-
-//function GetUserTable($username,$minedits) { // CB added
-//	$uname = preg_replace('/\s/', '_', $username);
-//	$ret = file_get_contents('http://toolserver.org/~vvv/sultable.php?user=' . $uname. '&editcount=' . $minedits);
-//	//$ret = file_get_contents('http://toolserver.org/~vvv/usertable.php?user=' . $uname. '&editcount=' . $minedits);
-//	//	$ret = 'http://toolserver.org/~vvv/usertable.php?user=' . $uname. '&editcount=' . $minedits;
-//	return $ret;
-//}
-
-//function GetStaggeredUserData($username) {
-//	if ($username != "") {
-//		$ret = GetUserTable($username,50);
-//		if ($ret == "<strong class='error'>Returned no results</strong>") {
-//			$ret = GetUserTable($username,10);
-//			if ($ret == "<strong class='error'>Returned no results</strong>") {
-//				$ret = GetUserTable($username,0);
-//			}
-//		}
-//	} else {
-//		$ret = "No username listed";
-//	}
-//	return $ret;
-//}
-
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-	header('location: ' . $BASEURL . 'user/login');
-	exit();
+        header('location: ' . $BASEURL . 'user/login');
+        exit();
 }
 
 $user_id = $_SESSION['user_id'];
 
-if ($_GET['id'])
-$id = $_GET['id'];
-else if ($_POST['id'])
-$id = $_POST['id'];
-else
-die("No ID supplied!");
+$phase = 1;
+if ( isset( $_GET['phase'] ) && is_numeric( $_GET['phase'] ) ) {
+        $phase = $_GET['phase'];
+} else if ( isset( $_POST['phase'] ) && is_numeric( $_GET['phase'] ) ) {
+	$phase = $_POST['phase'];
+}
+
+if ($_GET['id']) {
+	$id = $_GET['id'];
+} else if ($_POST['id']) {
+	$id = $_POST['id'];
+} else {
+	die("No ID supplied!");
+}
 
 $dal = new DataAccessLayer();
 $username = $dal->GetUsername($_SESSION['user_id']);
+$user_id = $_SESSION['user_id'];
 
 if (isset($_POST['rank'])) {
-	$CRITERIA = array('valid','onwiki', 'offwiki', 'future'); //, 'special');
-	foreach ($CRITERIA as $c)
-	if (isset($_POST[$c]))
-	$dal->InsertOrUpdateRanking($user_id, $_POST['last_id'], $c, $_POST[$c]);
+	$criteria = array('valid','onwiki', 'offwiki', 'future'); 
+	foreach ($criteria as $c) {
+		if (isset($_POST[$c])) {
+			$dal->InsertOrUpdateRanking($user_id, $_POST['id'], $c, $_POST[$c]);
+		}
+	}
 } else if (isset($_POST['save']) && isset($_POST['notes']) && strlen($_POST['notes']) > 0) {
 	$dal->UpdateNotes($_POST['last_id'], $_POST['notes']);
 }
 
-if (isset($_POST['save']))
-$schol = $dal->GetScholarship($_POST['last_id']);
-else if ($id == 'unranked')
-$schol = $dal->GetNextPhase1($user_id);
-else
-$schol = $dal->GetScholarship($id);
+if (isset($_POST['save'])) {
+	$schol = $dal->GetScholarship($_POST['last_id']);
+} else if ($id == 'unranked') {
+	$schol = $dal->getNext($user_id, $phase);
+} else {
+	$schol = $dal->GetScholarship($id);
+}
 
-$scorings = $dal->GetPhase1Rankings($schol['id']);
+$scorings = $dal->getRankings($schol['id'], $phase);
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
 <script type="text/javascript">
@@ -135,11 +75,16 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 		}
 </script>
 <div id="form-container" class="fourteen columns">
-<form method="post" action="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>">
-<h1>View application</h1>
+<form method="post" action="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=<?php echo $phase;?>">
+<h2>View application</h2>
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
+<ul class="sublinks">
+<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $schol['id'] - 1 );?>&phase=<?php echo $phase; ?>">Previous</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=1">Phase 1</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=2">Phase 2</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $schol['id'] + 1 );?>&phase=<?php echo $phase; ?>">Next</a></li>
+</ul>
 <div id="application-view">
-
 <div id="rank-box">
 <h4>Rankings</h4>
 <table>
@@ -150,6 +95,8 @@ $scorings = $dal->GetPhase1Rankings($schol['id']);
 	</tr>
 <?php else: ?>
 	<tr>
+		<input type="hidden" id="phase" name="phase" value="<?php echo $phase; ?>"/>
+		<input type="hidden" id="id" name="id" vlaue="<?php echo $schol['id']; ?>"/>
 		<td>Future promise:</td>
 		<td><?= RankDropdownList('future',$schol['id']) ?></td>
 	</tr>
@@ -300,17 +247,12 @@ if ( ( strtotime( $schol['dob'] ) > strtotime( '1875-01-01' ) ) &&
 <fieldset><legend>Scorings</legend> 
 <?php 
 if (count($scorings) > 0) {
-print "<ul>";
+print "<table id='view-scorings'>
+<tr><th>Reviewer</th><th>Criteria</th><th>Rank</th></tr>";
   foreach ($scorings as $r) {
-   print "<li>" . $r['username'] . ' voted - ' . $r['criterion'] . ' : ' . $r['rank'];
-    /*sprintf('%+d', $r['rank'])*/
-/*for <?= $r['criterion'] ?></p>
-<?php endforeach; else: ?>
-<p>This application has not been ranked.</p>
-<?php endif; ?>
-*/
+    print "<tr><td>" . $r['username'] . '</td><td>' . $r['criterion'] . '</td><td>' . $r['rank'] . '</td></tr>';
   }
-  print "</ul>";
+print "</table>";
 }
 ?>
 </fieldset>
