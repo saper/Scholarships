@@ -164,6 +164,25 @@ ul.sublinks li {
   margin-right: 8px;
 }
 
+ul.pagerlinks {
+  list-style: none;
+  font-size: 12px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+ul.pagerlinks li {
+  display: inline;
+  margin-right: 1px;
+}
+
+ul.pagerlinks li a {
+  color: #666;
+  padding: .4em;
+  border: solid 1px #ddd;
+  text-decoration: none;
+}
+
 table#grid {
   width: 100%;
   table-layout:fixed;

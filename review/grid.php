@@ -33,8 +33,9 @@ $params = array(
 	'max' => isset( $_GET['max'] ) ? $_GET['max'] : 999,
 	'phase' => 1,
 	'items' => $items,
-	'p' => $p,
-	'apps' => $apps
+	'offset' => $p,
+	'apps' => $apps,
+        'baseurl' => $BASEURL
 );
 
 $schols = $dal->gridData($params);
@@ -83,10 +84,11 @@ if ( $row['p1count'] == 0 ) {
 	</tr>
 	<?php endforeach; ?>
 </table>
-<ul class="sublinks">
-<li><a href='<?php echo $BASEURL; ?>review/grid?p=' . $p - 1 . '&items=' . $items . ''>Prev</a></li>
-<li><a href='<?php echo $BASEURL; ?>review/grid?p=' . $p + 1 . '&items=' . $items . ''>Next</a></li>
-</ul>
 </form>
+<?php
+$pager = new Pagination($params);
+$pager->render();
+?>
+
 </div>
 <?php include "$BASEDIR/templates/footer.php" ?>

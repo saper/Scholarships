@@ -23,9 +23,20 @@ class DataAccessLayer {
 	function gridData($params) {
 		$where = '';
 		$apps = isset( $params['apps'] ) ? $params['apps'] : 'unreviewed';
-		$p = isset( $params['p'] ) ? $params['p'] : 0;
+		$p = isset( $params['offset'] ) ? $params['offset'] : 0;
 		$myid = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : 0;
-		$items = isset( $params['items'] ) ? $params['items'] : 100;
+		$items = ( isset( $params['items'] ) && is_int( $params['items'] ) ) ? $params['items'] : 100;
+
+		$p = intval($p);
+		$offset = " OFFSET " . ( $p * $items );		
+
+                if ( $params['items'] == 'all' ) {
+                        $limit = " ";
+			$offset = " ";
+                } else {
+                        $limit = " LIMIT $items ";
+                }
+		
 		if ( $params['phase'] == 1 ) {
 			switch( $apps ) {
 				case 'unreviewed':
@@ -35,21 +46,21 @@ class DataAccessLayer {
 					$where = ' WHERE mycount IS NULL ';
 					break;
 				default:
-					$where = '';
+					$where = ' ';
 			}
 		} else if ( $params['phase'] == 2 ) {
 			switch( $apps ) {
 				case 'unreviewed':
 //					$where = ' WHERE nscorers IS NULL ';
-					$where = '';
+					$where = ' ';
 					break;
 				default:
-					$where = '';
+					$where = ' ';
 			}
 		}
 
-		if ($params['phase'] = 1) {
-			$res = $this->db->getAll("SELECT s.id, s.fname, s.lname, s.email, s.residence, s.exclude,  s.sex, 2012-year(s.dob) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, p1count, mycount 
+		if ($params['phase'] == 1) {
+			$sql = "SELECT s.id, s.fname, s.lname, s.email, s.residence, s.exclude,  s.sex, (2012 - year(s.dob)) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, p1count, mycount 
 FROM scholarships s 
 LEFT OUTER JOIN (select *, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
 LEFT OUTER JOIN (select scholarship_id, count(rank) as p1count from rankings where criterion = 'valid' group by scholarship_id) r3 on s.id = r3.scholarship_id 
@@ -57,18 +68,19 @@ LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings whe
 LEFT OUTER JOIN countries c on s.residence = c.id 
 $where    
 GROUP BY s.id, s.fname, s.lname, s.email, s.residence 
-HAVING p1score >= ? and p1score <= ? and s.exclude = 0 limit ? offset ?", array($params['min'], $params['max'], $items, $p));
+HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset;";
 		} else {
-			$res = $this->db->getAll("select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, 2012-year(s.dob) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, coalesce(p2score,0) as p2score, coalesce(nscorers,0) as nscorers from scholarships s 
+			$where = " WHERE p1score >= 1 ";
+			$sql = "select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, (2012 - year(s.dob)) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, coalesce(p2score,0) as p2score, coalesce(nscorers,0) as nscorers from scholarships s 
 			left outer join (select scholarship_id, sum(rank) as p2score from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r on s.id = r.scholarship_id
 			left outer join (select scholarship_id, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
 			left outer join (select scholarship_id, count(distinct user_id) as nscorers from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r3 on s.id = r3.scholarship_id			
 			left outer join countries c on s.residence = c.id      
 $where
 			group by s.id, s.fname, s.lname, s.email, s.residence 
-			having (p1score >= 1) and p2score >= ? and p2score <= ? and s.exclude = 0
-			order by s.id limit ? offset ?", array(-2, 999, $items, $p));
+			order by s.id $limit $offset;";
 		}
+		$res = $this->db->getAll($sql);
 		if (PEAR::isError($res)) 
     			die($res->getMessage());
     		return $res;

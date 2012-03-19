@@ -26,7 +26,8 @@ $params = array(
         'max' => isset( $_GET['max'] ) ? $_GET['max'] : 999,
         'phase' => 2,
 	'items' => $items,
-	'offset' => $p
+	'offset' => $p,
+	'baseurl' => $BASEURL
 );
 
 $schols = $dal->gridData($params);
@@ -64,12 +65,14 @@ if ( $row['nscorers'] == 0 ) {
 	echo $row['nscorers']; 
 }
 ?></td>
-		<td>Hidden</td>
+		<td>-</td>
 	</tr>
 	<?php endforeach; ?>
 </table>
 </form>
-<a href="<?php echo $BASEURL; ?>review/phase2?items=<?php echo $items; ?>&p=<?php echo $p - 1; ?>" id="prev">Prev</a>
-<a href="<?php echo $BASEURL; ?>review/phase2?items=<?php echo $items; ?>&p=<?php echo $p + 1; ?>" id="next">Next</a>
-</div>
+<?php
+$pager = new Pagination($params);
+$pager->render();
+?>
+
 <?php include "$BASEDIR/templates/footer.php" ?>
