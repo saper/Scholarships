@@ -45,9 +45,9 @@ $schols = $dal->gridData($params);
 <div id="form-container" class="fourteen columns">
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
 <ul class="sublinks">
-<li><a href="<?php echo $BASEURL; ?>review/grid?apps=all">All applications</a></li>
-<li><a href="<?php echo $BASEURL; ?>review/grid?apps=unreviewed">All unreviewed</a></li>
-<li><a href="<?php echo $BASEURL; ?>review/grid?apps=myapps">My unreviewed</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/phase1?apps=all">All applications</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/phase1?apps=unreviewed">All unreviewed</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/phase1?apps=myapps">My unreviewed</a></li>
 </ul>
 <form method="get" action="<?php echo $BASEURL; ?>review/grid">
 <table id="grid" style="width: 100%;">
@@ -86,7 +86,7 @@ if ( $row['p1count'] == 0 ) {
 </table>
 </form>
 <?php
-$pager = new Pagination($params);
+$pager = new Pagination($params, $default_pp);
 $pager->render();
 ?>
 

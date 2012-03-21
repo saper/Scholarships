@@ -9,9 +9,13 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 if ( isset( $_GET['items'] ) )  {
-        $items = intval($_GET['items']);
+	if ( $_GET['items'] != 'all' ) {
+	        $items = intval($_GET['items']);
+	} else {
+		$items = 'all';
+	}
 } else { 
-	$items = 100;
+	$items = $default_pp;
 }
 
 if ( isset( $_GET['p'] ) )  {
@@ -71,7 +75,7 @@ if ( $row['nscorers'] == 0 ) {
 </table>
 </form>
 <?php
-$pager = new Pagination($params);
+$pager = new Pagination($params, $default_pp);
 $pager->render();
 ?>
 
