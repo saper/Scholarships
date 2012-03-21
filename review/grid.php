@@ -15,9 +15,8 @@ if( isset( $_GET['apps'] )) {
 	}
 }
 
-$items = 100;
+$items = $default_pp;
 $p = 0;
-
 
 if ( isset( $_GET['items'] ) )  {
 	$items = intval($_GET['items']);

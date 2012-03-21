@@ -51,8 +51,10 @@ class DataAccessLayer {
 		} else if ( $params['phase'] == 2 ) {
 			switch( $apps ) {
 				case 'unreviewed':
-//					$where = ' WHERE nscorers IS NULL ';
-					$where = ' ';
+					$where = ' AND nscorers IS NULL ';
+					break;
+				case 'myapps':
+					$where = ' AND mycount IS NULL ';
 					break;
 				default:
 					$where = ' ';
@@ -70,13 +72,13 @@ $where
 GROUP BY s.id, s.fname, s.lname, s.email, s.residence 
 HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset;";
 		} else {
-			$where = " WHERE p1score >= 1 ";
 			$sql = "select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, (2012 - year(s.dob)) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, coalesce(p2score,0) as p2score, coalesce(nscorers,0) as nscorers from scholarships s 
 			left outer join (select scholarship_id, sum(rank) as p2score from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r on s.id = r.scholarship_id
 			left outer join (select scholarship_id, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
 			left outer join (select scholarship_id, count(distinct user_id) as nscorers from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r3 on s.id = r3.scholarship_id			
 			left outer join countries c on s.residence = c.id      
-$where
+LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings where criterion IN ('onwiki', 'offwiki', 'future') AND user_id = $myid group by scholarship_id) r4 on s.id = r4.scholarship_id
+WHERE p1score >=1 $where 
 			group by s.id, s.fname, s.lname, s.email, s.residence 
 			order by s.id $limit $offset;";
 		}

@@ -8,6 +8,13 @@ if (!isset($_SESSION['user_id'])) {
 	exit();
 }
 
+$apps = 'unreviewed';
+if( isset( $_GET['apps'] )) {
+        if ( in_array( $_GET['apps'], array('unreviewed', 'all', 'myapps')) ) {
+                $apps = $_GET['apps'];
+        }
+}
+
 if ( isset( $_GET['items'] ) )  {
 	if ( $_GET['items'] != 'all' ) {
 	        $items = intval($_GET['items']);
@@ -30,6 +37,7 @@ $params = array(
         'max' => isset( $_GET['max'] ) ? $_GET['max'] : 999,
         'phase' => 2,
 	'items' => $items,
+	'apps' => $apps,
 	'offset' => $p,
 	'baseurl' => $BASEURL
 );
@@ -40,6 +48,11 @@ $schols = $dal->gridData($params);
 <h2>Scholarship Applications</h2>
 <div id="form-container" class="fourteen columns">
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
+<ul class="sublinks">
+<li><a href="<?php echo $BASEURL; ?>review/phase2?apps=all">All applications</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/phase2?apps=unreviewed">All unreviewed</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/phase2?apps=myapps">My unreviewed</a></li>
+</ul>
 <form method="post" action="<?php echo $BASEURL; ?>review/grid">
 <table id="grid" style="width: 100%;">
 	<tr>
