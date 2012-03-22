@@ -245,15 +245,16 @@ if ( ( strtotime( $schol['dob'] ) > strtotime( '1875-01-01' ) ) &&
 </fieldset>
 
 <fieldset><legend>Scorings</legend> 
-<?php 
-if (count($scorings) > 0) {
-print "<table id='view-scorings'>
-<tr><th>Reviewer</th><th>Criteria</th><th>Rank</th></tr>";
-  foreach ($scorings as $r) {
-    print "<tr><td>" . $r['username'] . '</td><td>' . $r['criterion'] . '</td><td>' . $r['rank'] . '</td></tr>';
-  }
-print "</table>";
-}
+<?php
+/*	if (count($scorings) > 0) {
+	print "<table id='view-scorings'>
+	<tr><th>Reviewer</th><th>Criteria</th><th>Rank</th></tr>";
+	  foreach ($scorings as $r) {
+	    print "<tr><td>" . $r['username'] . '</td><td>' . $r['criterion'] . '</td><td>' . $r['rank'] . '</td></tr>';
+	  }
+	print "</table>";
+	}
+*/
 ?>
 </fieldset>
 
