@@ -19,14 +19,25 @@ class DataAccessLayer {
 		$this->db->disconnect();
 	}
 
+	function buildWhere($where) {
+		$sql = '';
+		for($i=0; $i < count($where); $i++){
+			if ( $i == 0 ) {
+				$sql = "WHERE " . $where[$i];			
+			} else {
+				$sql = $sql . " AND " . $where[$i];
+			}
+		}
+		return $sql;
+	}
 
 	function gridData($params) {
-		$where = '';
+		$where = array();
 		$apps = isset( $params['apps'] ) ? $params['apps'] : 'unreviewed';
-		$p = isset( $params['offset'] ) ? $params['offset'] : 0;
 		$myid = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : 0;
-		$items = ( isset( $params['items'] ) && is_int( $params['items'] ) ) ? $params['items'] : 100;
+		$items = ( isset( $params['items'] ) && is_int( $params['items'] ) ) ? $params['items'] : 50;
 
+		$p = isset( $params['offset'] ) ? $params['offset'] : 0;
 		$p = intval($p);
 		$offset = " OFFSET " . ( $p * $items );		
 
@@ -40,24 +51,24 @@ class DataAccessLayer {
 		if ( $params['phase'] == 1 ) {
 			switch( $apps ) {
 				case 'unreviewed':
-					$where = ' WHERE p1count IS NULL ';
+					array_push( $where, ' p1count IS NULL ');
 					break;
 				case 'myapps':
-					$where = ' WHERE mycount IS NULL ';
+					array_push( $where, ' mycount IS NULL ');
 					break;
 				default:
-					$where = ' ';
+					break;
 			}
 		} else if ( $params['phase'] == 2 ) {
 			switch( $apps ) {
 				case 'unreviewed':
-					$where = ' AND nscorers IS NULL ';
+					array_push( $where, ' nscorers IS NULL ');
 					break;
 				case 'myapps':
-					$where = ' AND mycount IS NULL ';
+					array_push( $where, ' mycount IS NULL ');
 					break;
 				default:
-					$where = ' ';
+					break;
 			}
 		}
 
@@ -67,18 +78,19 @@ FROM scholarships s
 LEFT OUTER JOIN (select *, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
 LEFT OUTER JOIN (select scholarship_id, count(rank) as p1count from rankings where criterion = 'valid' group by scholarship_id) r3 on s.id = r3.scholarship_id 
 LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings where criterion = 'valid' AND user_id = $myid group by scholarship_id) r4 on s.id = r4.scholarship_id
-LEFT OUTER JOIN countries c on s.residence = c.id 
-$where    
+LEFT OUTER JOIN countries c on s.residence = c.id " 
+. $this->buildWhere( $where ) . "
 GROUP BY s.id, s.fname, s.lname, s.email, s.residence 
 HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset;";
 		} else {
+			array_push( $where, ' p1score >= 1 ' );
 			$sql = "select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, (2012 - year(s.dob)) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, coalesce(p2score,0) as p2score, coalesce(nscorers,0) as nscorers from scholarships s 
 			left outer join (select scholarship_id, sum(rank) as p2score from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r on s.id = r.scholarship_id
 			left outer join (select scholarship_id, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
 			left outer join (select scholarship_id, count(distinct user_id) as nscorers from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r3 on s.id = r3.scholarship_id			
 			left outer join countries c on s.residence = c.id      
-LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings where criterion IN ('onwiki', 'offwiki', 'future') AND user_id = $myid group by scholarship_id) r4 on s.id = r4.scholarship_id
-WHERE p1score >=1 $where 
+LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings where criterion IN ('onwiki', 'offwiki', 'future') AND user_id = $myid group by scholarship_id) r4 on s.id = r4.scholarship_id " 
+. $this->buildWhere( $where ) . "
 			group by s.id, s.fname, s.lname, s.email, s.residence 
 			order by s.id $limit $offset;";
 		}
@@ -86,6 +98,42 @@ WHERE p1score >=1 $where
 		if (PEAR::isError($res)) 
     			die($res->getMessage());
     		return $res;
+	}
+
+	function search($params) {
+		$myid = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : 0;
+		$first = isset( $params['first'] ) ? $params['first'] : null;
+		$last = isset( $params['last'] ) ? $params['last'] : null;
+		$citizen = isset( $params['citizen']) ? $params['citizen'] : null;
+		$residence = isset( $params['residence']) ? $params['residence'] : null;
+		$items = isset( $params['items'] ) ? $params['items'] : 50;
+
+                $p = isset( $params['offset'] ) ? $params['offset'] : 0;
+                $p = intval($p);
+                $offset = " OFFSET " . ( $p * $items );
+
+		$limit = " LIMIT $items ";
+		$where = array();
+		if ( $last != null ) {
+			array_push( $where, " s.lname = '" . $last . "' ");
+		}
+		if ( $first != null ) {
+			array_push( $where, " s.fname = '" . $first . "' ");
+		}
+		if ( $residence != null ) {
+			array_push( $where, " c.country_name = '" . $residence . "' ");
+		}
+		$sql = "
+SELECT s.id, s.fname, s.lname, s.email, s.residence, s.exclude,  s.sex, (2012 - year(s.dob)) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, p1count, mycount 
+FROM scholarships s 
+LEFT OUTER JOIN (select *, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
+LEFT OUTER JOIN (select scholarship_id, count(rank) as p1count from rankings where criterion = 'valid' group by scholarship_id) r3 on s.id = r3.scholarship_id 
+LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings where criterion = 'valid' AND user_id = $myid group by scholarship_id) r4 on s.id = r4.scholarship_id
+LEFT OUTER JOIN countries c on s.residence = c.id " . 
+$this->buildWhere( $where ) . "
+GROUP BY s.id, s.fname, s.lname, s.email, s.residence 
+HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset";
+		return $this->db->getAll($sql);
 	}
 		
 
@@ -218,16 +266,6 @@ WHERE p1score >=1 $where
     		return $res;
 	}
 		
-//		function GetFinalScoring($method = "coalesce(sum(r.onrank),0) + coalesce(sum(r.offrank),0) + (c.country_rank * 6)") {
-//			$query = "select s.id, s.fname, s.lname, c.country_name, s.airport, coalesce(sum(r.onrank),0) as sumonrank, coalesce(sum(r.offrank),0) as sumoffrank, c.country_rank, " . $method . " as score from scholarships s
-//left outer join (select *, if(criterion='onwiki',rank,0) as onrank, if(criterion='offwiki',rank,0) as offrank from rankings) r on s.id = r.scholarship_id
-//left join countries c on s.residence = c.id
-//where s.rank =1 and s.exclude = 0
-//group by s.id, s.fname, s.lname, c.country_name, s.airport, c.country_rank
-//order by score desc;";
-//			return $this->db->getAll($query);
-//		}
-
 // User administration
 
 	function GetUser($username) {

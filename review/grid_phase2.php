@@ -39,7 +39,8 @@ $params = array(
 	'items' => $items,
 	'apps' => $apps,
 	'offset' => $p,
-	'baseurl' => $BASEURL
+	'baseurl' => $BASEURL,
+	'page' => 'review/phase2'
 );
 
 $schols = $dal->gridData($params);
@@ -54,7 +55,7 @@ $schols = $dal->gridData($params);
 <li><a href="<?php echo $BASEURL; ?>review/phase2?apps=myapps">My unreviewed</a></li>
 </ul>
 <form method="post" action="<?php echo $BASEURL; ?>review/grid">
-<table id="grid" style="width: 100%;">
+<table id="grid" class="grid" style="width: 100%;">
 	<tr>
 		<th style="width: 4%;">id</th>
 		<th style="width: 16%;">name</th>

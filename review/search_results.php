@@ -8,49 +8,47 @@ if (!isset($_SESSION['user_id'])) {
 	exit();
 }
 
-$apps = 'unreviewed';
-if( isset( $_GET['apps'] )) {
-	if ( in_array( $_GET['apps'], array('unreviewed', 'all', 'myapps')) ) {
-		$apps = $_GET['apps'];
-	}
-}
-
-$items = $default_pp;
-$p = 0;
-
-if ( isset( $_GET['items'] ) )  {
-	$items = intval($_GET['items']);
-}
-
-if ( isset( $_GET['p'] ) )  {
-        $p = intval($_GET['p']);
-}
-
 $dal = new DataAccessLayer();
 $params = array(
-	'min' => isset( $_GET['min'] ) ? $_GET['min'] : -2,
-	'max' => isset( $_GET['max'] ) ? $_GET['max'] : 999,
-	'phase' => 1,
-	'items' => $items,
-	'offset' => $p,
-	'apps' => $apps,
         'baseurl' => $BASEURL,
-	'page' => 'review/phase1'
+	'phase' => 1,
+	'items' => $default_pp,
+	'offset' => 0,
+	'page' => 'review/search/results'
 );
 
-$schols = $dal->gridData($params);
+if ( isset( $_GET['items'] ) ) {
+	$params['items'] = $_GET['items'];
+}
+
+if ( isset( $_GET['p'] ) ) {
+	$params['offset'] = $_GET['p'];
+}
+
+if ( isset( $_GET['last'] ) ) {
+	$params['last'] = $_GET['last'];
+}
+
+if ( isset( $_GET['first'] ) ) {
+	$params['first'] = $_GET['first'];
+}
+
+if ( isset( $_GET['citizen'] ) ) {
+	$params['citizen'] = $_GET['citizen'];
+}
+
+if ( isset( $_GET['residence'] ) ) {
+	$params['residence'] = $_GET['residence'];
+}
+
+$schols = $dal->search($params);
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
 <h2>Scholarship Applications</h2>
 <div id="form-container" class="fourteen columns">
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
-<ul class="sublinks">
-<li><a href="<?php echo $BASEURL; ?>review/phase1?apps=all">All applications</a></li>
-<li><a href="<?php echo $BASEURL; ?>review/phase1?apps=unreviewed">All unreviewed</a></li>
-<li><a href="<?php echo $BASEURL; ?>review/phase1?apps=myapps">My unreviewed</a></li>
-</ul>
-<form method="get" action="<?php echo $BASEURL; ?>review/grid">
-<table class="grid" id="grid" style="width: 100%;">
+<form method="get" action="<?php echo $BASEURL; ?>review/search/results">
+<table id="grid" style="width: 100%;">
 	<tr>
 		<th style="width: 4%;">id</th>
 		<th style="width: 16%;">name</th>

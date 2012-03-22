@@ -28,6 +28,7 @@ class Pagination {
 		$this->phase = $params['phase'];
 		$this->p = $params['offset'];
 		$this->base = $params['baseurl'];
+		$this->page = $params['page'];
 		$this->max_pages = 9;
 	}
 
@@ -61,7 +62,7 @@ class Pagination {
         	        print "<ul class='pagerlinks'>";
 
 			if ( $this->p > 0 ) {
-				print "<li><a href='" . $this->base . "review/phase" . $this->phase . "?items=" . $this->items_pp . "&p=" . ($this->p - 1) . "' id='prev'>Prev</a></li>";
+				print "<li><a href='" . $this->base . $this->page . "?items=" . $this->items_pp . "&p=" . ($this->p - 1) . "' id='prev'>Prev</a></li>";
 			}
 
 			$start = 1;
@@ -82,16 +83,16 @@ class Pagination {
 			$j = 0;
 			for ( $i = $start; $i <= $maxpages; $i++ ) {
 				if ( $j <= 9 ) { 
-        				print "<li><a href='" . $this->base . "review/phase" . $this->phase . "?items=" . $this->items_pp . "&p=$j'>$i</a></li>";
+        				print "<li><a href='" . $this->base . $this->page . "?items=" . $this->items_pp . "&p=$j'>$i</a></li>";
 				}
 				$j++;
 			} 
 
 			if ( $this->p + 1 < $total_pages ) {
-				print "<li><a href='" . $this->base . "review/phase" . $this->phase . "?items=" . $this->items_pp . "&p=" . ($this->p + 1) . "' id='next'>Next</a></li>";
+				print "<li><a href='" . $this->base . $this->page . "?items=" . $this->items_pp . "&p=" . ($this->p + 1) . "' id='next'>Next</a></li>";
 			}
 
-			print "<li><a href='" . $this->base . "review/phase" . $this->phase . "?items=" . $total_items . "' id='all'>All</a></li>";
+			print "<li><a href='" . $this->base . $this->page . "?items=" . $total_items . "' id='all'>All</a></li>";
 			print "</ul>";
 		}
 	}

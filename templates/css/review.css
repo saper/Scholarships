@@ -87,11 +87,6 @@ table#country-grid tr th {
   text-align: left;
 }
 
-table#country-grid tr th,
-table#country-grid tr td {
-  background: #eee;
-}
-
 div#country-grid-return {
   font-size: 0.84em;
   padding: 1em 0;
@@ -183,19 +178,19 @@ ul.pagerlinks li a {
   text-decoration: none;
 }
 
-table#grid {
+table.grid {
   width: 100%;
   table-layout:fixed;
   overflow:hidden;
 }
 
-table#grid tr td,
-table#grid tr th {
+table.grid tr td,
+table.grid tr th {
   padding: .4em;
   font-size: 14px;
 }
 
-table#grid tr th {
+table.grid tr th {
   text-align: left;
   font-weight: bold;
 }
