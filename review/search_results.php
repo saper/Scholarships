@@ -48,7 +48,7 @@ $schols = $dal->search($params);
 <div id="form-container" class="fourteen columns">
 <?php include "$BASEDIR/templates/admin_nav.php" ?>
 <form method="get" action="<?php echo $BASEURL; ?>review/search/results">
-<table id="grid" style="width: 100%;">
+<table id="grid" class="grid" style="width: 100%;">
 	<tr>
 		<th style="width: 4%;">id</th>
 		<th style="width: 16%;">name</th>
