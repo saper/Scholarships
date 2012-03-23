@@ -52,14 +52,6 @@ $scorings = $dal->getRankings($schol['id'], $phase);
 ?>
 <?php include "$BASEDIR/templates/header_review.php" ?>
 <script type="text/javascript">
-		function toggleDump() {
-			var dump = document.getElementById('dump');
-			if (dump.style.display == 'block')
-				dump.style.display = 'none';
-			else
-				dump.style.display = 'block';
-		}
-
 		function insertStamp() {
 			notes = document.getElementById('notes');
 			now = new Date();
@@ -238,7 +230,7 @@ if ( ( strtotime( $schol['dob'] ) > strtotime( '1875-01-01' ) ) &&
 <p>Declined to state.</p>
 <?php endif; ?></fieldset>
 
-<fieldset><legend><a href="#" onClick="toggleDump();">Show full dump</a></legend>
+<fieldset><legend><a href="#" id="showfulldump">Show full dump</a></legend>
 <div id="dump"><?php foreach ($schol as $k => $v): ?>
 <p><?= $k ?>: <?= $v ?></p>
 <?php endforeach; ?></div>
