@@ -6,4 +6,8 @@ $(document).ready(function() {
 		$('#dump').toggle();
 		return false;
 	});
+	$('#rankingstoggle').click(function() {
+		$('#rankingitems').toggle();
+		return false;
+	});
 });

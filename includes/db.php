@@ -357,18 +357,5 @@ HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset";
 	}
 
 		
-// not in use in regular review system
-
-//		function GetRawGridData($min, $max) {
-//			return $this->db->getAll('select s.id, s.fname, s.lname, s.email, s.nationality, s.rank from scholarships s');
-//		}
-//		function GetAltGridData($min, $max) {
-//			return $this->db->getAll('select s.id, s.fname, s.lname, s.nationality, s.country, s.languages, coalesce(sum(r.rank), 0) as rank, s.rank as autorank from scholarships s left outer join rankings r on s.id = r.scholarship_id where r.criterion in ("onwiki" , "offwiki" , "nationality" , "representation", "special") group by s.id, s.fname, s.lname, s.email, s.nationality having coalesce(sum(r.rank), 0) >= ? and coalesce(sum(r.rank), 0) <= ? and s.rank >= 0', array($min, $max));
-//		}
-//
-//		function GetRankedGridData($min, $max) {
-//			return $this->db->getAll('select s.id, s.fname, s.lname, s.email, s.nationality, coalesce(sum(r.rank), 0) as rank, s.rank as autorank from scholarships s left outer join rankings r on s.id = r.scholarship_id where r.criterion = "valid" group by s.id, s.fname, s.lname, s.email, s.nationality having coalesce(sum(r.rank), 0) >= ? and coalesce(sum(r.rank), 0) <= ? and s.rank >= 0 order by coalesce(sum(r.rank), 0) desc', array($min, $max));
-//		}
-		
 }
 ?>

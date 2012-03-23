@@ -37,9 +37,15 @@ function RankDropdownList($criterion,$scholarship_id) {
         $rank = $dal->getRankingOfUser($user_id, $scholarship_id, $criterion, 2);
         $ret = sprintf('<select id="%s" name="%s">', $criterion, $criterion);
 
-        for ($i = 4; $i >= 0; $i--)
-        $ret .= sprintf('<option value="%d"%s>%d</option>',
-        $i, $i == $rank ? ' selected="selected"' : '', $i);
+	$numopt = 4;	
+	if ( in_array( $criterion, array( 'valid', 'program' ) ) ) {
+		$numopt = 1;
+	}
+
+        for ($i = $numopt; $i >= 0; $i--) {
+	        $ret .= sprintf('<option value="%d"%s>%d</option>',
+        		$i, $i == $rank ? ' selected="selected"' : '', $i);
+	}
 
         $ret .= '</select>';
         return $ret;

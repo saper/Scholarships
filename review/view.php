@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-$phase = 1;
+$phase = 2;
 if ( isset( $_GET['phase'] ) && is_numeric( $_GET['phase'] ) ) {
         $phase = $_GET['phase'];
 } else if ( isset( $_POST['phase'] ) && is_numeric( $_GET['phase'] ) ) {
@@ -21,16 +21,14 @@ if ($_GET['id']) {
 	$id = $_GET['id'];
 } else if ($_POST['id']) {
 	$id = $_POST['id'];
-} else {
-	die("No ID supplied!");
 }
 
 $dal = new DataAccessLayer();
-$username = $dal->GetUsername($_SESSION['user_id']);
 $user_id = $_SESSION['user_id'];
+$username = $dal->GetUsername($user_id);
 
 if (isset($_POST['rank'])) {
-	$criteria = array('valid','onwiki', 'offwiki', 'future'); 
+	$criteria = array('valid','onwiki', 'offwiki', 'future', 'program'); 
 	foreach ($criteria as $c) {
 		if (isset($_POST[$c])) {
 			$dal->InsertOrUpdateRanking($user_id, $_POST['id'], $c, $_POST[$c]);
@@ -42,10 +40,10 @@ if (isset($_POST['rank'])) {
 
 if (isset($_POST['save'])) {
 	$schol = $dal->GetScholarship($_POST['last_id']);
-} else if ($id == 'unranked') {
-	$schol = $dal->getNext($user_id, $phase);
+} else if ( isset( $id ) ) {
+	$schol = $dal->GetScholarship( $id );
 } else {
-	$schol = $dal->GetScholarship($id);
+	$schol = $dal->getNext($user_id, $phase);
 }
 
 $scorings = $dal->getRankings($schol['id'], $phase);
@@ -78,7 +76,8 @@ $scorings = $dal->getRankings($schol['id'], $phase);
 </ul>
 <div id="application-view">
 <div id="rank-box">
-<h4>Rankings</h4>
+<h4>Rankings <span id="rankingstoggle">[show/hide]</span></h4>
+<div id="rankingitems">
 <table>
 <?php if ( $phase == 1 ): ?>
 	<tr>
@@ -100,12 +99,17 @@ $scorings = $dal->getRankings($schol['id'], $phase);
 		<td>Outside Wikimedia movement:</td>
 		<td><?= RankDropdownList('offwiki',$schol['id']) ?></td>
 	</tr>
+	<tr>
+		<td>Program:</td>
+		<td><?= RankDropdownList('program',$schol['id']) ?></td>
+	</tr>
 <?php endif; ?>
 	<tr>
 		<td>&nbsp;</td>
 		<td><input type="submit" id="rank" name="rank" value="Rank"/></td>
 	</tr>
 </table>
+</div>
 </div>
 
 <fieldset>
