@@ -17,38 +17,44 @@ if ( isset( $_GET['phase'] ) && is_numeric( $_GET['phase'] ) ) {
 	$phase = $_POST['phase'];
 }
 
-if ($_GET['id']) {
-	$id = $_GET['id'];
-} else if ($_POST['id']) {
-	$id = $_POST['id'];
-}
-
 $dal = new DataAccessLayer();
 $user_id = $_SESSION['user_id'];
 $username = $dal->GetUsername($user_id);
 
-if (isset($_POST['rank'])) {
+$unreviewed = $dal->myUnreviewed($user_id);
+
+$id = min($unreviewed);
+if ($_GET['id']) {
+        $id = $_GET['id'];
+} else if ($_POST['id']) {
+        $id = $_POST['id'];
+}
+
+$myscorings = $dal->myRankings($id, $user_id, $phase);
+$allscorings = $dal->allRankings($id, $phase);
+
+if (isset($_POST['save'])) {
 	$criteria = array('valid','onwiki', 'offwiki', 'future', 'program'); 
 	foreach ($criteria as $c) {
 		if (isset($_POST[$c])) {
 			$dal->InsertOrUpdateRanking($user_id, $_POST['id'], $c, $_POST[$c]);
 		}
 	}
-} else if (isset($_POST['save']) && isset($_POST['notes']) && strlen($_POST['notes']) > 0) {
-	$dal->UpdateNotes($_POST['last_id'], $_POST['notes']);
+	if ( isset($_POST['notes']) && strlen($_POST['notes']) > 0) {
+		$dal->UpdateNotes($_POST['scholid'], $_POST['notes']);
+	}
+	print_r( $unreviewed ); 
 }
 
 if (isset($_POST['save'])) {
-	$schol = $dal->GetScholarship($_POST['last_id']);
+	$schol = $dal->GetScholarship($_POST['scholid']);
 } else if ( isset( $id ) ) {
 	$schol = $dal->GetScholarship( $id );
 } else {
 	$schol = $dal->getNext($user_id, $phase);
 }
-
-$scorings = $dal->getRankings($schol['id'], $phase);
 ?>
-<?php include "$BASEDIR/templates/header_review.php" ?>
+<?php include TEMPLATEPATH . "header_review.php" ?>
 <script type="text/javascript">
 		function insertStamp() {
 			notes = document.getElementById('notes');
@@ -66,8 +72,7 @@ $scorings = $dal->getRankings($schol['id'], $phase);
 </script>
 <div id="form-container" class="fourteen columns">
 <form method="post" action="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=<?php echo $phase;?>">
-<h2>View application</h2>
-<?php include "$BASEDIR/templates/admin_nav.php" ?>
+<?php include TEMPLATEPATH . "admin_nav.php" ?>
 <ul class="sublinks">
 <li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $schol['id'] - 1 );?>&phase=<?php echo $phase; ?>">Previous</a></li>
 <li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=1">Phase 1</a></li>
@@ -75,8 +80,8 @@ $scorings = $dal->getRankings($schol['id'], $phase);
 <li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $schol['id'] + 1 );?>&phase=<?php echo $phase; ?>">Next</a></li>
 </ul>
 <div id="application-view">
-<div id="rank-box">
-<h4>Rankings <span id="rankingstoggle">[show/hide]</span></h4>
+<div id="rank-box" class="clearfix">
+<h4>Rankings <span id="rankingstoggle">[show/collapse]</span></h4>
 <div id="rankingitems">
 <table>
 <?php if ( $phase == 1 ): ?>
@@ -88,27 +93,28 @@ $scorings = $dal->getRankings($schol['id'], $phase);
 	<tr>
 		<input type="hidden" id="phase" name="phase" value="<?php echo $phase; ?>"/>
 		<input type="hidden" id="id" name="id" vlaue="<?php echo $schol['id']; ?>"/>
-		<td>Future promise:</td>
+		<td>Future promise: 
 		<td><?= RankDropdownList('future',$schol['id']) ?></td>
-	</tr>
-	<tr>
 		<td>In Wikimedia movement:</td>
 		<td><?= RankDropdownList('onwiki',$schol['id']) ?></td>
 	</tr>
 	<tr>
 		<td>Outside Wikimedia movement:</td>
 		<td><?= RankDropdownList('offwiki',$schol['id']) ?></td>
-	</tr>
-	<tr>
 		<td>Program:</td>
 		<td><?= RankDropdownList('program',$schol['id']) ?></td>
 	</tr>
 <?php endif; ?>
-	<tr>
-		<td>&nbsp;</td>
-		<td><input type="submit" id="rank" name="rank" value="Rank"/></td>
-	</tr>
 </table>
+<div id="notes-box">
+Notes:<br/>
+<textarea id="notes" name="notes"><?= $schol['notes'] ?></textarea>
+<input type="hidden" id="scholid" name="scholid" value='<?php echo $schol['id']; ?>' />
+<ul>
+<li><input type="button" id="stamp" name="stamp" value="Insert stamp" onclick="insertStamp();" />
+<input type="submit" id="save" name="save" value="Save" /></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -116,13 +122,6 @@ $scorings = $dal->getRankings($schol['id'], $phase);
 <ul id="view-name" class="appview">
 <li><?= $schol['fname'] . ' ' . $schol['lname'] ?></li>
 </ul>
-<div id="notes-box">
-<ul>
-<li><input type="button" id="stamp" name="stamp" value="Insert stamp" onclick="insertStamp();" /></li>
-<li><textarea id="notes" name="notes"><?= $schol['notes'] ?></textarea></li>
-<li><input type="submit" id="save" name="save" value="Save" /></li>
-</ul>
-</div>
 
 <ul id="wikiuserinfo" class="appview">
 <?php if ( isset( $schol['username'] ) ): ?>
@@ -242,15 +241,16 @@ if ( ( strtotime( $schol['dob'] ) > strtotime( '1875-01-01' ) ) &&
 
 <fieldset><legend>Scorings</legend> 
 <?php
-/*	if (count($scorings) > 0) {
+if (count($myscorings) > 0) {
+	print "My scorings:<br/><br/>";
 	print "<table id='view-scorings'>
-	<tr><th>Reviewer</th><th>Criteria</th><th>Rank</th></tr>";
-	  foreach ($scorings as $r) {
-	    print "<tr><td>" . $r['username'] . '</td><td>' . $r['criterion'] . '</td><td>' . $r['rank'] . '</td></tr>';
+	<tr><th>Criteria</th><th>Rank</th></tr>";
+	  foreach ($myscorings as $r) {
+	    print '<tr><td>' . $r['criterion'] . '</td><td>' . $r['rank'] . '</td></tr>';
 	  }
 	print "</table>";
-	}
-*/
+}
+
 ?>
 </fieldset>
 
@@ -258,4 +258,4 @@ if ( ( strtotime( $schol['dob'] ) > strtotime( '1875-01-01' ) ) &&
 	type="hidden" id="last_id" name="last_id" value="<?= $schol['id'] ?>" />
 </form>
 </div>
-<?php include "$BASEDIR/templates/footer.php" ?>
+<?php include TEMPLATEPATH . "footer.php" ?>

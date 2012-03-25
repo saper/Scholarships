@@ -11,12 +11,17 @@ class DataAccessLayer {
 		if (PEAR::isError($this->db)) 
    			die($this->db->getMessage());
 		$this->db->setFetchMode(DB_FETCHMODE_ASSOC);
+		$this->userid = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : null;
 	}
 
 	function __destruct() {
 		if (DB::isError($this->db))
 			die('Could not connect to database!');
 		$this->db->disconnect();
+	}
+
+	function select() {
+
 	}
 
 	function buildWhere($where) {
@@ -87,7 +92,7 @@ HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset;";
 			$sql = "select s.id, s.fname, s.lname, s.email, s.residence, s.exclude, s.sex, (2012 - year(s.dob)) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, coalesce(p2score,0) as p2score, coalesce(nscorers,0) as nscorers from scholarships s 
 			left outer join (select scholarship_id, sum(rank) as p2score from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r on s.id = r.scholarship_id
 			left outer join (select scholarship_id, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
-			left outer join (select scholarship_id, count(distinct user_id) as nscorers from rankings where criterion in ('onwiki','offwiki', 'future') group by scholarship_id) r3 on s.id = r3.scholarship_id			
+			left outer join (select scholarship_id, count(distinct user_id) as nscorers from rankings where criterion in ('onwiki','offwiki', 'future', 'program') group by scholarship_id) r3 on s.id = r3.scholarship_id			
 			left outer join countries c on s.residence = c.id      
 LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings where criterion IN ('onwiki', 'offwiki', 'future') AND user_id = $myid group by scholarship_id) r4 on s.id = r4.scholarship_id " 
 . $this->buildWhere( $where ) . "
@@ -98,6 +103,19 @@ LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings whe
 		if (PEAR::isError($res)) 
     			die($res->getMessage());
     		return $res;
+	}
+
+	function myUnreviewed($myid, $phase) {
+		$where = array();
+		$sql = "SELECT s.id FROM scholarships s 
+			LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings where criterion IN ('onwiki', 'offwiki', 'future', 'program') AND user_id = $myid group by scholarship_id) r4 on s.id = r4.scholarship_id 
+			WHERE mycount IS NULL;";
+		$res = $this->db->getAll($sql);
+		$apps = array();
+		foreach ($res as $r) {
+			array_push($apps, $r['id']);
+		}
+		return $apps;
 	}
 
 	function search($params) {
@@ -145,22 +163,27 @@ HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset";
 	}
 
 	function getNext($id, $phase) {
+		$where = array('s.exclude = 0');
 		if ( $phase = 1 ) {
+			array_push( $where, 'p1self is null' );
+			array_push( $where, '((p1score < 3 and p1score > -3) or p1score is null)');
 			$res = $this->db->query("select *, s.id, s.residence as acountry, c.country_name, res.country_name as residence_name, p1score from scholarships s 
 			left outer join (select *, sum(rank) as p1self from rankings where criterion = 'valid' and user_id = ? group by scholarship_id) r on s.id = r.scholarship_id
 			left outer join (select *, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
 			left outer join countries c on s.nationality = c.id 
-			left outer join countries res on s.residence = res.id
-			where p1self is null and s.exclude = 0 and ((p1score < 3 and p1score > -3) or p1score is null) 
+			left outer join countries res on s.residence = res.id " .
+			$this->buildWhere( $where ) . "
 			order by rand() 
 			limit 1;", array($id))->fetchRow();
 		} else {
+			array_push( $where, 'p2self IS NULL' );
+			array_push( $where, 'p1score >= 3' );
 			$res = $this->db->query("select *, s.id, s.residence as acountry, c.country_name, res.country_name as residence_name, p2self, coalesce(p1score,0) as p1score from scholarships s 
 			left outer join (select scholarship_id, sum(rank) as p2self from rankings where criterion in ('offwiki', 'onwiki', 'future') and user_id = ? group by scholarship_id) r on s.id = r.scholarship_id
 			left outer join (select scholarship_id, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r3 on s.id = r3.scholarship_id
 			left outer join countries c on s.nationality = c.id 
-			left outer join countries res on s.residence = res.id
-			where p2self is null and s.exclude = 0 and (p1score >= 3) 
+			left outer join countries res on s.residence = res.id " .
+			$this->buildWhere( $where ) . "
 			order by rand() 
 			limit 1;", array($id))->fetchRow();
 		}
@@ -193,33 +216,59 @@ HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset";
 
 	function InsertOrUpdateRanking($user_id, $scholarship_id, $criterion, $rank) {
 		if ($this->db->query("select * from rankings where user_id = ? and scholarship_id = ? and criterion = ?", array($user_id, $scholarship_id, $criterion))->numRows() > 0) {
-			$this->db->query("update rankings set rank = ? where user_id = ? and scholarship_id = ? and criterion = ?", array($rank, $user_id, $scholarship_id, $criterion));
+			$sql = "update rankings set rank = $rank where user_id = $user_id and scholarship_id = $scholarship_id and criterion = '$criterion'";
+			$this->db->query($sql);
 		} else {
-			$this->db->query("insert into rankings (rank, user_id, scholarship_id, criterion) values (?, ?, ?, ?)", array($rank, $user_id, $scholarship_id, $criterion));
+			$sql = sprintf("insert into rankings (rank, user_id, scholarship_id, criterion) values (%d, %d, %d, '%s')", $rank, $user_id, $scholarship_id, $criterion);
+			$this->db->query($sql);
 		}
 	}
 
+	/* depricated */
 	function getRankings($id, $phase) {
 		if ( $phase == 1 ) {
 			$res = $this->db->getAll('select r.scholarship_id, u.username, r.rank, r.criterion from rankings r inner join users u on r.user_id = u.id where r.criterion = "valid" and r.scholarship_id = ?', array($id));
 			return $res;
 		} else if ( $phase == 2 ) {
-			$res = $this->db->getAll("select r.scholarship_id, u.username, r.rank, r.criterion from rankings r inner join users u on r.user_id = u.id where r.criterion IN ('onwiki', 'future', 'offwiki') and r.scholarship_id = ? order by r.criterion, u.username, r.rank", array($id));
+			$res = $this->db->getAll("select r.scholarship_id, u.username, r.rank, r.criterion from rankings r inner join users u on r.user_id = u.id where r.criterion IN ('onwiki', 'future', 'offwiki', 'program') and r.scholarship_id = ? order by r.criterion, u.username, r.rank", array($id));
 			return $res;
 		}
 		return false;
 	}
-	
-        function getRankingOfUser($user_id, $scholarship_id, $criterion, $phase) {
-		if ( $phase = 1 ) {
-	                $r = $this->db->query("select rank from rankings where user_id = ? and scholarship_id = ? and criterion = ?", array($user_id, $scholarship_id, $criterion));
-        	        $ret = $r->numRows() > 0 ? $r->fetchRow(DB_FETCHMODE_ORDERED) : array(0);
-                	return $ret[0];
-		} else {
-			$r = $this->db->query("select rank from rankings where user_id = ? and scholarship_id = ? and criterion = ?", array($user_id, $scholarship_id, $criterion));
-			$ret = $r->numRows() > 0 ? $r->fetchRow(DB_FETCHMODE_ORDERED) : array(0);
-			return $ret[0];
+
+        function myRankings($id, $userid, $phase) {
+		if ( !isset( $this->userid ) ) {
+			return false;
 		}
+                if ( $phase == 1 ) {
+			$sql = sprintf("select r.scholarship_id, u.username, r.rank, r.criterion from rankings r inner join users u on r.user_id = u.id where r.criterion = 'valid' and u.id = %d AND r.scholarship_id = %d", $this->userid, $id);
+			$res = $this->db->getAll($sql);
+                        return $res;
+                } else if ( $phase == 2 ) {
+                        $sql = sprintf("select r.scholarship_id, u.username, r.rank, r.criterion from rankings r inner join users u on r.user_id = u.id where r.criterion IN ('onwiki', 'future', 'offwiki', 'program') and u.id = %d and r.scholarship_id = %d order by r.criterion, u.username, r.rank", $userid, $id);
+			$res = $this->db->getAll($sql);
+                        return $res;
+                }
+                return false;
+        }
+	
+        function allRankings($id, $phase) {
+                if ( $phase == 1 ) {
+                        $res = $this->db->getAll('select r.scholarship_id, u.username, r.rank, r.criterion from rankings r inner join users u on r.user_id = u.id where r.criterion = "valid" and r.scholarship_id = ?', array($id));
+                        return $res;
+                } else if ( $phase == 2 ) {
+                        $sql = sprintf("select r.scholarship_id, u.username, r.rank, r.criterion from rankings r inner join users u on r.user_id = u.id where r.criterion IN ('onwiki', 'future', 'offwiki', 'program') and r.scholarship_id = %d order by r.criterion, u.username, r.rank", $id);
+			$res = $this->db->getAll($sql);
+                        return $res;
+                }
+                return false;
+        }
+
+        function getRankingOfUser($user_id, $scholarship_id, $criterion) {
+		$sql = sprintf("select rank from rankings where user_id = %d and scholarship_id = %d and criterion = '%s'", $user_id, $scholarship_id, $criterion);
+		$r = $this->db->query($sql);
+		$ret = $r->numRows() > 0 ? $r->fetchRow(DB_FETCHMODE_ORDERED) : array(0);
+		return $ret[0];
 	}
 		
 	function GetPhase2Rankings($id) {
@@ -292,8 +341,12 @@ HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset";
 	}
 
 	function IsSysAdmin($user_id) {
-		$res = $this->db->query("select `isadmin` from `users` where `id` = ?", array($user_id))->fetchrow();
-		return $res['isadmin'];
+		$sql = sprintf("select `isadmin` from `users` where `id` = %d", $user_id);
+		$res = $this->db->query($sql)->fetchRow();
+		if ( $res['isadmin'] == '1' ) {
+			return true;
+		} 
+		return false;
 	}
 
 	function NewUserCreate($answers) {

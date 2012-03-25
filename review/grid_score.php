@@ -13,13 +13,11 @@ $partial = $_GET['partial'] ? $_GET['partial'] : 0;
 
 $dal = new DataAccessLayer();
 $schols = $dal->GetFinalScoring($partial);
-$rowstyleeven = 0;
-$ctr=1;
 ?>
-<?php include "$BASEDIR/templates/header_review.php" ?>
+<?php include TEMPLATEPATH . "header_review.php" ?>
 <form method="post" action="<?php echo $BASEURL; ?>grid">
 <h1>Applications</h1>
-<?php include "$BASEDIR/templates/admin_nav.php" ?>
+<?php include TEMPLATEPATH . "admin_nav.php" ?>
 <table style="width: 100%">
 	<tr>
 		<th>counter</th>
@@ -37,7 +35,7 @@ $ctr=1;
 		<th>p2 score</th>
 	</tr>
 	<?php foreach ($schols as $row): ?>
-	<tr class="<?php echo ($rowstyleeven==1)?"evenrow":"oddrow"; ?>">
+	<tr>
 		<td><?= $ctr++; ?></td>
 		<td><?= $row['id']; ?></td>
 		<td width=25%><a href="view.php?id=<?= $row['id'] ?>"><?= $row['fname'] . ' ' . $row['lname']; ?></a></td>
@@ -52,8 +50,7 @@ $ctr=1;
 		<td width=8%><?= round($row['future'],3); ?></td>
 		<td width=8%><?= round($row['p2score'],4); ?></td>
 	</tr>
-	<?php	$rowstyleeven=($rowstyleeven==1)?0:1;
-	endforeach; ?>
+	<?php endforeach; ?>
 </table>
 </form>
-<?php include "$BASEDIR/templates/footer.php" ?>
+<?php include TEMPLATEPATH. "footer.php" ?>

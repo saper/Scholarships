@@ -16,11 +16,11 @@ $users = $dal->GetListofCountries($order);
 
 $rowstyleeven = 0;
 ?>
-<?php include "$BASEDIR/templates/header_review.php" ?>
+<?php include TEMPLATEPATH . "header_review.php" ?>
 <form method="post" action="grid.php">
 <h2>Applications</h2>
 <div id="form-container" class="fourteen columns">
-<?php include "$BASEDIR/templates/admin_nav.php" ?>
+<?php include TEMPLATEPATH . "admin_nav.php" ?>
 <table id="country-grid" class="grid">
 	<tr>
 		<th style='width: 8%;'>id</th>
@@ -39,4 +39,4 @@ $rowstyleeven = 0;
 </table>
 </form>
 </div>
-	<?php include "$BASEDIR/templates/footer.php" ?>
+	<?php include TEMPLATEPATH . "footer.php" ?>

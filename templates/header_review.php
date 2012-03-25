@@ -25,4 +25,5 @@ if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
 </head>
 <body>
 <div class="container">
-<h1><a id="banner" href="<?php echo $BASEURL; ?>" title="Wikimania 2012"><img src="<?php echo $TEMPLATEBASE;?>images/wm2012banner.png" alt="Wikimania 2012"/></a></h1>
+<div id="header" class="clearfix review">
+<div id="logo"><h1><a id="banner" href="<?php echo $BASEURL; ?>" title="Wikimania 2012"><img id="wm2012banner" src="<?php echo $TEMPLATEBASE;?>images/wm2012banner.png" alt="Wikimania 2012"/></a></h1></div></div>

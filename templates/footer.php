@@ -8,6 +8,7 @@
 </div>
 </div><!-- end container //-->
 <script src="<?= $TEMPLATEBASE; ?>js/jquery-1.7.1.min.js"></script>
+<script src="<?= $TEMPLATEBASE; ?>js/jquery-ui.min.js"></script>
 <script src="<?= $TEMPLATEBASE; ?>js/schols.js"></script>
 </body>
 </html>

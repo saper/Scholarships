@@ -43,10 +43,10 @@ if ( isset( $_GET['residence'] ) ) {
 
 $schols = $dal->search($params);
 ?>
-<?php include "$BASEDIR/templates/header_review.php" ?>
+<?php include TEMPLATEPATH . "header_review.php" ?>
 <h2>Scholarship Applications</h2>
 <div id="form-container" class="fourteen columns">
-<?php include "$BASEDIR/templates/admin_nav.php" ?>
+<?php include TEMPLATEPATH . "admin_nav.php" ?>
 <form method="get" action="<?php echo $BASEURL; ?>review/search/results">
 <table id="grid" class="grid" style="width: 100%;">
 	<tr>
@@ -89,4 +89,4 @@ $pager->render();
 ?>
 
 </div>
-<?php include "$BASEDIR/templates/footer.php" ?>
+<?php include TEMPLATEPATH . "footer.php" ?>

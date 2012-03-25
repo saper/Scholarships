@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 	exit();
 }
 
-$apps = 'unreviewed';
+$apps = 'all';
 if( isset( $_GET['apps'] )) {
         if ( in_array( $_GET['apps'], array('unreviewed', 'all', 'myapps')) ) {
                 $apps = $_GET['apps'];
@@ -45,10 +45,9 @@ $params = array(
 
 $schols = $dal->gridData($params);
 ?>
-<?php include "$BASEDIR/templates/header_review.php" ?>
-<h2>Scholarship Applications</h2>
+<?php include TEMPLATEPATH . "header_review.php" ?>
 <div id="form-container" class="fourteen columns">
-<?php include "$BASEDIR/templates/admin_nav.php" ?>
+<?php include TEMPLATEPATH . "admin_nav.php" ?>
 <ul class="sublinks">
 <li><a href="<?php echo $BASEURL; ?>review/phase2?apps=all">All applications</a></li>
 <li><a href="<?php echo $BASEURL; ?>review/phase2?apps=unreviewed">All unreviewed</a></li>
@@ -60,12 +59,13 @@ $schols = $dal->gridData($params);
 		<th style="width: 4%;">id</th>
 		<th style="width: 16%;">name</th>
 		<th style="width: 28%;">email</th>
-		<th style="width: 10%;">residence</th>
-		<th style="width: 5%;">sex</th>
-		<th style="width: 4%;">age</th>
-		<th style="width: 6%;">partial</th>
-		<th style="width: 5%;"># p2</th>
-		<th style="width: 8%;">p2</th>
+		<th style="width: 12%;">residence</th>
+		<th style="width: 6%;">sex</th>
+		<th style="width: 6%;">age</th>
+		<th style="width: 8%;">partial</th>
+		<th style="width: 5%;">p1</th>
+		<th style="widht: 5%;">#p2</th>
+		<th style="width: 5%;">p2</th>
 	</tr>
 	<?php foreach ($schols as $row): ?>
 	<tr>
@@ -76,13 +76,8 @@ $schols = $dal->gridData($params);
 		<td><?= $row['sex']; ?></td>
 		<td><?= $row['age']; ?></td>
 		<td><?= $row['partial']; ?></td>
-		<td><?
-if ( $row['nscorers'] == 0 ) {
-        echo "-";
-} else {
-	echo $row['nscorers']; 
-}
-?></td>
+		<td><?= $row['p1score']; ?></td>
+		<td><?= $row['nscorers']; ?></td>
 		<td>-</td>
 	</tr>
 	<?php endforeach; ?>
@@ -93,4 +88,4 @@ $pager = new Pagination($params, $default_pp);
 $pager->render();
 ?>
 
-<?php include "$BASEDIR/templates/footer.php" ?>
+<?php include TEMPLATEPATH . "footer.php" ?>

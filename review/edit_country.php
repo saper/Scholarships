@@ -26,11 +26,11 @@ if (isset($_POST['save'])) {
 $country = $dal->GetCountryInfo($id);
 
 ?>
-<?php include "$BASEDIR/templates/header_review.php" ?>
+<?php include TEMPLATEPATH . "header_review.php" ?>
 
 <form method="post" action="<?php echo $BASEURL; ?>review/country/edit">
 <h1>Edit Country Info</h1>
-<?php include "$BASEDIR/templates/admin_nav.php" ?>
+<?php include TEMPLATEPATH . "admin_nav.php" ?>
 <div id="country-grid-return">
 <a href="<?php echo $BASEURL; ?>review/country/grid">Return to country grid</a>
 </div>
@@ -43,4 +43,4 @@ $country = $dal->GetCountryInfo($id);
 </fieldset>
 <input type="submit" id="save" name="save" value="Save"
 	style="width: 10em" /></form>
-<?php include "$BASEDIR/templates/footer.php" ?>
+<?php include TEMPLATEPATH . "footer.php" ?>

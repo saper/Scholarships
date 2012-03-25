@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 	exit();
 }
 
-$apps = 'unreviewed';
+$apps = 'all';
 if( isset( $_GET['apps'] )) {
 	if ( in_array( $_GET['apps'], array('unreviewed', 'all', 'myapps')) ) {
 		$apps = $_GET['apps'];
@@ -40,10 +40,9 @@ $params = array(
 
 $schols = $dal->gridData($params);
 ?>
-<?php include "$BASEDIR/templates/header_review.php" ?>
-<h2>Scholarship Applications</h2>
+<?php include TEMPLATEPATH . "header_review.php" ?>
 <div id="form-container" class="fourteen columns">
-<?php include "$BASEDIR/templates/admin_nav.php" ?>
+<?php include TEMPLATEPATH. "admin_nav.php" ?>
 <ul class="sublinks">
 <li><a href="<?php echo $BASEURL; ?>review/phase1?apps=all">All applications</a></li>
 <li><a href="<?php echo $BASEURL; ?>review/phase1?apps=unreviewed">All unreviewed</a></li>
@@ -91,4 +90,4 @@ $pager->render();
 ?>
 
 </div>
-<?php include "$BASEDIR/templates/footer.php" ?>
+<?php include TEMPLATEPATH. "footer.php" ?>

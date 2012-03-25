@@ -8,10 +8,10 @@ if (!isset($_SESSION['user_id'])) {
 	exit();
 }
 ?>
-<?php include "$BASEDIR/templates/header_review.php" ?>
+<?php include TEMPLATEPATH . "header_review.php" ?>
 <h2>Scholarship Applications</h2>
 <div id="form-container" class="fourteen columns">
-<?php include "$BASEDIR/templates/admin_nav.php" ?>
+<?php include TEMPLATEPATH . "admin_nav.php" ?>
 <form method="get" action="<?php echo $BASEURL; ?>review/search/results">
 <div style="width: 90%; margin: 0 auto;">
 <div style='width: 50%; float: left;'>
@@ -37,4 +37,4 @@ if (!isset($_SESSION['user_id'])) {
 </form>
 <br clear="all" />
 </div>
-<?php include "$BASEDIR/templates/footer.php" ?>
+<?php include TEMPLATEPATH . "footer.php" ?>

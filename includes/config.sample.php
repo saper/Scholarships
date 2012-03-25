@@ -14,7 +14,7 @@ $email_from = 'wikimania-scholarships@wikimedia.org';
 
 $chapters_application = FALSE;
 
-$TEMPLATEDIR = $BASEDIR . '/templates/';
+$TEMPLATEDIR = BASEDIR . '/templates/';
 $TEMPLATEBASE = '/templates/';
 $BASEURL = "/";
 

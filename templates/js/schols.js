@@ -10,4 +10,5 @@ $(document).ready(function() {
 		$('#rankingitems').toggle();
 		return false;
 	});
+	$('#rank-box').draggable().resizable();
 });

@@ -14,7 +14,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	}
 }
 ?>
-<?php include "$BASEDIR/templates/header_review.php" ?>
+<?php include TEMPLATEPATH . "header_review.php" ?>
 <div id="form-container" class="fourteen columns">
 	<form method="post" action="<?php echo $BASEURL; ?>user/login" >
 	<h2>Log in</h2>
@@ -26,4 +26,4 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	</fieldset>
 	</form>
 </div>
-<?php include "$BASEDIR/templates/footer.php" ?>
+<?php include TEMPLATEPATH . "footer.php" ?>
