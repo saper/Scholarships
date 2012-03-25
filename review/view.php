@@ -43,15 +43,15 @@ if (isset($_POST['save'])) {
 	if ( isset($_POST['notes']) && strlen($_POST['notes']) > 0) {
 		$dal->UpdateNotes($_POST['scholid'], $_POST['notes']);
 	}
-	print_r( $unreviewed ); 
+	$next = $schol['id'] + 1;
 }
 
 if (isset($_POST['save'])) {
 	$schol = $dal->GetScholarship($_POST['scholid']);
-} else if ( isset( $id ) ) {
-	$schol = $dal->GetScholarship( $id );
+} else if ( isset( $next ) ) {
+	$schol = $dal->getNext($user_id, $id, $phase);
 } else {
-	$schol = $dal->getNext($user_id, $phase);
+	$schol = $dal->GetScholarship( $id );
 }
 ?>
 <?php include TEMPLATEPATH . "header_review.php" ?>
@@ -73,15 +73,15 @@ if (isset($_POST['save'])) {
 <div id="form-container" class="fourteen columns">
 <form method="post" action="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=<?php echo $phase;?>">
 <?php include TEMPLATEPATH . "admin_nav.php" ?>
+<div id="application-view">
+<div id="rank-box" class="clearfix">
+<h4>Rankings <span id="rankingstoggle">[show/collapse]</span></h4>
 <ul class="sublinks">
 <li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $schol['id'] - 1 );?>&phase=<?php echo $phase; ?>">Previous</a></li>
 <li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=1">Phase 1</a></li>
 <li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=2">Phase 2</a></li>
 <li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $schol['id'] + 1 );?>&phase=<?php echo $phase; ?>">Next</a></li>
 </ul>
-<div id="application-view">
-<div id="rank-box" class="clearfix">
-<h4>Rankings <span id="rankingstoggle">[show/collapse]</span></h4>
 <div id="rankingitems">
 <table>
 <?php if ( $phase == 1 ): ?>
@@ -92,7 +92,6 @@ if (isset($_POST['save'])) {
 <?php else: ?>
 	<tr>
 		<input type="hidden" id="phase" name="phase" value="<?php echo $phase; ?>"/>
-		<input type="hidden" id="id" name="id" vlaue="<?php echo $schol['id']; ?>"/>
 		<td>Future promise: 
 		<td><?= RankDropdownList('future',$schol['id']) ?></td>
 		<td>In Wikimedia movement:</td>
