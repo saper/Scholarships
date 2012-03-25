@@ -33,6 +33,8 @@ if ($_GET['id']) {
 $myscorings = $dal->myRankings($id, $user_id, $phase);
 $allscorings = $dal->allRankings($id, $phase);
 
+$next = false;
+
 if (isset($_POST['save'])) {
 	$criteria = array('valid','onwiki', 'offwiki', 'future', 'program'); 
 	foreach ($criteria as $c) {
@@ -43,12 +45,11 @@ if (isset($_POST['save'])) {
 	if ( isset($_POST['notes']) && strlen($_POST['notes']) > 0) {
 		$dal->UpdateNotes($_POST['scholid'], $_POST['notes']);
 	}
-	$next = $schol['id'] + 1;
+	$id = $_POST['scholid'];
+	$next = true;
 }
 
-if (isset($_POST['save'])) {
-	$schol = $dal->GetScholarship($_POST['scholid']);
-} else if ( isset( $next ) ) {
+if ( $next ) {
 	$schol = $dal->getNext($user_id, $id, $phase);
 } else {
 	$schol = $dal->GetScholarship( $id );

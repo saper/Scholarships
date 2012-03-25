@@ -162,32 +162,14 @@ HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset";
 		where s.id = ?', array($id))->fetchRow();
 	}
 
-	function getNext($id, $phase) {
-		$where = array('s.exclude = 0');
-		if ( $phase = 1 ) {
-			array_push( $where, 'p1self is null' );
-			array_push( $where, '((p1score < 3 and p1score > -3) or p1score is null)');
-			$res = $this->db->query("select *, s.id, s.residence as acountry, c.country_name, res.country_name as residence_name, p1score from scholarships s 
-			left outer join (select *, sum(rank) as p1self from rankings where criterion = 'valid' and user_id = ? group by scholarship_id) r on s.id = r.scholarship_id
-			left outer join (select *, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
-			left outer join countries c on s.nationality = c.id 
-			left outer join countries res on s.residence = res.id " .
-			$this->buildWhere( $where ) . "
-			order by rand() 
-			limit 1;", array($id))->fetchRow();
-		} else {
-			array_push( $where, 'p2self IS NULL' );
-			array_push( $where, 'p1score >= 3' );
-			$res = $this->db->query("select *, s.id, s.residence as acountry, c.country_name, res.country_name as residence_name, p2self, coalesce(p1score,0) as p1score from scholarships s 
-			left outer join (select scholarship_id, sum(rank) as p2self from rankings where criterion in ('offwiki', 'onwiki', 'future') and user_id = ? group by scholarship_id) r on s.id = r.scholarship_id
-			left outer join (select scholarship_id, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r3 on s.id = r3.scholarship_id
-			left outer join countries c on s.nationality = c.id 
-			left outer join countries res on s.residence = res.id " .
-			$this->buildWhere( $where ) . "
-			order by rand() 
-			limit 1;", array($id))->fetchRow();
+	function getNext($userid, $id, $phase) {
+		$myapps = $this->myUnreviewed($userid, $phase);
+		for ( $i = $id; $i < max($myapps); $i++) {
+			if ( in_array( $i, $myapps ) ) {
+				return $this->GetScholarship( $i );
+			}
 		}
-		return $res;
+		return false;
 	}
 
 	function GetCountAllUnrankedPhase1($id) {

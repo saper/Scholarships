@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 	header('location: ' . $BASEURL . 'user/login');
 	exit();
 }
+$dal = new DataAccessLayer();
 ?>
 <?php include TEMPLATEPATH . "header_review.php" ?>
 <h2>Scholarship Applications</h2>
