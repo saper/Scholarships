@@ -27,6 +27,8 @@ $dal = new DataAccessLayer();
 <ul class='formitems'>
 <li><label for='firstname'>First name</label></li>
 <li><input name='first' id='firstname' value='' type='text' /></li>
+<li><label for='region'>Region</label></li>
+<li><input name='region' id='region' value='' type='text' /></li>
 </ul>
 </div>
 <br clear="all" />
@@ -38,4 +40,4 @@ $dal = new DataAccessLayer();
 </form>
 <br clear="all" />
 </div>
-<?php include TEMPLATEPATH . "footer.php" ?>
+<?php include TEMPLATEPATH . "footer_review.php" ?>

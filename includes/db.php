@@ -120,11 +120,12 @@ LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings whe
 
 	function search($params) {
 		$myid = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : 0;
-		$first = isset( $params['first'] ) ? $params['first'] : null;
-		$last = isset( $params['last'] ) ? $params['last'] : null;
-		$citizen = isset( $params['citizen']) ? $params['citizen'] : null;
-		$residence = isset( $params['residence']) ? $params['residence'] : null;
-		$items = isset( $params['items'] ) ? $params['items'] : 50;
+		$first = isset( $params['first'] ) ? mysql_real_escape_string($params['first']) : null;
+		$last = isset( $params['last'] ) ? mysql_real_escape_string($params['last']) : null;
+		$citizen = isset( $params['citizen']) ? mysql_real_escape_string($params['citizen']) : null;
+		$residence = isset( $params['residence']) ? mysql_real_escape_string($params['residence']) : null;
+		$items = isset( $params['items'] ) ? mysql_real_escape_string($params['items']) : 50;
+		$region = isset( $params['region'] ) ? mysql_real_escape_string($params['region']) : null;
 
                 $p = isset( $params['offset'] ) ? $params['offset'] : 0;
                 $p = intval($p);
@@ -141,8 +142,11 @@ LEFT OUTER JOIN (select scholarship_id, count(rank) as mycount from rankings whe
 		if ( $residence != null ) {
 			array_push( $where, " c.country_name = '" . $residence . "' ");
 		}
+		if ( $region != null ) {
+			array_push( $where, " c.region = '" . $region . "' ");
+		}
 		$sql = "
-SELECT s.id, s.fname, s.lname, s.email, s.residence, s.exclude,  s.sex, (2012 - year(s.dob)) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, coalesce(p1score,0) as p1score, p1count, mycount 
+SELECT s.id, s.fname, s.lname, s.email, s.residence, s.exclude,  s.sex, (2012 - year(s.dob)) as age, (s.canpaydiff*s.wantspartial) as partial, c.country_name, c.region, coalesce(p1score,0) as p1score, p1count, mycount 
 FROM scholarships s 
 LEFT OUTER JOIN (select *, sum(rank) as p1score from rankings where criterion = 'valid' group by scholarship_id) r2 on s.id = r2.scholarship_id
 LEFT OUTER JOIN (select scholarship_id, count(rank) as p1count from rankings where criterion = 'valid' group by scholarship_id) r3 on s.id = r3.scholarship_id 
@@ -163,13 +167,49 @@ HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset";
 	}
 
 	function getNext($userid, $id, $phase) {
-		$myapps = $this->myUnreviewed($userid, $phase);
-		for ( $i = $id; $i < max($myapps); $i++) {
-			if ( in_array( $i, $myapps ) ) {
-				return $this->GetScholarship( $i );
-			}
+		$nextid = $this->getNextId($userid, $id, $phase);
+		if ( $nextid != false ) {
+			return $this->GetScholarship( $i );
 		}
 		return false;
+	}
+
+	function skipApp($userid, $id, $phase) {
+		$j = 0;
+                $myapps = $this->myUnreviewed($userid, $phase);
+                for ( $i = $id; $i < max($myapps); $i++) {
+                        if ( in_array( $i, $myapps ) ) {
+				if ( $j == 1 ) {
+					return $i;
+				}
+                                $j++;
+                        }
+                }
+                return false;
+	}
+
+	function prevApp($userid, $id, $phase) {
+                $j = 0;
+                $myapps = $this->myUnreviewed($userid, $phase);
+                for ( $i = $id; $i > min($myapps); $i--) {
+                        if ( in_array( $i, $myapps ) ) {
+                                if ( $j == 1 ) {
+                                        return $i;
+                                }
+                                $j++;
+                        }
+                }
+                return false;
+	}
+
+	function getNextId($userid, $id, $phase) {
+		$myapps = $this->myUnreviewed($userid, $phase);
+                for ( $i = $id; $i < max($myapps); $i++) {
+                        if ( in_array( $i, $myapps ) ) {
+         			return $i;
+                        }
+                }
+                return false;
 	}
 
 	function GetCountAllUnrankedPhase1($id) {
@@ -380,7 +420,7 @@ HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset";
 // Country administration
 		
 	function GetListofCountries($order = "country_name") {
-            return $this->db->getAll("select c.id, c.country_name, c.country_rank, s.sid from countries c left join (select count(`id`) as sid, residence as attendees from scholarships where rank = 1 and exclude = 0 group by residence) s on c.id = s.attendees order by ?;", array($order));
+            return $this->db->getAll("select c.id, c.country_name, c.region, c.country_rank, s.sid from countries c left join (select count(`id`) as sid, residence as attendees from scholarships where rank = 1 and exclude = 0 group by residence) s on c.id = s.attendees order by ?;", array($order));
 	}
 	
 	function UpdateCountryRank($id, $newrank) {
@@ -389,6 +429,10 @@ HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset";
 
 	function GetCountryInfo($country_id) {
 		return $this->db->query("select * from `countries` where `id` = ?", array($country_id))->fetchrow();
+	}
+
+	function GetListofRegions() {
+		return $this->db->getAll("select count(*) as count, c.region from scholarships s LEFT JOIN countries c on c.id = s.residence group by region;");
 	}
 
 		

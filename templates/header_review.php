@@ -15,10 +15,12 @@ if ( ( isset($_GET['uselang']) ) or ( isset( $values['uselang']) ) ) {
 	<title><?php echo $wgLang->message('header-title');?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/base.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/skeleton.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/flexigrid.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/flexigrid.pack.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/review.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $TEMPLATEBASE; ?>css/jquery-ui.css" />
-	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="<?= $TEMPLATEBASE ?>js/html5.js"></script>
 	<![endif]-->

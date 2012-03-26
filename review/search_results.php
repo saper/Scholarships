@@ -41,6 +41,10 @@ if ( isset( $_GET['residence'] ) ) {
 	$params['residence'] = $_GET['residence'];
 }
 
+if ( isset( $_GET['region'] ) ) {
+	$params['region'] = $_GET['region'];
+}
+
 $schols = $dal->search($params);
 ?>
 <?php include TEMPLATEPATH . "header_review.php" ?>
@@ -89,4 +93,4 @@ $pager->render();
 ?>
 
 </div>
-<?php include TEMPLATEPATH . "footer.php" ?>
+<?php include TEMPLATEPATH . "footer_review.php" ?>

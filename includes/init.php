@@ -24,7 +24,7 @@ require_once( INCLUDEPATH . "schema.php" );
 require_once( INCLUDEPATH . "pagination.php" );
 require_once( INCLUDEPATH . "Lang.php" );
 require_once( INCLUDEPATH . "Application.php" );
-require_once( INCLUDEPATH . "Router.php" );
+require_once( SYSPATH . "core/Router.php" );
 require_once( INCLUDEPATH . "routes.php" );
 
 // PEAR DB

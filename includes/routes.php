@@ -10,6 +10,7 @@ $routes = array(
 	'review/country/grid' => BASEDIR . '/review/country_grid.php',
 	'review/country/edit' => BASEDIR . '/review/edit_country.php',
 	'review/country' => BASEDIR . '/review/country_grid.php',
+	'review/region' => BASEDIR . '/review/region_grid.php',
         'review/dump' => BASEDIR . '/admin/dump.php',
 	'review/edit' => BASEDIR . '/review/edit.php',
 	'review/grid' => BASEDIR . '/review/grid.php',

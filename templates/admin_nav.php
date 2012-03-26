@@ -15,5 +15,6 @@ if ( $isadmin ) : ?>
 	<li>|</li>
 	<li><a href="<?php echo $BASEURL; ?>review/search">Search</a></li>
 	<li><a href="<?php echo $BASEURL; ?>review/country/grid">By Country</a></li>
+	<li><a href="<?php echo $BASEURL; ?>review/region">By Region</a></li>
 </ul>
 </div>

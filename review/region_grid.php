@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id']))
 $order = (isset($_GET['order']))?$_GET['order']:'';
 
 $dal = new DataAccessLayer();
-$users = $dal->GetListofCountries($order);
+$users = $dal->GetListofRegions();
 ?>
 <?php include TEMPLATEPATH . "header_review.php" ?>
 <form method="post" action="grid.php">
@@ -21,15 +21,13 @@ $users = $dal->GetListofCountries($order);
 <?php include TEMPLATEPATH . "admin_nav.php" ?>
 <table id="grid" class="grid">
 	<tr>
-		<th style='width: 42%;'>country</th>
 		<th style='width: 32%;'>region</th>
 		<th style='width: 25%;'>scholarship count</th>
 	</tr>
 	<?php foreach ($users as $row): ?>
 	<tr>
-		<td><a href='<?php echo $BASEURL . "review/search/results?residence=" . $row['country_name'] . "&last=&first="; ?>'><?= $row['country_name']; ?></a></td>
 		<td><a href='<?php echo $BASEURL . "review/search/results?region=" . $row['region'] . "&last=&first="; ?>'><?= $row['region']; ?></td>
-		<td><?= $row['sid']; ?></td>
+		<td><?= $row['count']; ?></td>
 	</tr>
 	<?php endforeach; ?>
 </table>

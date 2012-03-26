@@ -90,4 +90,4 @@ $pager->render();
 ?>
 
 </div>
-<?php include TEMPLATEPATH. "footer.php" ?>
+<?php include TEMPLATEPATH. "footer_review.php" ?>

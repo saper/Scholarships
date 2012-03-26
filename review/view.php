@@ -49,28 +49,17 @@ if (isset($_POST['save'])) {
 	$next = true;
 }
 
+$skipid = $dal->skipApp($user_id, $id, $phase);
+$previd = $dal->prevApp($user_id, $id, $phase);
+$nextid = $dal->getNextId($user_id, $id, $phase);
+
 if ( $next ) {
-	$schol = $dal->getNext($user_id, $id, $phase);
+	$schol = $dal->GetScholarship( $nextid );
 } else {
 	$schol = $dal->GetScholarship( $id );
 }
 ?>
 <?php include TEMPLATEPATH . "header_review.php" ?>
-<script type="text/javascript">
-		function insertStamp() {
-			notes = document.getElementById('notes');
-			now = new Date();
-			year = now.getUTCFullYear();
-			month = now.getUTCMonth() + 1;
-			day = now.getUTCDate();
-			hours = now.getUTCHours();
-			minutes = now.getUTCMinutes();
-			notes.value = month + '/' + day + ' '
-				+ hours + ':' + (minutes < 10 ? '0' + minutes : minutes)
-				+ ' ' + "<?= $username['username'] ?>"
-				+ ": \n\n" + notes.value;
-		}
-</script>
 <div id="form-container" class="fourteen columns">
 <form method="post" action="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=<?php echo $phase;?>">
 <?php include TEMPLATEPATH . "admin_nav.php" ?>
@@ -78,10 +67,10 @@ if ( $next ) {
 <div id="rank-box" class="clearfix">
 <h4>Rankings <span id="rankingstoggle">[show/collapse]</span></h4>
 <ul class="sublinks">
-<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $schol['id'] - 1 );?>&phase=<?php echo $phase; ?>">Previous</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $previd );?>&phase=<?php echo $phase; ?>">Previous</a></li>
 <li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=1">Phase 1</a></li>
 <li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=2">Phase 2</a></li>
-<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $schol['id'] + 1 );?>&phase=<?php echo $phase; ?>">Next</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $skipid );?>&phase=<?php echo $phase; ?>">Next</a></li>
 </ul>
 <div id="rankingitems">
 <table>
@@ -111,7 +100,7 @@ Notes:<br/>
 <textarea id="notes" name="notes"><?= $schol['notes'] ?></textarea>
 <input type="hidden" id="scholid" name="scholid" value='<?php echo $schol['id']; ?>' />
 <ul>
-<li><input type="button" id="stamp" name="stamp" value="Insert stamp" onclick="insertStamp();" />
+<li><input type="button" id="stamp" name="stamp" value="Insert stamp" onclick="insertStamp($username['username']);" />
 <input type="submit" id="save" name="save" value="Save" /></li>
 </ul>
 </div>
@@ -258,4 +247,4 @@ if (count($myscorings) > 0) {
 	type="hidden" id="last_id" name="last_id" value="<?= $schol['id'] ?>" />
 </form>
 </div>
-<?php include TEMPLATEPATH . "footer.php" ?>
+<?php include TEMPLATEPATH . "footer_review.php" ?>
