@@ -29,6 +29,7 @@ if ( isset( $_GET['id']) ) {
 
 $myscorings = $dal->myRankings($id, $user_id, $phase);
 $allscorings = $dal->allRankings($id, $phase);
+$reviewers = $dal->getReviewers($id, $phase);
 
 if (isset($_POST['save'])) {
 	$criteria = array('valid','onwiki', 'offwiki', 'future', 'program'); 
@@ -220,6 +221,7 @@ if ( ( strtotime( $schol['dob'] ) > strtotime( '1875-01-01' ) ) &&
 </fieldset>
 
 <fieldset><legend>Scorings</legend> 
+<div style="float: left;">
 <?php
 if (count($myscorings) > 0) {
 	print "My scorings:<br/><br/>";
@@ -230,7 +232,18 @@ if (count($myscorings) > 0) {
 	  }
 	print "</table>";
 }
-
+?>
+</div>
+<div style="float: left; margin-left: 2em;">
+<?php
+if (count($reviewers) > 0) {
+	print "Reviewers:<br/><br/>";
+	print "<ul>";
+	foreach ( $reviewers as $reviewer ) {
+		print '<li>' . $r['username'] . '</li>';
+	}
+	print "</ul>";
+}
 ?>
 </fieldset>
 

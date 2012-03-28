@@ -254,6 +254,17 @@ HAVING p1score >= -2 and p1score <= 999 and s.exclude = 0 $limit $offset";
 		return false;
 	}
 
+	function getReviewers($id, $phase) {
+		$where = array("r.scholarship_id = $id");
+		if ( $phase == 1 ) {
+			array_push( $where, "r.criterion IN ('valid')");
+		} else {
+			array_push( $where, "r.criterion IN ('future', 'onwiki', 'offwiki')");
+		} 
+		$sql = "select distinct(u.username) as username from rankings r inner join users u on r.user_id = u.id " . $this->buildWhere($where) . " order by u.username";
+		return $this->db->getAll($sql);
+	}
+
         function myRankings($id, $userid, $phase) {
 		if ( !isset( $this->userid ) ) {
 			return false;
