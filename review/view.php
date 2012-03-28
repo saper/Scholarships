@@ -42,10 +42,12 @@ if (isset($_POST['save'])) {
 		$dal->UpdateNotes($id, $_POST['notes']);
 	}
 	$nextid = $dal->getNextId($user_id, $id, $phase);
+	$_SESSION['prev_id'] = $id;
 	header('Location: ' . $BASEURL . 'review/view?id=' . $nextid . '&phase=' . $phase);
 	exit();
 }
 
+$skipid = $dal->skipApp( $user_id, $id, $phase );
 $schol = $dal->GetScholarship( $id );
 ?>
 <?php include TEMPLATEPATH . "header_review.php" ?>
@@ -56,10 +58,10 @@ $schol = $dal->GetScholarship( $id );
 <div id="rank-box" class="clearfix">
 <h4>Rankings <span id="rankingstoggle">[show/collapse]</span></h4>
 <ul class="sublinks">
-<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $previd );?>&phase=<?php echo $phase; ?>">Previous</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo isset( $_SESSION['previd'] ) ? $_SESSION['previd'] : $id - 1;?>&phase=<?php echo $phase; ?>">Previous</a></li>
 <li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=1">Phase 1</a></li>
 <li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=2">Phase 2</a></li>
-<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo ( $skipid );?>&phase=<?php echo $phase; ?>">Next</a></li>
+<li><a href="<?php echo $BASEURL; ?>review/view?id=<?php echo $skipid;?>&phase=<?php echo $phase; ?>">Next</a></li>
 </ul>
 <div id="rankingitems">
 <table>
