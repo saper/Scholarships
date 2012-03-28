@@ -20,10 +20,6 @@ class DataAccessLayer {
 		$this->db->disconnect();
 	}
 
-	function select() {
-
-	}
-
 	function buildWhere($where) {
 		$sql = '';
 		for($i=0; $i < count($where); $i++){

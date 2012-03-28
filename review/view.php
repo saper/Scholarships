@@ -8,8 +8,6 @@ if (!isset($_SESSION['user_id'])) {
         exit();
 }
 
-$user_id = $_SESSION['user_id'];
-
 $phase = 2;
 if ( isset( $_GET['phase'] ) && is_numeric( $_GET['phase'] ) ) {
         $phase = $_GET['phase'];
@@ -20,48 +18,39 @@ if ( isset( $_GET['phase'] ) && is_numeric( $_GET['phase'] ) ) {
 $dal = new DataAccessLayer();
 $user_id = $_SESSION['user_id'];
 $username = $dal->GetUsername($user_id);
+$isadmin = $dal->IsSysAdmin();
 
 $unreviewed = $dal->myUnreviewed($user_id);
 
 $id = min($unreviewed);
-if ($_GET['id']) {
-        $id = $_GET['id'];
-} else if ($_POST['id']) {
-        $id = $_POST['id'];
+if ( isset( $_GET['id']) ) {
+	$id = $_GET['id'];
 }
 
 $myscorings = $dal->myRankings($id, $user_id, $phase);
 $allscorings = $dal->allRankings($id, $phase);
 
-$next = false;
-
 if (isset($_POST['save'])) {
 	$criteria = array('valid','onwiki', 'offwiki', 'future', 'program'); 
+	$id = isset( $_POST['scholid'] ) ? $_POST['scholid'] : $id;
 	foreach ($criteria as $c) {
 		if (isset($_POST[$c])) {
-			$dal->InsertOrUpdateRanking($user_id, $_POST['id'], $c, $_POST[$c]);
+			$dal->InsertOrUpdateRanking($user_id, $id, $c, $_POST[$c]);
 		}
 	}
 	if ( isset($_POST['notes']) && strlen($_POST['notes']) > 0) {
-		$dal->UpdateNotes($_POST['scholid'], $_POST['notes']);
+		$dal->UpdateNotes($id, $_POST['notes']);
 	}
-	$id = $_POST['scholid'];
-	$next = true;
+	$nextid = $dal->getNextId($user_id, $id, $phase);
+	header('Location: ' . $BASEURL . 'review/view?id=' . $nextid . '&phase=' . $phase);
+	exit();
 }
 
-$skipid = $dal->skipApp($user_id, $id, $phase);
-$previd = $dal->prevApp($user_id, $id, $phase);
-$nextid = $dal->getNextId($user_id, $id, $phase);
-
-if ( $next ) {
-	$schol = $dal->GetScholarship( $nextid );
-} else {
-	$schol = $dal->GetScholarship( $id );
-}
+$schol = $dal->GetScholarship( $id );
 ?>
 <?php include TEMPLATEPATH . "header_review.php" ?>
 <div id="form-container" class="fourteen columns">
-<form method="post" action="<?php echo $BASEURL; ?>review/view?id=<?php echo $schol['id'];?>&phase=<?php echo $phase;?>">
+<form method="post" action="<?= $BASEURL; ?>review/view?phase=<?= $phase;?>&id=<?= $id; ?>">
 <?php include TEMPLATEPATH . "admin_nav.php" ?>
 <div id="application-view">
 <div id="rank-box" class="clearfix">
@@ -90,8 +79,8 @@ if ( $next ) {
 	<tr>
 		<td>Outside Wikimedia movement:</td>
 		<td><?= RankDropdownList('offwiki',$schol['id']) ?></td>
-		<td>Program:</td>
-		<td><?= RankDropdownList('program',$schol['id']) ?></td>
+		<td><?php if ( $isadmin == 1 ) { echo 'Program:'; } ?></td>
+		<td><?php if ( $isadmin == 1 ) { echo RankDropdownList('program',$schol['id']); }?></td>
 	</tr>
 <?php endif; ?>
 </table>

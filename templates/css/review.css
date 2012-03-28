@@ -3,7 +3,7 @@ div#logo h1 {
 }
 
 div#rank-box {
-  position: absolute;
+  position: fixed;
   top: 18px; 
   right: 2%; 
   padding: .6em .5em .5em;
@@ -138,14 +138,6 @@ ul#review-tabs li {
   overflow: hidden;
 }
 
-ul#review-tabs li.current {
-  background: none repeat scroll 0 0 #FFFFFF;
-  border-color: #DCDCDC #DCDCDC -moz-use-text-color;
-  border-style: solid solid none;
-  border-width: 1px 1px medium;
-  margin-bottom: -1px;
-}
-
 ul#review-tabs li a {
   text-decoration: none;
   color: #808080;
@@ -155,8 +147,9 @@ ul#review-tabs li a {
   overflow: hidden;
 }
 
+ul#review-tabs li a:active,
 ul#review-tabs li:hover {
-  background: #fff;
+  color: #0082C0;
 }
 
 ul.sublinks {
